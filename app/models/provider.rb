@@ -1,5 +1,6 @@
 class Provider < ApplicationRecord
   has_many :bookings
+  has_many_attached :photos
 
   validates :category, presence :true
   validates :name, presence :true
