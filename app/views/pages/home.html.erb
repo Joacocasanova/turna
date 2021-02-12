@@ -1,2 +1,36 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="navbar sticky-top navbar-expand-sm navbar-light navbar-lewagon">
+
+
+  <%= link_to root_path do %>
+    <img src="https://res.cloudinary.com/dmtio0viw/image/upload/v1613089751/Turna/turna_logo_ktypq0.png" alt="Turna Logo">
+  <% end %>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <% if user_signed_in? %>
+        <li class="nav-item active p-2">
+          <%= current_user.email %>
+        </li>
+        <li class="nav-item dropdown">
+          <%= image_tag "https://images.vexels.com/media/users/3/145908/list/52eabf633ca6414e60a7677b0b917d92-creador-de-avatar-masculino.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <%= link_to "Host Your Home", new_flat_path, class: "dropdown-item" %>
+            <%= link_to "My Flats & Reservations", bookings_path, class: "dropdown-item" %>
+            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+          </div>
+        </li>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to "Register", user_session_path, class: "nav-link" %>
+          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
