@@ -2,8 +2,8 @@
 
   <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="#">Peluquerías</a></li>
-      <li class="breadcrumb-item active" aria-current="page">Palermo</li>
+      <li class="breadcrumb-item"><a href="#"><%= @providers.first.category %></a></li>
+      <li class="breadcrumb-item active" aria-current="page">Palermo HARDCODED</li>
     </ol>
   </nav>
 
@@ -18,22 +18,26 @@
 
   
   <div class="cards">
-    <% @providers.each do |provider| %>
-      <%= link_to provider_path(provider) do %>      
-        <div class="card-product">
-          <img src="https://blog.agendapro.com/hubfs/Barberia.png" />
-          <div class="card-product-infos">
-            <h2><%= provider.name %></h2>
-            <p class="description"><%= provider.description %></p>
-            <% provider.rating.times do %>
-              <i class="fas fa-star"></i>
-            <% end %>
-            <p class="price">Precio promedio: $560</p>
-            <p class="disponible"><strong>Ver disponibilidad</strong></p>
-          </div>
+    <div class="row">
+      <% @providers.each do |provider| %>
+        <div class="col-12 col-md-4">
+          <%= link_to provider_path(provider) do %>
+              <div class="card-product">
+              <%= cl_image_tag provider.photos.first.key, class: "card-img-index" %>
+                <div class="card-product-infos">
+                  <h2><%= provider.name %></h2>
+                  <p class="description"><%= provider.description %></p>
+                  <% provider.rating.times do %>
+                    <i class="fas fa-star"></i>
+                  <% end %>
+                  <p class="price">Precio promedio: HARDCODED</p>
+                  <p class="disponible"><strong>Ver disponibilidad</strong></p>
+                </div>
+              </div>
+          <% end %>
         </div>
       <% end %>
-    <% end %>
+    </div>
   </div>
   
   <hr class="separador">
