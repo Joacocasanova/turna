@@ -7,10 +7,10 @@ require 'rails/all'
 Bundler.require(*Rails.groups)
 
 # config/application.rb
-config.assets.initialize_on_precompile = false
 
 module Turna
   class Application < Rails::Application
+    config.assets.initialize_on_precompile = false
     config.generators do |generate|
       generate.assets false
       generate.helper false
