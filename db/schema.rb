@@ -10,13 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2021_02_12_234456) do
 
-=======
-ActiveRecord::Schema.define(version: 2021_02_12_001248) do
-  
->>>>>>> master
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -60,12 +55,9 @@ ActiveRecord::Schema.define(version: 2021_02_12_001248) do
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-<<<<<<< HEAD
     t.float "latitude"
     t.float "longitude"
-=======
     t.integer "rating"
->>>>>>> master
   end
 
   create_table "users", force: :cascade do |t|
