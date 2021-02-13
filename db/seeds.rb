@@ -6,9 +6,9 @@ User.destroy_all
 puts "Creating database.."
 
 # USERS
-ro_user = User.create!(password: "123456", email: "ropicaza@gmail.com")
-tom_user = User.create!(password: "123456", email: "tomagnese@gmail.com")
-joaco_user = User.create!(password: "123456", email: "joacocasanova@gmail.com")
+ro_user = User.create!(password: "123456", email: "ropicaza@gmail.com", avatar:'https://res.cloudinary.com/dmtio0viw/image/upload/v1613240448/Turna/My_profile-orange-300x300_v5b2u3.png' )
+tom_user = User.create!(password: "123456", email: "tomagnese@gmail.com", avatar:'https://res.cloudinary.com/dmtio0viw/image/upload/v1613240448/Turna/My_profile-orange-300x300_v5b2u3.png' )
+joaco_user = User.create!(password: "123456", email: "joacocasanova@gmail.com", avatar:'https://res.cloudinary.com/dmtio0viw/image/upload/v1613240448/Turna/My_profile-orange-300x300_v5b2u3.png' )
 
 # IMAGES
 
