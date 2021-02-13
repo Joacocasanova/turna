@@ -1,3 +1,26 @@
 .btn-primary {
   background-color: $turna !important;
 }
+
+.intro-btn {
+  margin-top: 20px;
+  border-radius: 3px;
+  background-color: $turna;
+  color: white;
+  padding: 10px;
+  width: 100%;
+  font-size: 15px;
+}
+
+
+@media (min-width: 1200px) {
+  .intro-btn {
+    margin-top: 30px;
+    border-radius: 3px;
+    background-color: $turna;
+    color: white;
+    padding: 10px;
+    width: 100%;
+    font-family: 30px;
+  }
+}
