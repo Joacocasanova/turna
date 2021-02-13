@@ -39,7 +39,7 @@
     <%= simple_form_for root_path, url: providers_path, method: :get, html: { class: " m-0 py-3 px-4" } do |f| %>
           <div class="row align-items-center justify-content-around p-2">
             <div class="col-12 col-sm-12 col-md-6">
-              <%=f.input :location, as: :string, required: false, input_html: { placeholder:"Donde estás?", id: "provider_address"} %>
+              <%=f.input :location, as: :string, required: true, input_html: { placeholder:"Donde estás?", id: "provider_address"} %>
             </div>
             <div class="col-12 col-sm-12 col-md-6">
               <%= f.input :categoria, as: :select, collection: ["Peluqueria", "Dentista"], prompt: 'Seleccionar', required: false%>
