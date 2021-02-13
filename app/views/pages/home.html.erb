@@ -16,7 +16,7 @@
                 <%= image_tag 'https://res.cloudinary.com/dmtio0viw/image/upload/v1613240448/Turna/My_profile-orange-300x300_v5b2u3.png' , style:"height:40px;width:40px", class:"rounded-circle mr-2" %>
               <% end %>
             </div>
-            <span><%= link_to "Cerrar Sesion", destroy_user_session_path, :method => :delete, class: "nav-link pr-3", style:"color: black" %></span>
+            <strong><span><%= link_to "Cerrar Sesion", destroy_user_session_path, :method => :delete, class: "nav-link pr-3", style:"color: black" %></span></strong>
           <% else %>
             <div>
               <strong><%= link_to "Registrate", new_user_registration_path, class: "nav-link pr-3", style:"color: black" %></strong>
@@ -39,7 +39,7 @@
     <%= simple_form_for root_path, url: providers_path, method: :get, html: { class: " m-0 py-3 px-4" } do |f| %>
           <div class="row align-items-center justify-content-around p-2">
             <div class="col-12 col-sm-12 col-md-6">
-              <%=f.input :location, as: :string, required: true, input_html: { placeholder:"Donde estás?", id: "provider_address"} %>
+              <%=f.input :localidad, as: :string, required: true, input_html: { placeholder:"Donde estás?", id: "provider_address"} %>
             </div>
             <div class="col-12 col-sm-12 col-md-6">
               <%= f.input :categoria, as: :select, collection: ["Peluqueria", "Dentista"], prompt: 'Seleccionar', required: false%>
@@ -81,7 +81,7 @@
     <!--step 3 -->
     <div class="row">
       <div class="col-sm-12 col-md-6">
-        <img src="https://res.cloudinary.com/dmtio0viw/image/upload/v1613102135/Turna/step3.png" alt="step3">
+        <img class="w-100" src="https://res.cloudinary.com/dmtio0viw/image/upload/v1613102135/Turna/step3.png" alt="step3">
       </div>
       <div class="col-sm-12 col-md-6">
         <h3 id="title" class="m-3">Seleccioná tu servicio</h3>

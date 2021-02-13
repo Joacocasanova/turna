@@ -2,7 +2,7 @@
   <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><%= params["/"]["categoria"] %></li>
-      <li class="breadcrumb-item active" aria-current="page"> <%= params["/"]["location"].partition(",").first %></li>
+      <li class="breadcrumb-item active" aria-current="page"> <%= params["/"]["localidad"].partition(",").first %></li>
     </ol>
   </nav>
 
@@ -38,7 +38,7 @@
       <% end %>
     </div>
   </div>
-  
+
   <hr class="separador">
 
   <h5 style="text-align:center;"><strong>Elegí por ubicación</strong></h5>
