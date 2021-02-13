@@ -1,7 +1,16 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :home ]
+  skip_before_action :authenticate_user!, only: [ :home, :contact, :about, :introduction ]
 
   def home
-    @providers.all.order(rating: :desc).limit(4)
+    @providers = Provider.all.order(rating: :desc).limit(4)
+  end
+
+  def contact
+  end
+
+  def about
+  end
+
+  def introduction
   end
 end

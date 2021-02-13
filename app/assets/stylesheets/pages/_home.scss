@@ -1,1 +1,53 @@
 // Specific CSS for your home-page
+#title {
+  font-weight: 900!important;
+  font-size: 1.5rem!important;
+}
+
+#description {
+  color: #B7B7B7!important;
+  font-size: 0.9rem!important;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ }
+
+ .app {
+  &-btn {
+   width: 45%;
+   max-width: 160px;
+   color: #fff;
+   margin: 20px 10px;
+   text-align: left;
+   border-radius: 5px;
+   text-decoration: none;
+   font-family: "Lucida Grande", sans-serif;
+   font-size: 10px;
+   text-transform: uppercase;
+   &.blu {
+    background-color: #101010;
+    transition: background-color 0.25s linear;
+    &:hover {
+     background-color: #454545;
+    }
+   }
+   i {
+    width: 20%;
+    text-align: center;
+    font-size: 28px;
+    margin-right: 7px;
+   }
+   .big-txt {
+    font-size: 17px;
+    text-transform: capitalize;
+   }
+  }
+ }
+
+ .position {
+  position: relative;
+  top: 330px;
+ }

@@ -1,36 +1,142 @@
 <div class="navbar sticky-top navbar-expand-sm navbar-light navbar-lewagon">
 
-
-  <%= link_to root_path do %>
-    <img src="https://res.cloudinary.com/dmtio0viw/image/upload/v1613089751/Turna/turna_logo_ktypq0.png" alt="Turna Logo">
-  <% end %>
-
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <% if user_signed_in? %>
-        <li class="nav-item active p-2">
-          <%= current_user.email %>
-        </li>
-        <li class="nav-item dropdown">
-          <%= image_tag "https://images.vexels.com/media/users/3/145908/list/52eabf633ca6414e60a7677b0b917d92-creador-de-avatar-masculino.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Host Your Home", new_flat_path, class: "dropdown-item" %>
-            <%= link_to "My Flats & Reservations", bookings_path, class: "dropdown-item" %>
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+  <div id="navbarSupportedContent" class="container">
+    <ul class="navbar-nav">
+        <li class="nav-item d-flex">
+          <div>
+            <%= link_to root_path do %>
+              <img src="https://res.cloudinary.com/dmtio0viw/image/upload/v1613094188/Turna/turna_lve3az.png" alt="Turna Logo" style="height:40px">
+            <% end %>
+          </div>
+          <div>
+            <strong><%= link_to "Registrate", user_session_path, class: "nav-link pr-3", style:"color: black" %></strong>
+          </div>
+           <div>
+            <strong><%= link_to "Iniciar sesión", new_user_session_path, class: "nav-link", style:"color: black" %></strong>
           </div>
         </li>
-      <% else %>
-        <li class="nav-item">
-          <%= link_to "Register", user_session_path, class: "nav-link" %>
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-        </li>
-      <% end %>
     </ul>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <strong><h1 id="title" class="m-3">Una nueva forma de organizar tus días</h1></strong>
+      <p id="description" class="m-3">Usá nuestro sistema de gestión de turnos en todos tus lugares favoritos y no esperes nunca más para entrar a un lugar.</p>
+    </div>
+    <%= simple_form_for root_path, url: providers_path, method: :get, html: { class: " m-0 py-3 px-4" } do |f| %>
+          <div class="row align-items-center justify-content-around p-2">
+            <div class="col-12 col-sm-12 col-md-6">
+              <%=f.input :location, as: :string, required: false, input_html: { placeholder:"Donde estás?", id: "provider_address"} %>
+            </div>
+            <div class="col-12 col-sm-12 col-md-6">
+              <%= f.input :categoria, as: :select, collection: ["Peluqueria", "Dentista"], prompt: 'Seleccionar', required: false%>
+            </div>
+            <div class="col-12 col-md-6">
+              <%= f.button :button, class: "btn btn-lg btn-primary mt-2", style: "width:100%;border-radius:5px" do %>
+                <span>Buscar</span>
+              <% end %>
+            </div>
+          </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="container">
+  <hr class="my-3 py-3">
+  <!--step 1 -->
+    <div class="row justify-content-center">
+      <div class="col-sm-12 col-md-6">
+        <img class="m-3" src="https://res.cloudinary.com/dmtio0viw/image/upload/v1613101887/Turna/step1.png" alt="step1">
+      </div>
+      <div class="col-sm-12 col-md-6">
+        <h3 id="title" class="m-3">Elegí la categoría que estás buscando</h3>
+        <p id="description" class="m-3">Usá nuestro filtro para encontrar exactamente lo que estás buscando. Tenemos todo tipo de servicios en Capital Federal.
+        </p>
+      </div>
+    </div>
+    <!--step 2 -->
+    <div class="row">
+      <div class="col-sm-12 col-md-6">
+        <img class="m-3" src="https://res.cloudinary.com/dmtio0viw/image/upload/v1613102136/Turna/step2.png" alt="step2">
+      </div>
+      <div class="col-sm-12 col-md-6">
+        <h3 id="title" class="m-3">Elegí el lugar en donde queres recibir el servicio</h3>
+        <p id="description" class="m-3">Selecciona el negocio que estas buscando según la ubicación elegida. Los lugares estan rankeados acorde a las reviews recibidas!
+        </p>
+      </div>
+    </div>
+    <!--step 3 -->
+    <div class="row">
+      <div class="col-sm-12 col-md-6">
+        <img class="m-3" src="https://res.cloudinary.com/dmtio0viw/image/upload/v1613102135/Turna/step3.png" alt="step3">
+      </div>
+      <div class="col-sm-12 col-md-6">
+        <h3 id="title" class="m-3">Seleccioná tu servicio</h3>
+        <p id="description" class="m-3">Una vez dentro del local , selecciona el servicio en el que quieras reservar tu turno, y hacelo acorde a las disponibilidades del lugar/profesional elegido!
+        </p>
+      </div>
+    </div>
+</div>
+<!--descargar Apple y iOS -->
+<div class="container" style="background-color:#FE6929;height:560px;">
+  <div class="container position text-center">
+    <h3 id="title" style="color:white">¡No esperes un segundo más!</h3>
+    <p id="description" style="color:white!important">Descarga nuestra app y reserva tu turno desde cualquier lado!</p>
+    <div class="flex social-btns">
+      <a class="app-btn blu flex vert" href="https://www.apple.com/">
+        <i class="fab fa-apple"></i>
+        <p>Consiguelo en el <br/> <span class="big-txt">App Store</span></p>
+      </a>
+
+      <a class="app-btn blu flex vert" href="https://play.google.com/">
+        <i class="fab fa-google-play"></i>
+        <p>Disponible en <br/> <span class="big-txt">Google Play</span></p>
+      </a>
+    </div>
+  </div>
+</div>
+<!--Nuestros negocios -->
+<div class="container">
+  <h3 id="title">Nuestros negocios favoritos</h3>
+  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <% @providers.each_with_index do |provider, index| %>
+        <div class="carousel-item <%= index == 0 ? 'active' : "" %>">
+          <div class="col-12 col-md-4 col-lg-3 mt-3">
+            <div class="card">
+              <%= cl_image_tag provider.photos.first.key %>
+              <div class="card-body bg-light">
+                <p class="color-text"><%= provider.category %></span></p>
+                <h5 class="card-title"> <strong><%= provider.name %></h5></strong>
+                <p><strong>Rating:</strong> <% 4.times do  %> <i class="fas fa-star" style="color: #FE6929"></i>
+              <% end %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+
+<!--Conocenos -->
+<div class="container text-center" style="background-color:#FE6929;height:200px">
+    <h3 id="title" style="color:white">No dudes en contactarnos!</h3>
+      <div class="d-flex flex-column m-3 p-3">
+      <%= link_to "¿Quienes somos?", contact_path, class:"m-2", style:"color: white" %> <br>
+      <%= link_to "Contactanos", about_path, class: "m-2", style:"color: white" %>
+      </div>
+    </div>
   </div>
 </div>
 
