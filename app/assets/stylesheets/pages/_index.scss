@@ -1,2 +1,32 @@
 // Import page-specific CSS files here.
 @import "home";
+
+.filters {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+.filters h6 {
+  padding: 5px;
+  padding-left: 0;
+  margin-top: 5px;
+  color: #848484;
+}
+
+.breadcrumb-item+.breadcrumb-item::before {
+  content: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiPjxwYXRoIGQ9Ik0yLjUgMEwxIDEuNSAzLjUgNCAxIDYuNSAyLjUgOGw0LTQtNC00eiIgZmlsbD0iY3VycmVudENvbG9yIi8+PC9zdmc+);
+}
+
+.breadcrumb {
+  background-color: inherit;
+  padding-bottom: 0;
+  margin: 0;
+  padding-left: 0;
+}
+
+.separador {
+  margin-top: 5px;
+  border-color: #FE6929;
+}
