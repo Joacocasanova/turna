@@ -1,0 +1,68 @@
+<div class="container">
+
+  <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="#">Peluquerías</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Palermo</li>
+    </ol>
+  </nav>
+
+  <hr class="separador">
+  <div class="filters">
+    <h6>Filtrar por: </h6>
+
+    <button type="button" class="btn btn-primary">Precio</button>
+    <button type="button" class="btn btn-primary">Rating</button>
+    <button type="button" class="btn btn-primary">Servicios</button>
+  </div>
+
+  <div class="cards">
+    <div class="card-product">
+      <img src="https://blog.agendapro.com/hubfs/Barberia.png" />
+      <div class="card-product-infos">
+        <h2>Peluquería Don Tom</h2>
+        <p class="description">Cortes - Tintura - Barba</p>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <p class="price">Precio promedio: $560</p>
+        <p class="disponible"><strong>Ver disponibilidad</strong></p>
+      </div>
+    </div>
+
+    <div class="card-product">
+      <img src="https://blog.agendapro.com/hubfs/Barberia.png" />
+      <div class="card-product-infos">
+        <h2>Peluquería Don Tom</h2>
+        <p class="description">Cortes - Tintura - Barba</p>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <p class="price">Precio promedio: $560</p>
+        <p class="disponible"><strong>Ver disponibilidad</strong></p>
+      </div>
+    </div>
+
+    <div class="card-product">
+      <img src="https://blog.agendapro.com/hubfs/Barberia.png" />
+      <div class="card-product-infos">
+        <h2>Peluquería Don Tom</h2>
+        <p class="description">Cortes - Tintura - Barba</p>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <p class="price">Precio promedio: $560</p>
+        <p class="disponible"><strong>Ver disponibilidad</strong></p>
+      </div>
+    </div>
+  </div>
+
+  <hr class="separador">
+
+  <h5 style="text-align:center;"><strong>Elegí por ubicación</strong></h5>
+
+  <div class="mapa" style="padding: 10px">
+    <div id="map"
+      style="width: 100%; height: 300px; border-radius: 10%"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+  </div>
+</div>
