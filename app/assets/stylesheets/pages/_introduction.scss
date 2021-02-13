@@ -1,0 +1,33 @@
+.logo-introduction {
+  width: 200px;
+  align-items: center;
+  margin: 0;
+}
+
+.container-introduction {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("https://res.cloudinary.com/divzp8hs4/image/upload/e_improve,w_300,h_600,c_thumb,g_auto/v1613231191/Turna/turna-background.png");
+  .introduction-text {
+    font-size: 15px;
+    margin-right: 0;
+  }
+}
+
+@media (min-width: 1200px) {
+  .logo-introduction {
+    width: 500px;
+    align-items: center;
+    margin: 0;
+  }
+  
+  .container-introduction {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .introduction-text {
+      font-size: 40px;
+    }
+  }
+}
