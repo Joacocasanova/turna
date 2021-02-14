@@ -46,7 +46,7 @@
             <!--Avatar-->
               <%= cl_image_tag review.user.avatar.key, style:"height:150px;width:150px", class:"rounded-circle mr-2" %>
             <!--Content-->
-            <h4 class="font-weight-bold dark-grey-text mt-4"><%= review.user.name + " " + review.user.last_name %></h4>
+            <h4 class="font-weight-bold dark-grey-text mt-4"><%= review.user.name %></h4>
             <p class="font-weight-normal dark-grey-text">
               <i class="fas fa-quote-left pr-2" style="color:#FE6929"></i><%= review.content %></p>
             <!--Review-->
