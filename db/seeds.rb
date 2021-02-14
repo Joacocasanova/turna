@@ -4,7 +4,7 @@ puts "Cleaning database.."
 
 Provider.destroy_all
 User.destroy_all
-
+Booking.destroy_all
 puts "Creating database.."
 
 
@@ -13,15 +13,17 @@ puts "Creating database.."
 ro_user = User.new(name: "Rocio", last_name: "Picaza", password: "123456", email: "ropicaza@gmail.com")
 tom_user = User.new(name: "Tomas", last_name: "Agnese", password: "123456", email: "tomagnese@gmail.com")
 joaco_user = User.new(name: "Joaquin", last_name: "Casanova", password: "123456", email: "joacocasanova@gmail.com")
+camilo_user = User.new(name: "Camilo", last_name: "Gonzalez", password: "123456", email: "camilogonzalez@gmail.com")
 
-
-ro_user.avatar.attach(io: URI.open('https://res.cloudinary.com/dmtio0viw/image/upload/v1613240448/Turna/My_profile-orange-300x300_v5b2u3.png'), filename: 'default_avatar.png', content_type: 'image/png')
-joaco_user.avatar.attach(io: URI.open('https://res.cloudinary.com/dmtio0viw/image/upload/v1613240448/Turna/My_profile-orange-300x300_v5b2u3.png'), filename: 'default_avatar.png', content_type: 'image/png')
-tom_user.avatar.attach(io: URI.open('https://res.cloudinary.com/dmtio0viw/image/upload/v1613240448/Turna/My_profile-orange-300x300_v5b2u3.png'), filename: 'default_avatar.png', content_type: 'image/png')
+ro_user.avatar.attach(io: URI.open('https://res.cloudinary.com/dmtio0viw/image/upload/v1613343079/Turna/Ro_bkfwby.jpg'), filename: 'default_avatar.png', content_type: 'image/png')
+joaco_user.avatar.attach(io: URI.open('https://res.cloudinary.com/dmtio0viw/image/upload/v1613343080/Turna/joacoavatar_kkzo21.jpg'), filename: 'default_avatar.png', content_type: 'image/png')
+tom_user.avatar.attach(io: URI.open('https://res.cloudinary.com/dmtio0viw/image/upload/v1613343079/Turna/tom_ps9ctl.jpg'), filename: 'default_avatar.png', content_type: 'image/png')
+camilo_user.avatar.attach(io: URI.open('https://res.cloudinary.com/dmtio0viw/image/upload/v1613343080/Turna/camilo_betzts.jpg'), filename: 'default_avatar.png', content_type: 'image/png')
 
 ro_user.save
 joaco_user.save
 tom_user.save
+camilo_user.save
 
 # IMAGES
 
@@ -69,3 +71,16 @@ provider_5.each do |img|
   camilo_prov.photos.attach(io: provider_5_img, filename: 'prov_img.png', content_type: 'image/png')
   camilo_prov.save
 end
+
+start_date = Date.today
+
+joaco_experience = Booking.create!(customer: joaco_user, provider: ro_prov, start_datetime: start_date - 3.days + 16.hours, end_datetime: start_date - 3.days + 16.hours + 45.minutes, status: "accepted")
+tom_experience = Booking.create!(customer: tom_user, provider: ro_prov, start_datetime: start_date - 2.days + 16.hours, end_datetime: start_date - 2.days + 16.hours + 45.minutes, status: "accepted")
+camilo_experience = Booking.create!(customer: camilo_user, provider: ro_prov, start_datetime: start_date - 4.days + 16.hours, end_datetime: start_date - 4.days + 16.hours + 45.minutes, status: "accepted")
+
+
+Review.create!(user: joaco_user, booking: joaco_experience, content: "Excelente lugar! Fui atendido en tiempo y forma.", rating: 4)
+
+Review.create!(user: tom_user, booking: tom_experience, content: "Me atendieron rapidamente. Hacen un excelente degrade!", rating: 5)
+
+Review.create!(user: camilo_user, booking: camilo_experience, content: "Buen lugar a nivel precio/calidad. Recomendado", rating: 3)

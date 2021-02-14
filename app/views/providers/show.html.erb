@@ -29,42 +29,39 @@
   </div>
 
   <hr>
+<section class="team-section text-center my-5">
 
-  <h6 class="subtitle">Recomendaciones</h6>
+  <!-- Section heading -->
+  <h2 class="h1-responsive font-weight-bold my-2" >Necesitas mas información?</h2>
+  <!-- Section description -->
+  <p class="dark-grey-text w-responsive mx-auto mb-5">Encontrá debajo las recomendaciones de otros usuarios!</p>
 
-  <div class="container">
-    <div class="review-card">
-      <p class="title">@Matias</p>
-      <p>Muy buena atención, sobre todo de Fabi el mejor peluquero!</p>
-      <div class="rating d-flex justify-content-center">
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-      </div>
+  <!--Grid row-->
+  <div class="row text-center">
+      <% @provider.reviews.each do |review| %>
+        <!--Grid column-->
+        <div class="col-md-4 mb-md-0 mb-5">
+
+          <div class="testimonial">
+            <!--Avatar-->
+              <%= cl_image_tag review.user.avatar.key, style:"height:150px;width:150px", class:"rounded-circle mr-2" %>
+            <!--Content-->
+            <h4 class="font-weight-bold dark-grey-text mt-4"><%= review.user.name + " " + review.user.last_name %></h4>
+            <p class="font-weight-normal dark-grey-text">
+              <i class="fas fa-quote-left pr-2" style="color:#FE6929"></i><%= review.content %></p>
+            <!--Review-->
+            <div class="orange-text">
+              <p><strong>Rating:</strong><% review.rating.times do  %> <i class="fas fa-star"></i>
+              <% end %></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+
     </div>
 
-    <div class="review-card">
-      <p class="title">@Lore</p>
-      <p>Me encantó lo que me hicieron, volvería por otro corte</p>
-      <div class="rating d-flex justify-content-center">
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-      </div>
-    </div>
-
-     <div class="review-card">
-      <p class="title">@Susan</p>
-      <p>La tintura me quedó verde, no la recomiendo!!!</p>
-      <div class="rating d-flex justify-content-center">
-        <i class="fas fa-star"></i>
-      </div>       
-    </div>       
-  </div>
-
+</section>
+<!-- Section: Testimonials v.3 -->
   <hr>
 
   <h6 class="subtitle">Servicios</h6>
@@ -97,18 +94,18 @@
   <h6 class="subtitle">Elegí la fecha</h6>
 
   <div class="resumen mb-2">
-  
+
   </div>
 
   <h6 class="subtitle">Elegí el horario</h6>
 
-  <div class="rating d-flex justify-content-center">  
+  <div class="rating d-flex justify-content-center">
     <button type="button" class="btn btn-lg btn-secondary mt-2; text-center" style="border-radius: 10px;">Horarios</button>
   </div>
   <h6 class="subtitle">Resumen</h6>
 
   <div class="resumen">
-  
+
   </div>
 
   <div class="rating d-flex justify-content-center">
@@ -116,4 +113,5 @@
   </div>
 </div>
 
-
+<div class="container" style="height:100px">
+</div>
