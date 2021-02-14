@@ -9,7 +9,8 @@ class ProvidersController < ApplicationController
     @markers = @providers.geocoded.map do |provider|
       {
         lat: provider.latitude,
-        lng: provider.longitude
+        lng: provider.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { provider: provider })
       }
     end
   end

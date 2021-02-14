@@ -1,3 +1,5 @@
+require 'open-uri'
+
 puts "Cleaning database.."
 
 Provider.destroy_all
@@ -5,10 +7,21 @@ User.destroy_all
 
 puts "Creating database.."
 
+
+
 # USERS
-ro_user = User.create!(password: "123456", email: "ropicaza@gmail.com")
-tom_user = User.create!(password: "123456", email: "tomagnese@gmail.com")
-joaco_user = User.create!(password: "123456", email: "joacocasanova@gmail.com")
+ro_user = User.new(name: "Rocio", last_name: "Picaza", password: "123456", email: "ropicaza@gmail.com")
+tom_user = User.new(name: "Tomas", last_name: "Agnese", password: "123456", email: "tomagnese@gmail.com")
+joaco_user = User.new(name: "Joaquin", last_name: "Casanova", password: "123456", email: "joacocasanova@gmail.com")
+
+
+ro_user.avatar.attach(io: URI.open('https://res.cloudinary.com/dmtio0viw/image/upload/v1613240448/Turna/My_profile-orange-300x300_v5b2u3.png'), filename: 'default_avatar.png', content_type: 'image/png')
+joaco_user.avatar.attach(io: URI.open('https://res.cloudinary.com/dmtio0viw/image/upload/v1613240448/Turna/My_profile-orange-300x300_v5b2u3.png'), filename: 'default_avatar.png', content_type: 'image/png')
+tom_user.avatar.attach(io: URI.open('https://res.cloudinary.com/dmtio0viw/image/upload/v1613240448/Turna/My_profile-orange-300x300_v5b2u3.png'), filename: 'default_avatar.png', content_type: 'image/png')
+
+ro_user.save
+joaco_user.save
+tom_user.save
 
 # IMAGES
 

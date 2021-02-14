@@ -1,0 +1,17 @@
+<div class="cards">
+  <div class="row">
+    <div class="col-12">
+    	<div class="card-product w-100 h-100">
+        <%= cl_image_tag provider.photos.first.key, class: "card-img-index" %>
+          <div class="card-product-infos">
+            <h2><%= provider.name %></h2>
+              <p class="description"><%= provider.description %></p>
+              <% provider.rating.times do %>
+              	<i class="fas fa-star"></i>
+              <% end %>
+              <p class="price">Precio promedio: HARDCODED</p>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>

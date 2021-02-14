@@ -1,16 +1,14 @@
 <div class="container">
-
   <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="#"><%= @providers.first.category %></a></li>
-      <li class="breadcrumb-item active" aria-current="page">Palermo HARDCODED</li>
+      <li class="breadcrumb-item"><%= params["/"]["categoria"] %></li>
+      <li class="breadcrumb-item active" aria-current="page"> <%= params["/"]["localidad"].partition(",").first %></li>
     </ol>
   </nav>
 
   <hr class="separador">
-  <div class="filters">
+  <div class="filters col-12 col-md-4">
     <h6>Filtrar por: </h6>
-
     <button type="button" class="btn btn-primary" style="border-radius: 10%;
   padding: 3px 6px">Precio</button>
     <button type="button" class="btn btn-primary" style="border-radius: 10%;
@@ -19,8 +17,6 @@
   padding: 3px 6px">Servicios</button>
   </div>
 
-
-  
   <div class="cards">
     <div class="row">
       <% @providers.each do |provider| %>
@@ -35,7 +31,6 @@
                     <i class="fas fa-star"></i>
                   <% end %>
                   <p class="price">Precio promedio: HARDCODED</p>
-                  <p class="disponible"><strong>Ver disponibilidad</strong></p>
                 </div>
               </div>
           <% end %>
@@ -43,7 +38,7 @@
       <% end %>
     </div>
   </div>
-  
+
   <hr class="separador">
 
   <h5 style="text-align:center;"><strong>Elegí por ubicación</strong></h5>
