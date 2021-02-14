@@ -1,0 +1,119 @@
+<div class="container">
+  <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><%= @provider.category %></li>
+      <li class="breadcrumb-item">BARRIO HARDCODED</li>
+      <li class="breadcrumb-item active" aria-current="page"><%= @provider.name %></li>
+    </ol>
+  </nav>
+  <hr class="separador">
+
+  <h6 style="color:#FE6929"><strong><%= @provider.name %></strong></h6>
+
+  <h6 class="subtitle">Descripción</h6>
+
+  <p><%= @provider.description %></p>
+
+  <hr>
+
+  <h6 class="subtitle">Ubicación</h6>
+  <p style="color: #848484"><%= @provider.address %> </p>
+  <p>Horarios HARDCODED</p>
+
+    <div class="mapa" style="padding: 10px">
+    <div id="map"
+      style="width: 100%; height: 300px; border-radius: 10%"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+  </div>
+
+  <hr>
+
+  <h6 class="subtitle">Recomendaciones</h6>
+
+  <div class="container">
+    <div class="review-card">
+      <p class="title">@Matias</p>
+      <p>Muy buena atención, sobre todo de Fabi el mejor peluquero!</p>
+      <div class="rating d-flex justify-content-center">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <p class="title">@Lore</p>
+      <p>Me encantó lo que me hicieron, volvería por otro corte</p>
+      <div class="rating d-flex justify-content-center">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+      </div>
+    </div>
+
+     <div class="review-card">
+      <p class="title">@Susan</p>
+      <p>La tintura me quedó verde, no la recomiendo!!!</p>
+      <div class="rating d-flex justify-content-center">
+        <i class="fas fa-star"></i>
+      </div>       
+    </div>       
+  </div>
+
+  <hr>
+
+  <h6 class="subtitle">Servicios</h6>
+
+  <div class="container">
+    <div class="d-flex justify-content-around">
+      <div class="icon" style="border-style: solid;border-radius: 10px;height: 50px;width: 50px">
+        <div class="options">
+         <i class="fas fa-cut fas"></i>
+        </div>
+      </div>
+
+
+
+      <div class="icon" style="border-style: solid;border-radius: 10px;height: 50px;width: 50px">
+        <div class="options">
+         <i class="fas fa-paint-brush"></i>
+        </div>
+      </div>
+
+      <div class="icon" style="border-style: solid;border-radius: 10px;height: 50px;width: 50px">
+        <div class="options">
+         <i class="fas fa-cut"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+  <h6 class="subtitle">Elegí la fecha</h6>
+
+  <div class="resumen mb-2">
+  
+  </div>
+
+  <h6 class="subtitle">Elegí el horario</h6>
+
+  <div class="rating d-flex justify-content-center">  
+    <button type="button" class="btn btn-lg btn-secondary mt-2; text-center" style="border-radius: 10px;">Horarios</button>
+  </div>
+  <h6 class="subtitle">Resumen</h6>
+
+  <div class="resumen">
+  
+  </div>
+
+  <div class="rating d-flex justify-content-center">
+    <button type="button" class="btn btn-lg btn-primary mt-2" style="border-radius: 10px">Reservar turno</button>
+  </div>
+</div>
+
+
