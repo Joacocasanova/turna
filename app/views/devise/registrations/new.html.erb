@@ -1,4 +1,4 @@
-<div class="container">
+<div id="registration-form" class="container">
   <h2 style="color:#FE6929"><strong>Registrate!</strong></h2>
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= f.error_notification %>
@@ -35,7 +35,8 @@
     </div>
 
     <div class="form-actions">
-      <%= f.button :submit, "Sign up", class:"btn btn-primary m-3" %>
+      <%= f.button :submit, "Sign up", class:"btn btn-primary mb-2 px-5" %>
     </div>
   <% end %>
+  <p class="mb-5">¿Ya tenés tu cuenta? <strong><%= link_to " Accedé", new_user_session_path, style:"color: black" %></strong></p>
 </div>
