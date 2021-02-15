@@ -55,9 +55,9 @@ ActiveRecord::Schema.define(version: 2021_02_14_220104) do
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "rating"
     t.float "latitude"
     t.float "longitude"
+    t.integer "rating"
   end
 
   create_table "reviews", force: :cascade do |t|
