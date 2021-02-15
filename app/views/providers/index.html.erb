@@ -1,53 +1,55 @@
-<div class="container mt-3">
-  <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item"><%= params["/"]["categoria"] %></li>
-      <li class="breadcrumb-item active" aria-current="page"> <%= params["/"]["localidad"].partition(",").first %></li>
-    </ol>
-  </nav>
+<%= render 'shared/container' %>
+  <div class="container mt-3">
+    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><%= params["/"]["categoria"] %></li>
+        <li class="breadcrumb-item active" aria-current="page"> <%= params["/"]["localidad"].partition(",").first %></li>
+      </ol>
+    </nav>
 
-  <hr class="separador">
-  <div class="filters col-12 col-md-4">
-    <h6>Filtrar por: </h6>
-    <button type="button" class="btn btn-primary" style="border-radius: 10%;
-  padding: 3px 6px">Precio</button>
-    <button type="button" class="btn btn-primary" style="border-radius: 10%;
-  padding: 3px 6px">Rating</button>
-    <button type="button" class="btn btn-primary" style="border-radius: 10%;
-  padding: 3px 6px">Servicios</button>
-  </div>
+    <hr class="separador">
+    <div class="filters col-12 col-md-4">
+      <h6>Filtrar por: </h6>
+      <button type="button" class="btn btn-primary" style="border-radius: 10%;
+    padding: 3px 6px">Precio</button>
+      <button type="button" class="btn btn-primary" style="border-radius: 10%;
+    padding: 3px 6px">Rating</button>
+      <button type="button" class="btn btn-primary" style="border-radius: 10%;
+    padding: 3px 6px">Servicios</button>
+    </div>
 
-  <div class="cards">
-    <div class="row">
-      <% @providers.each do |provider| %>
-        <div class="col-12 col-md-4">
-          <%= link_to provider_path(provider) do %>
-              <div class="card-product">
-              <%= cl_image_tag provider.photos.first.key, class: "card-img-index" %>
-                <div class="card-product-infos">
-                  <h2><%= provider.name %></h2>
-                  <p class="description"><%= provider.description %></p>
-                  <% provider.rating.times do %>
-                    <i class="fas fa-star"></i>
-                  <% end %>
-                  <p class="price">Precio promedio: HARDCODED</p>
+    <div class="cards">
+      <div class="row">
+        <% @providers.each do |provider| %>
+          <div class="col-12 col-md-4 rounded">
+            <%= link_to provider_path(provider) do %>
+                <div class="card-product">
+                <%= cl_image_tag provider.photos.first.key, class: "card-img-index" %>
+                  <div class="card-product-infos">
+                    <h2><%= provider.name %></h2>
+                    <p class="description"><%= provider.description %></p>
+                    <% provider.rating.times do %>
+                      <i class="fas fa-star"></i>
+                    <% end %>
+                    <p class="price">Precio promedio: HARDCODED</p>
+                  </div>
                 </div>
-              </div>
-          <% end %>
-        </div>
-      <% end %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <hr class="separador">
+
+    <h5 style="text-align:center;"><strong>Elegí por ubicación</strong></h5>
+
+    <div class="mapa" style="padding: 10px">
+      <div id="map"
+        style="width: 100%; height: 300px; border-radius: 10%"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
     </div>
   </div>
-
-  <hr class="separador">
-
-  <h5 style="text-align:center;"><strong>Elegí por ubicación</strong></h5>
-
-  <div class="mapa" style="padding: 10px">
-    <div id="map"
-      style="width: 100%; height: 300px; border-radius: 10%"
-      data-markers="<%= @markers.to_json %>"
-      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-    </div>
-  </div>
-</div>
+<%= render 'shared/container' %>
