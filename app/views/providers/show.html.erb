@@ -2,7 +2,7 @@
   <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><%= @provider.category %></li>
-      <li class="breadcrumb-item">BARRIO HARDCODED</li>
+      <li class="breadcrumb-item"><%= @provider.neighborhood %></li>
       <li class="breadcrumb-item active" aria-current="page"><%= @provider.name %></li>
     </ol>
   </nav>
@@ -18,7 +18,7 @@
 
   <h6 class="subtitle">Ubicación</h6>
   <p style="color: #848484"><%= @provider.address %> </p>
-  <p>Horarios HARDCODED</p>
+  <p>Horarios <%= @provider.opening_time.strftime("%k:%M") %> hs a <%= @provider.closing_time.strftime("%k:%M")  %> hs</p>
 
     <div class="mapa" style="padding: 10px">
     <div id="map"
@@ -61,7 +61,6 @@
     </div>
 
 </section>
-<!-- Section: Testimonials v.3 -->
   <hr>
 
   <h6 class="subtitle">Servicios</h6>
@@ -115,3 +114,4 @@
 
 <div class="container" style="height:100px">
 </div>
+
