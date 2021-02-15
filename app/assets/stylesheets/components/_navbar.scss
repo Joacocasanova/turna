@@ -1,6 +1,8 @@
 .navbar-lewagon {
+  display: flex;
   justify-content: space-between;
   background: white;
+  flex-grow: 0;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -30,4 +32,9 @@
 .fa-disabled {
   opacity: 0.6;
   cursor: not-allowed;
+}
+
+
+#top-navbar {
+  justify-content: space-between !important;
 }
