@@ -21,7 +21,7 @@
     <div class="cards">
       <div class="row">
         <% @providers.each do |provider| %>
-          <div class="col-12 col-md-4 rounded">
+          <div class="col-12 col-md-4">
             <%= link_to provider_path(provider) do %>
                 <div class="card-product">
                 <%= cl_image_tag provider.photos.first.key, class: "card-img-index" %>
