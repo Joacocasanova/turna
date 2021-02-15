@@ -26,92 +26,91 @@
       data-markers="<%= @markers.to_json %>"
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
-  </div>
 
-  <hr>
-<section class="team-section text-center my-5">
+    <hr>
+  <section class="team-section text-center my-5">
 
-  <!-- Section heading -->
-  <h2 class="h1-responsive font-weight-bold my-2" >Necesitas mas información?</h2>
-  <!-- Section description -->
-  <p class="dark-grey-text w-responsive mx-auto mb-5">Encontrá debajo las recomendaciones de otros usuarios!</p>
+    <!-- Section heading -->
+    <h2 class="h1-responsive font-weight-bold my-2" >Necesitas mas información?</h2>
+    <!-- Section description -->
+    <p class="dark-grey-text w-responsive mx-auto mb-5">Encontrá debajo las recomendaciones de otros usuarios!</p>
 
-  <!--Grid row-->
-  <div class="row text-center">
-      <% @provider.reviews.each do |review| %>
-        <!--Grid column-->
-        <div class="col-md-4 mb-md-0 mb-5">
+    <!--Grid row-->
+    <div class="row text-center">
+        <% @provider.reviews.each do |review| %>
+          <!--Grid column-->
+          <div class="col-md-4 mb-md-0 mb-5">
 
-          <div class="testimonial">
-            <!--Avatar-->
-              <%= cl_image_tag review.user.avatar.key, style:"height:150px;width:150px", class:"rounded-circle mr-2" %>
-            <!--Content-->
-            <h4 class="font-weight-bold dark-grey-text mt-4"><%= review.user.name %></h4>
-            <p class="font-weight-normal dark-grey-text">
-              <i class="fas fa-quote-left pr-2" style="color:#FE6929"></i><%= review.content %></p>
-            <!--Review-->
-            <div class="orange-text">
-              <p><strong>Rating:</strong><% review.rating.times do  %> <i class="fas fa-star"></i>
-              <% end %></p>
+            <div class="testimonial">
+              <!--Avatar-->
+                <%= cl_image_tag review.user.avatar.key, style:"height:150px;width:150px", class:"rounded-circle mr-2" %>
+              <!--Content-->
+              <h4 class="font-weight-bold dark-grey-text mt-4"><%= review.user.name %></h4>
+              <p class="font-weight-normal dark-grey-text">
+                <i class="fas fa-quote-left pr-2" style="color:#FE6929"></i><%= review.content %></p>
+              <!--Review-->
+              <div class="orange-text">
+                <p><strong>Rating:</strong><% review.rating.times do  %> <i class="fas fa-star"></i>
+                <% end %></p>
+              </div>
             </div>
           </div>
-        </div>
-      <% end %>
+        <% end %>
 
-    </div>
+      </div>
 
 </section>
   <hr>
 
-  <h6 class="subtitle">Servicios</h6>
+    <h6 class="subtitle">Servicios</h6>
 
-  <div class="container">
-    <div class="d-flex justify-content-around">
-      <div class="icon" style="border-style: solid;border-radius: 10px;height: 50px;width: 50px">
-        <div class="options">
-         <i class="fas fa-cut fas"></i>
+    <div class="container">
+      <div class="d-flex justify-content-around">
+        <div class="icon" style="border-style: solid;border-radius: 10px;height: 50px;width: 50px">
+          <div class="options">
+          <i class="fas fa-cut fas"></i>
+          </div>
         </div>
-      </div>
 
 
 
-      <div class="icon" style="border-style: solid;border-radius: 10px;height: 50px;width: 50px">
-        <div class="options">
-         <i class="fas fa-paint-brush"></i>
+        <div class="icon" style="border-style: solid;border-radius: 10px;height: 50px;width: 50px">
+          <div class="options">
+          <i class="fas fa-paint-brush"></i>
+          </div>
         </div>
-      </div>
 
-      <div class="icon" style="border-style: solid;border-radius: 10px;height: 50px;width: 50px">
-        <div class="options">
-         <i class="fas fa-cut"></i>
+        <div class="icon" style="border-style: solid;border-radius: 10px;height: 50px;width: 50px">
+          <div class="options">
+          <i class="fas fa-cut"></i>
+          </div>
         </div>
       </div>
     </div>
+
+    <hr>
+    <h6 class="subtitle">Elegí la fecha</h6>
+
+    <div class="resumen mb-2">
+
+    </div>
+
+    <h6 class="subtitle">Elegí el horario</h6>
+
+    <div class="rating d-flex justify-content-center">
+      <button type="button" class="btn btn-lg btn-secondary mt-2; text-center" style="border-radius: 10px;">Horarios</button>
+    </div>
+    <h6 class="subtitle">Resumen</h6>
+
+    <div class="resumen">
+
+    </div>
+
+    <div class="rating d-flex justify-content-center">
+      <button type="button" class="btn btn-lg btn-primary mt-2" style="border-radius: 10px">Reservar turno</button>
+    </div>
   </div>
 
-  <hr>
-  <h6 class="subtitle">Elegí la fecha</h6>
-
-  <div class="resumen mb-2">
-
+  <div class="container" style="height:100px">
   </div>
-
-  <h6 class="subtitle">Elegí el horario</h6>
-
-  <div class="rating d-flex justify-content-center">
-    <button type="button" class="btn btn-lg btn-secondary mt-2; text-center" style="border-radius: 10px;">Horarios</button>
-  </div>
-  <h6 class="subtitle">Resumen</h6>
-
-  <div class="resumen">
-
-  </div>
-
-  <div class="rating d-flex justify-content-center">
-    <button type="button" class="btn btn-lg btn-primary mt-2" style="border-radius: 10px">Reservar turno</button>
-  </div>
-</div>
-
-<div class="container" style="height:100px">
-</div>
-
+<%= render 'shared/container' %>
