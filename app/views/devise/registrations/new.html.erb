@@ -1,4 +1,4 @@
-<div id="registration-form" class="container">
+<div class="user-form">
   <div class="container mt-5">
     <h2 style="color:#FE6929"><strong>Registrate!</strong></h2>
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -7,14 +7,16 @@
         <%= f.input :name,
                       required: true,
                       autofocus: true,
-                      input_html: { autocomplete: "name" }%>
+                      input_html: { autocomplete: "name" }, 
+                      label: 'Nombre'%>
       </div>
 
       <div class="form-inputs">
         <%= f.input :last_name,
                       required: true,
                       autofocus: true,
-                      input_html: { autocomplete: "last name" }%>
+                      input_html: { autocomplete: "last name" },
+                      label: 'Apellido'%>
       </div>
 
       <div class="form-inputs">
@@ -25,10 +27,12 @@
         <%= f.input :password,
                     required: true,
                     hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                    input_html: { autocomplete: "new-password" } %>
+                    input_html: { autocomplete: "new-password" },
+                    label: 'Contraseña' %>
         <%= f.input :password_confirmation,
                     required: true,
-                    input_html: { autocomplete: "new-password" } %>
+                    input_html: { autocomplete: "new-password" },
+                    label: 'Nueva Contraseña' %>
       </div>
 
       <div class="form-inputs">
@@ -36,7 +40,7 @@
       </div>
 
       <div class="form-actions">
-        <%= f.button :submit, "Sign up", class:"btn btn-primary mb-2 px-5" %>
+        <%= f.button :submit, "Ingresar", class:"btn btn-primary mb-2 px-5" %>
       </div>
     <% end %>
     <p class="mb-5">¿Ya tenés tu cuenta? <strong><%= link_to " Accedé", new_user_session_path, style:"color: black" %></strong></p>

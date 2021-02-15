@@ -12,11 +12,11 @@
             <%= image_tag 'https://res.cloudinary.com/dmtio0viw/image/upload/v1613240448/Turna/My_profile-orange-300x300_v5b2u3.png' , style:"height:40px;width:40px", class:"rounded-circle mr-5" %>
           <% end %>
         </div>
-        <strong><span><%= link_to "Cerrar Sesion", destroy_user_session_path, :method => :delete, class: "nav-link", style:"color: black" %></span></strong>
+        <strong><span><%= link_to "Cerrar Sesion", destroy_user_session_path, :method => :delete, class: "nav-link mr-0", style:"color: black" %></span></strong>
       <% else %>
         <div class="d-flex m-0 pr-0 pl-4">
           <strong><%= link_to "Registrate", new_user_registration_path, class: "nav-link", style:"color: black" %></strong>
-          <strong><%= link_to "Iniciar sesión", new_user_session_path, class: "nav-link", style:"color: black" %></strong>
+          <strong><%= link_to "Ingresar", new_user_session_path, class: "nav-link mr-1", style:"color: black" %></strong>
         </div>
       <% end %>
     </div>
