@@ -15,6 +15,12 @@ class BookingsController < ApplicationController
 
   def index
     @bookings = Booking.where(customer: current_user)
+    @bookings_pending = []
+    @accepted_bookings = []
+    @canceled_bookings = []
+
+
+
   end
 
   def update

@@ -11,13 +11,7 @@
                       <h2><%= booking.provider.name %></h2>
                       <p class="description" style="margin-bottom: 10px"><%= booking.provider.description %></p>
                       <% if booking.review.blank? %>
-                        <button type="button" class="btn btn-light" style="border-radius: 10px;" data-toggle="modal" data-target="#exampleModal">Opinar</button>
-
-                        <%= raise %>
-
-
-
-
+                        <button type="button" class="btn btn-light" style="border-radius: 10px;" data-toggle="modal" data-target="#exampleModal"><%= link_to 'Opinar', new_booking_review_path(booking) %></button>
                       <% else %>
                         <button type="button" class="btn btn-light" style="border-radius: 10px;"  data-toggle="modal" data-target="#exampleModal"> Ver opinión</button>
 
@@ -51,5 +45,3 @@
         </div>
       </div>
 </div>
-
-
