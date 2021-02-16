@@ -16,6 +16,7 @@ class ProvidersController < ApplicationController
   end
 
   def show
+    @providers = Provider.all
     @provider_geo = @provider.geocode
     @markers = @provider_geo.map do |provider|
       {

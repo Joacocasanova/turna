@@ -89,27 +89,17 @@
     </div>
 
     <hr>
-    <h6 class="subtitle">Elegí la fecha</h6>
+    <h5>Saca tu turno!</h5>
+    <div class="col-12">
+      <div class="flat-show-card">
+        <%= simple_form_for [@provider, @booking] do |f| %>
+        <%=f.input :start_datetime, as: :string, required: false, input_html: {class: "datepicker"}  %>
+        <%=f.input :end_datetime,  as: :string, required: false, input_html: {class: "datepicker"}  %>
+          <%=f.submit "Reservar!", class: "btn btn-primary mt-2 textclass" %>
+        <% end %>
 
-    <div class="resumen mb-2">
-
+      </div>
     </div>
-
-    <h6 class="subtitle">Elegí el horario</h6>
-
-    <div class="rating d-flex justify-content-center">
-      <button type="button" class="btn btn-lg btn-secondary mt-2; text-center" style="border-radius: 10px;">Horarios</button>
-    </div>
-    <h6 class="subtitle">Resumen</h6>
-
-    <div class="resumen">
-
-    </div>
-
-    <div class="rating d-flex justify-content-center">
-      <button type="button" class="btn btn-lg btn-primary mt-2" style="border-radius: 10px">Reservar turno</button>
-    </div>
-  </div>
 
   <div class="container" style="height:100px">
   </div>
