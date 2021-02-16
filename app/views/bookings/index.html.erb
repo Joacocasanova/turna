@@ -1,0 +1,55 @@
+<div class="container mt-5">
+  <strong><h1 id="title" class="mt-5 pt-2">Tus turnos!</h1></strong>
+
+      <div class="cards">
+        <div class="row">
+          <% @bookings.each do |booking| %>
+            <div class="col-12 col-md-4">              
+                  <div class="card-product">
+                  <%= cl_image_tag booking.provider.photos.first.key, class: "card-img-index" %>
+                    <div class="card-product-infos">
+                      <h2><%= booking.provider.name %></h2>
+                      <p class="description" style="margin-bottom: 10px"><%= booking.provider.description %></p>
+                      <% if booking.review.blank? %>
+                        <button type="button" class="btn btn-light" style="border-radius: 10px;" data-toggle="modal" data-target="#exampleModal">Opinar</button>
+
+                        <%= raise %>
+
+
+
+
+                      <% else %>
+                        <button type="button" class="btn btn-light" style="border-radius: 10px;"  data-toggle="modal" data-target="#exampleModal"> Ver opinión</button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Tu opinión</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                              <div class="modal-body">
+                                <%= booking.review.content %>
+                                <% booking.review.rating.times do %>
+                                  <i class="fas fa-star"></i>
+                                <% end %>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      <% end %>
+                    </div>
+                  </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+</div>
+
+
