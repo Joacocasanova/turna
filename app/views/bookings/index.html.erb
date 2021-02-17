@@ -2,7 +2,7 @@
 
   <strong><h1 id="title" class="mt-5 pt-2">Tus turnos!</h1></strong>
 
-  <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+  <ul class="nav nav-pills mb-3" style="justify-content: space-around;" id="pills-tab" role="tablist">
     <li class="nav-item" role="presentation">
       <button class="btn btn-primary active" id="pills-home-tab" data-toggle="pill" data-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Pendientes</button>
     </li>
@@ -10,7 +10,7 @@
       <button class="btn btn-primary" id="pills-profile-tab" data-toggle="pill" data-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Finalizados</button>
     </li>
     <li class="nav-item" role="presentation">
-      <button class="btn btn-primary" id="pills-contact-tab" data-toggle="pill" data-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Cancelados</button>
+      <button class="btn btn-primary" style="margin-top: 5px;" id="pills-contact-tab" data-toggle="pill" data-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Cancelados</button>
     </li>
   </ul>
   <div class="tab-content" id="pills-tabContent">
@@ -24,9 +24,10 @@
                   <div class="card-product-infos">
                     <h2><%= booking.provider.name %></h2>
                     <p class="description" style="margin-bottom: 10px"><%= booking.provider.description %></p>
+                    <p class="description" style="margin-bottom: 5px">Fecha del turno: <%= booking.start_datetime.strftime('%d/%m/%Y') %></p>
                       <%= simple_form_for booking do |f| %>
                         <%= f.hidden_field :status, value: "canceled" %>
-                        <%=f.submit "Reject", id: "sweet-alert-rejected", class: "text-danger" %>
+                        <%=f.submit "Cancelar", id: "sweet-alert-rejected", class: "btn btn-light", style: "color: #FBB266;" %>
                       <% end %>
                   </div>
                 </div>
@@ -46,10 +47,11 @@
                   <div class="card-product-infos">
                     <h2><%= booking.provider.name %></h2>
                     <p class="description" style="margin-bottom: 10px"><%= booking.provider.description %></p>
+                    <p class="description" style="margin-bottom: 5px">Fecha del turno: <%= booking.start_datetime.strftime('%d/%m/%Y') %></p>
                     <% if booking.review.blank? %>
                       <button type="button" class="btn btn-light" style="border-radius: 10px;" data-toggle="modal" data-target="#exampleModal"><%= link_to 'Opinar', new_booking_review_path(booking) %></button>
                     <% else %>
-                      <button type="button" class="btn btn-light" style="border-radius: 10px;"  data-toggle="modal" data-target="#exampleModal"> Ver opinión</button>
+                      <button type="button" class="btn btn-light" style="border-radius: 10px; color: #FBB266"  data-toggle="modal" data-target="#exampleModal"> Ver opinión</button>
                       <!-- Modal -->
                       <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
@@ -90,6 +92,7 @@
                   <div class="card-product-infos">
                     <h2><%= booking.provider.name %></h2>
                     <p class="description" style="margin-bottom: 10px"><%= booking.provider.description %></p>
+                    <p class="description" style="margin-bottom: 5px">Fecha del turno: <%= booking.start_datetime.strftime('%d/%m/%Y') %></p>
                   </div>
                 </div>
             </div>
