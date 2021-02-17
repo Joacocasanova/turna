@@ -38,3 +38,15 @@
 #top-navbar {
   justify-content: space-between !important;
 }
+
+#search-navbar {
+  text-align: center;
+}
+
+@media (min-width: 1200px) {
+  #search-navbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+}
