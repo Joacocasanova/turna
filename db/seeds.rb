@@ -75,7 +75,14 @@ end
 start_date = Date.today
 
 joaco_experience = Booking.create!(customer: joaco_user, provider: ro_prov, start_datetime: start_date - 3.days + 16.hours, end_datetime: start_date - 3.days + 16.hours + 45.minutes, status: "accepted")
-tom_experience = Booking.create!(customer: tom_user, provider: ro_prov, start_datetime: start_date - 2.days + 16.hours, end_datetime: start_date - 2.days + 16.hours + 45.minutes, status: "accepted")
+
+tom_experience = Booking.create!(customer: tom_user, provider: ro_prov, start_datetime: start_date + 2.days + 16.hours, end_datetime: start_date + 2.days + 16.hours + 45.minutes, status: "accepted")
+
+tom_experience1 = Booking.create!(customer: tom_user, provider: ro_prov, start_datetime: start_date - 2.days + 16.hours, end_datetime: start_date - 2.days + 16.hours + 45.minutes, status: "completed")
+
+tom_experience2 = Booking.create!(customer: tom_user, provider: ro_prov, start_datetime: start_date - 2.days + 16.hours, end_datetime: start_date - 2.days + 16.hours + 45.minutes, status: "canceled")
+
+
 camilo_experience = Booking.create!(customer: camilo_user, provider: ro_prov, start_datetime: start_date - 4.days + 16.hours, end_datetime: start_date - 4.days + 16.hours + 45.minutes, status: "accepted")
 
 
