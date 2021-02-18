@@ -12,11 +12,26 @@
   </head>
 
   <body>
+    <%= render 'shared/navbars' %>
     <%= render 'shared/flashes' %>
-    <%= render 'shared/navbars' unless controller_name == "pages" && action_name == "introduction" %>
     <div class="contianer w-100">
       <%= yield %>
     </div>
+  
+    <script>
+    var prevScrollpos = window.pageYOffset;
+    window.onscroll = function() {
+    var currentScrollPos = window.pageYOffset;
+      if (prevScrollpos < currentScrollPos) {
+        document.getElementById("bottom-navbar").style.bottom = "-100px";
+      } else {
+        document.getElementById("bottom-navbar").style.bottom = "0px";
+      }
+      prevScrollpos = currentScrollPos;
+    }
+    </script>
+  
+  
   </body>
 </html>
 
