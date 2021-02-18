@@ -1,15 +1,15 @@
-<div class="cards">
+<div class="cards" style="padding: 0">
   <div class="row">
     <div class="col-12">
-    	<div class="card-product w-100 h-100">
+    	<div class="card-product w-100 h-100" style="margin: 0">
         <%= cl_image_tag provider.photos.first.key, class: "card-img-index" %>
-          <div class="card-product-infos">
+          <div class="card-product-infos" style="padding: 0; margin-left: 5px">
             <h2><%= provider.name %></h2>
-              <p class="description"><%= provider.description %></p>
+              <p class="description" style="margin: 0"><%= provider.description %></p>
               <% provider.rating.times do %>
               	<i class="fas fa-star"></i>
               <% end %>
-              <p class="price">Precio promedio: HARDCODED</p>
+              <p class="price" style="margin: 0">Precio promedio: HARDCODED</p>
           </div>
       </div>
     </div>

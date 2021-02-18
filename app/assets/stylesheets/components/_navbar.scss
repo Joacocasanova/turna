@@ -27,6 +27,11 @@
     color: grey;
   }
   justify-content: space-between !important;
+  padding-bottom: 0;
+  transition: bottom 0.5s;
+  border-top-style: solid;
+  border-width: thin;
+  border-top-color: grey;
 }
 
 .fa-disabled {
