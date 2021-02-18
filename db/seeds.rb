@@ -94,12 +94,18 @@ end
 start_date = Date.today
 
 joaco_experience = Booking.create!(customer: joaco_user, provider: ro_prov, start_datetime: start_date - 3.days + 16.hours, end_datetime: start_date - 3.days + 16.hours + 45.minutes, status: "accepted")
-tom_experience = Booking.create!(customer: tom_user, provider: ro_prov, start_datetime: start_date - 2.days + 16.hours, end_datetime: start_date - 2.days + 16.hours + 45.minutes, status: "accepted")
+
+tom_experience = Booking.create!(customer: tom_user, provider: ro_prov, start_datetime: start_date + 2.days + 16.hours, end_datetime: start_date + 2.days + 16.hours + 45.minutes, status: "accepted")
+
+tom_experience1 = Booking.create!(customer: tom_user, provider: ro_prov, start_datetime: start_date - 2.days + 16.hours, end_datetime: start_date - 2.days + 16.hours + 45.minutes, status: "completed")
+
+tom_experience2 = Booking.create!(customer: tom_user, provider: ro_prov, start_datetime: start_date - 2.days + 16.hours, end_datetime: start_date - 2.days + 16.hours + 45.minutes, status: "canceled")
+
+
 camilo_experience = Booking.create!(customer: camilo_user, provider: ro_prov, start_datetime: start_date - 4.days + 16.hours, end_datetime: start_date - 4.days + 16.hours + 45.minutes, status: "accepted")
 
 
 Review.create!(user: joaco_user, booking: joaco_experience, content: "Excelente lugar! Fui atendido en tiempo y forma.", rating: 4)
 
-Review.create!(user: tom_user, booking: tom_experience, content: "Me atendieron rapidamente. Hacen un excelente degrade!", rating: 5)
 
 Review.create!(user: camilo_user, booking: camilo_experience, content: "Buen lugar a nivel precio/calidad. Recomendado", rating: 3)
