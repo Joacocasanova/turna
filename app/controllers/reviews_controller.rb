@@ -11,7 +11,7 @@ class ReviewsController < ApplicationController
     @review.booking = @booking
     @review.user_id = current_user.id
     @review.save!
-    redirect_to root_path
+    redirect_to bookings_path
   end
 
   private
