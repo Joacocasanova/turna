@@ -7,10 +7,10 @@
     <%= simple_form_for root_path, url: providers_path, method: :get, html: { class: " m-0 py-3 px-4" } do |f| %>
           <div class="row align-items-center justify-content-around p-2">
             <div class="col-12 col-sm-12 col-md-6">
-              <%=f.input :localidad, as: :string, required: true, input_html: { placeholder:"Donde estás?", id: "provider_address"} %>
+              <%=f.input :localidad, as: :string, required: true, input_html: { placeholder:"¿Donde estás?", id: "provider_address", required: true } %>
             </div>
             <div class="col-12 col-sm-12 col-md-6">
-              <%= f.input :categoria, as: :select, collection: ["Peluqueria", "Dentista"], prompt: 'Seleccionar', required: false%>
+              <%= f.input :categoria, as: :select, collection: ["Peluqueria", "Dentista"], prompt: 'Seleccionar', required: true %>
             </div>
             <div class="col-12 col-md-6">
               <%= f.button :button, class: "btn btn-lg btn-primary mt-2", style: "width:100%;border-radius:5px" do %>
@@ -112,10 +112,10 @@
 
 <!--Conocenos -->
 <div class="container text-center" style="background-color:#FE6929;height:250px">
-    <h3 id="title" style="color:white">No dudes en contactarnos!</h3>
+    <h3 id="title" style="color:white; padding-top:10px">No dudes en contactarnos!</h3>
       <div class="d-flex flex-column m-3 p-3">
-      <%= link_to "¿Quienes somos?", contact_path, class:"m-2", style:"color: white" %> <br>
-      <%= link_to "Contactanos", about_path, class: "m-2", style:"color: white" %>
+      <%= link_to "¿Quienes somos?", about_path, class:"m-2", style:"color: white" %> <br>
+      <%= link_to "Contactanos", contact_path, class: "m-2", style:"color: white" %>
       </div>
     </div>
   </div>
