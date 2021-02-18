@@ -62,39 +62,26 @@
 </section>
   <hr>
 
-    <h6 class="subtitle">Servicios</h6>
-
-    <div class="container">
-      <div class="d-flex justify-content-around">
-        <div class="icon" style="border-style: solid;border-radius: 10px;height: 50px;width: 50px">
-          <div class="options">
-          <i class="fas fa-cut fas"></i>
-          </div>
-        </div>
-
-
-
-        <div class="icon" style="border-style: solid;border-radius: 10px;height: 50px;width: 50px">
-          <div class="options">
-          <i class="fas fa-paint-brush"></i>
-          </div>
-        </div>
-
-        <div class="icon" style="border-style: solid;border-radius: 10px;height: 50px;width: 50px">
-          <div class="options">
-          <i class="fas fa-cut"></i>
-          </div>
+    <h2 class="subtitle text-center font-weight-bold my-2">Servicios</h6>
+      <div class="container">
+        <div class="d-flex justify-content-around row">
+          <% @provider.services.each do |provider_service| %>
+            <div class="col-12 col-md-4 text-center">
+              <div class=" d-flex flex-column align-items-center">
+                <%= cl_image_tag provider_service.icon.key, style:"height:150px;width:150px", class:"rounded-circle m-4" %>
+                <h5><%= provider_service.title %></h5>
+              </div>
+            </div>
+          <% end %>
         </div>
       </div>
-    </div>
 
     <hr>
     <h5>Saca tu turno!</h5>
     <div class="col-12">
       <div class="flat-show-card">
         <%= simple_form_for [@provider, @booking] do |f| %>
-        <%=f.input :start_datetime, as: :string, required: false, input_html: {class: "datepicker"}  %>
-        <%=f.input :end_datetime,  as: :string, required: false, input_html: {class: "datepicker"}  %>
+        <%=f.input :start_datetime, as: :string, required: false, input_html: {class: "datepicker", data: {opening_time: @provider.opening_time, closing_time: @provider.closing_time }}  %>
           <%=f.submit "Reservar!", class: "btn btn-primary mt-2 textclass" %>
         <% end %>
 

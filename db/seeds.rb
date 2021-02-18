@@ -5,6 +5,7 @@ puts "Cleaning database.."
 Provider.destroy_all
 User.destroy_all
 Booking.destroy_all
+Service.destroy_all
 puts "Creating database.."
 
 
@@ -35,11 +36,29 @@ provider_5 = ["https://res.cloudinary.com/divzp8hs4/image/upload/v1613086519/Tur
 
 # PROVIDERS CREATION
 
+
+
 ro_prov = Provider.create!(category: "Peluqueria", name: "Pelu de RO", address: "Paraguay 5301, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", description: "Corte, tintura, manicura", rating: 5, opening_time: '10:00:00', closing_time: '20:00:00', neighborhood: "Palermo")
 tom_prov = Provider.create!(category: "Peluqueria", name: "Pelu de TOM", address: "Humboldt 2120, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", description: "Barba, corte, perfilado", rating: 4, opening_time: '10:00:00', closing_time: '20:00:00', neighborhood: "Palermo" )
 joaco_prov = Provider.create!(category: "Peluqueria", name: "Pelu de JOACO", address: "Bonpland 1874, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", description: "Corte, depilacion, alisados", rating: 3, opening_time: '10:00:00', closing_time: '20:00:00', neighborhood: "Palermo" )
 guido_prov = Provider.create!(category: "Peluqueria", name: "Pelu de Guido", address: "Soler 5608, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", description: "Tintura, depilacion, perfilado", rating: 5, opening_time: '10:00', closing_time: '20:00:00', neighborhood: "Palermo" )
 camilo_prov = Provider.create!(category: "Peluqueria", name: "Pelu de Camilo", address: "Fitz Roy 1834, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", description: "Barba, alisado, manicura", rating: 4, opening_time: '10:00', closing_time: '20:00', neighborhood: "Palermo" )
+
+service_one = Service.create!(title: "Corte y arreglo de barba", price: 900, min_duration: 45, provider: ro_prov)
+service_two = Service.create!(title: "Corte de Pelo", price: 800, min_duration: 30, provider: ro_prov)
+service_three = Service.create!(title: "Color/Decoloracion", price: 1000, min_duration: 60, provider: ro_prov)
+
+service_one.icon.attach(io: URI.open('https://res.cloudinary.com/dmtio0viw/image/upload/v1613522761/Turna/haircut_and_beard_fs3clq.webp'), filename: 'haircut.png', content_type: 'image/png')
+
+service_two.icon.attach(io: URI.open('https://res.cloudinary.com/dmtio0viw/image/upload/v1613522760/Turna/haircut_hbf2ee.png'), filename: 'haircut.png', content_type: 'image/png')
+
+service_three.icon.attach(io: URI.open('https://res.cloudinary.com/dmtio0viw/image/upload/v1613522926/Turna/hair_color_s7vot7.png'), filename: 'haircut.png', content_type: 'image/png')
+
+service_one.save
+
+service_two.save
+
+service_three.save
 
 # IMAGES ATTACHING
 provider_1.each do |img|
