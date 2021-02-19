@@ -55,9 +55,9 @@ ActiveRecord::Schema.define(version: 2021_02_15_200813) do
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "rating"
     t.float "latitude"
     t.float "longitude"
-    t.integer "rating"
     t.datetime "opening_time"
     t.datetime "closing_time"
     t.string "neighborhood"

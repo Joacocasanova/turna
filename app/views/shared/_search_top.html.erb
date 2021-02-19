@@ -1,0 +1,20 @@
+<nav id="search-navbar" class="navbar fixed-top navbar-light bg-light m-0">
+  <div class="d-flex justify-content-between w-100">
+    <%= link_to root_path do %>
+      <img src="https://res.cloudinary.com/divzp8hs4/image/upload/v1613229854/Turna/LOGO_small_bze1ve.png" alt="Turna Logo" style="height:40px">
+    <% end %>
+    <div class="flex-row-reverse m-0">
+      <% if user_signed_in? %>
+        <%= simple_form_for root_path, url: providers_path, method: :get, html: { class: "m-0 py-0 px-0" } do |f| %>
+          <div class="col-12 d-inline-flex pr-0">
+            <%= f.input :localidad, as: :string, label: false, required: true, input_html: { placeholder:"Donde?", id: "provider_address"}, wrapper_html: { class: 'hide' } %>
+            <%= f.input :categoria, as: :select, label: false, collection: ["Peluqueria", "Dentista"], required: false %>
+            <%= f.button :button, class: "btn btn-primary rounded-circle ml-2", style: "width:40px;height:40px;" do %>
+              <i class="fas fa-search"></i>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</nav>

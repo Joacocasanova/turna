@@ -30,3 +30,22 @@
     font-family: 30px;
   }
 }
+
+#filters {
+  font-size: 13px;
+}
+
+@media (min-width: 1200px) {
+  #filters {
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+  }
+  .nav-pills {
+    justify-content: center;
+    margin-bottom: 5px;
+  }
+  #title {
+    text-align: center;
+  }
+}
