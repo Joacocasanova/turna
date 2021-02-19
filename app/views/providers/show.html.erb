@@ -1,7 +1,7 @@
 <div class="container mt-3">
-  <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+  <nav style="--bs-breadcrumb-divider: '>';margin-top: 50px;" aria-label="breadcrumb">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><%= @provider.category %></li>
+      <li class="breadcrumb-item"><%= @provider.category + 's'%></li>
       <li class="breadcrumb-item"><%= @provider.neighborhood.partition(",").first %></li>
       <li class="breadcrumb-item active" aria-current="page"><%= @provider.name %></li>
     </ol>
