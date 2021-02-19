@@ -1,8 +1,17 @@
-<div class="container mt-5">
-  <strong><h1 id="title" class="mt-5 pt-2">Tus turnos!</h1></strong>
-	<%= simple_form_for [ @booking, @review ] do |f| %>
-		<%= f.input :rating, :collection => 1..5 %>
-		<%= f.input :content %>
-		<%= f.submit "Envia tu opinión!", class: "btn btn-primary" %>
-	<% end %>
+<%= render 'shared/container' %>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12 col-md-12 col-sm-offset-4">
+			<div class="form-review">
+				<strong><h1 id="title" class="mt-5 pt-2">Tu opinión cuenta!</h1></strong>
+				<p>Dejanos una breve reseña, ayudanos a mejorar tu experiencia! <i class="fas fa-grin-alt" style="color:#FE6929"></i> </p>
+				<%= simple_form_for [ @booking, @review ] do |f| %>
+					<%= f.input :rating, :collection => 1..5 %>
+					<%= f.input :content %>
+					<%= f.submit "Enviar!", class: "btn btn-primary" %>
+				<% end %>
+			</div>
+		</div>
+	</div>
 </div>
+
