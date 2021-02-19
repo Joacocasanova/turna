@@ -23,6 +23,7 @@ class ProvidersController < ApplicationController
       {
         lat: @provider_geo[0],
         lng: @provider_geo[1],
+        infoWindow: render_to_string(partial: "info_window", locals: { provider: @provider })
       }
     end
     @booking = Booking.new
