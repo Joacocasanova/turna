@@ -36,14 +36,17 @@ provider_5 = ["https://res.cloudinary.com/divzp8hs4/image/upload/v1613086519/Tur
 
 # PROVIDERS CREATION
 
-<<<<<<< HEAD
 
 
-ro_prov = Provider.create!(category: "Peluqueria", name: "Pelu de RO", address: "Paraguay 5301, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", description: "Corte, tintura, manicura", rating: 5, opening_time: '10:00:00', closing_time: '20:00:00', neighborhood: "Palermo")
-tom_prov = Provider.create!(category: "Peluqueria", name: "Pelu de TOM", address: "Humboldt 2120, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", description: "Barba, corte, perfilado", rating: 4, opening_time: '10:00:00', closing_time: '20:00:00', neighborhood: "Palermo" )
-joaco_prov = Provider.create!(category: "Peluqueria", name: "Pelu de JOACO", address: "Bonpland 1874, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", description: "Corte, depilacion, alisados", rating: 3, opening_time: '10:00:00', closing_time: '20:00:00', neighborhood: "Palermo" )
-guido_prov = Provider.create!(category: "Peluqueria", name: "Pelu de Guido", address: "Soler 5608, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", description: "Tintura, depilacion, perfilado", rating: 5, opening_time: '10:00:00', closing_time: '20:00:00', neighborhood: "Palermo" )
-camilo_prov = Provider.create!(category: "Peluqueria", name: "Pelu de Camilo", address: "Fitz Roy 1834, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", description: "Barba, alisado, manicura", rating: 4, opening_time: '10:00:00', closing_time: '20:00:00', neighborhood: "Palermo" )
+ro_prov = Provider.create!(category: "Peluqueria", name: "Pelu de RO", address: "Paraguay 5301, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", description: "Corte, tintura, manicura", rating: 5, opening_time: '10:00', closing_time: '20:00', neighborhood: "Palermo, Autonomous City of Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina")
+tom_prov = Provider.create!(category: "Peluqueria", name: "Pelu de TOM", address: "Humboldt 2120, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", description: "Barba, corte, perfilado", rating: 4, opening_time: '10:00', closing_time: '20:00', neighborhood: "Palermo, Autonomous City of Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina
+" )
+joaco_prov = Provider.create!(category: "Peluqueria", name: "Pelu de JOACO", address: "Bonpland 1874, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", description: "Corte, depilacion, alisados", rating: 3, opening_time: '10:00', closing_time: '20:00', neighborhood: "Palermo, Autonomous City of Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina
+" )
+guido_prov = Provider.create!(category: "Peluqueria", name: "Pelu de Guido", address: "Soler 5608, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", description: "Tintura, depilacion, perfilado", rating: 5, opening_time: '10:00', closing_time: '20:00', neighborhood: "Palermo, Autonomous City of Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina
+" )
+camilo_prov = Provider.create!(category: "Peluqueria", name: "Pelu de Camilo", address: "Fitz Roy 1834, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", description: "Barba, alisado, manicura", rating: 4, opening_time: '10:00', closing_time: '20:00', neighborhood: "Palermo, Autonomous City of Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina
+" )
 
 service_one = Service.create!(title: "Corte y arreglo de barba", price: 900, min_duration: 45, provider: ro_prov)
 service_two = Service.create!(title: "Corte de Pelo", price: 800, min_duration: 30, provider: ro_prov)
@@ -60,13 +63,6 @@ service_one.save
 service_two.save
 
 service_three.save
-=======
-ro_prov = Provider.create!(category: "Peluqueria", name: "Pelu de RO", address: "Paraguay 5301, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", description: "Corte, tintura, manicura", rating: 5, opening_time: '10:00:00', closing_time: '20:00:00', neighborhood: "Palermo, Autonomous City of Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina")
-tom_prov = Provider.create!(category: "Peluqueria", name: "Pelu de TOM", address: "Humboldt 2120, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", description: "Barba, corte, perfilado", rating: 4, opening_time: '12:00:00', closing_time: '20:00:00', neighborhood: "Palermo, Autonomous City of Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina" )
-joaco_prov = Provider.create!(category: "Peluqueria", name: "Pelu de JOACO", address: "Bonpland 1874, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", description: "Corte, depilacion, alisados", rating: 3, opening_time: '12:00:00', closing_time: '19:00:00', neighborhood: "Palermo, Autonomous City of Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina" )
-guido_prov = Provider.create!(category: "Peluqueria", name: "Pelu de Guido", address: "Soler 5608, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", description: "Tintura, depilacion, perfilado", rating: 5, opening_time: '10:00:00', closing_time: '18:00:00', neighborhood: "Palermo, Autonomous City of Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina" )
-camilo_prov = Provider.create!(category: "Peluqueria", name: "Pelu de Camilo", address: "Fitz Roy 1834, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", description: "Barba, alisado, manicura", rating: 4, opening_time: '10:00:00', closing_time: '19:00:00', neighborhood: "Palermo, Autonomous City of Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina" )
->>>>>>> master
 
 # IMAGES ATTACHING
 provider_1.each do |img|

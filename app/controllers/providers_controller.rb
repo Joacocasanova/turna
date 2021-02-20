@@ -21,7 +21,6 @@ class ProvidersController < ApplicationController
         infoWindow: render_to_string(partial: "info_window", locals: { provider: @provider })
       }]
     @booking = Booking.new
-    @review = Review.new
   end
 
   private

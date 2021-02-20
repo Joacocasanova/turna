@@ -30,38 +30,7 @@
     </div>
 
     <hr>
-  <section class="team-section text-center my-5">
 
-    <!-- Section heading -->
-    <h2 class="h1-responsive font-weight-bold my-2" >Necesitas mas información?</h2>
-    <!-- Section description -->
-    <p class="dark-grey-text w-responsive mx-auto mb-5">Encontrá debajo las recomendaciones de otros usuarios!</p>
-
-    <!--Grid row-->
-    <div class="row text-center">
-        <% @provider.bookings.each do | booking| %>
-            <!--Grid column-->
-            <div class="col-md-4 mb-md-0 mb-5">
-
-              <div class="testimonial">
-                <!--Avatar-->
-                  <%= cl_image_tag booking.customer.avatar.key, style:"height:150px;width:150px", class:"rounded-circle mr-2" %>
-                <!--Content-->
-                <h4 class="font-weight-bold dark-grey-text mt-4"><%= booking.customer.name %></h4>
-                <p class="font-weight-normal dark-grey-text">
-                  <i class="fas fa-quote-left pr-2" style="color:#FE6929"></i><%= booking.content %></p>
-                <!--Review-->
-                <div class="orange-text">
-                  <p><strong>Rating:</strong><% booking.rating.times do  %> <i class="fas fa-star"></i>
-                  <% end %></p>
-                </div>
-              </div>
-            </div>
-        <% end %>
-
-      </div>
-
-</section>
   <hr>
 
     <h2 class="subtitle text-center font-weight-bold my-2">Servicios</h6>
@@ -69,7 +38,7 @@
         <div class="d-flex justify-content-around row">
           <% @provider.services.each do |provider_service| %>
             <div class="col-12 col-md-4 text-center">
-              <div class=" d-flex flex-column align-items-center services-cards"  data-service-id='<%=provider_service.id %>'  data-opening-time="<%= @provider.opening_time %>" data-closing-time="<%= @provider.opening_time %>" data-time-interval="<%= provider_service.min_duration %>">
+              <div class=" d-flex flex-column align-items-center services-cards"  data-service-id='<%=provider_service.id %>'  data-opening-time="<%= @provider.opening_time %>" data-closing-time="<%= @provider.closing_time %>" data-time-interval="<%= provider_service.min_duration %>">
                 <%= cl_image_tag provider_service.icon.key, style:"height:150px;width:150px", class:"rounded-circle m-4" %>
                 <h5><%= provider_service.title %></h5>
               </div>
@@ -83,7 +52,7 @@
 }
 </style>
     <hr>
-    <h5>Saca tu turno!</h5>
+    <h5 class="subtitle text-center font-weight-bold my-2">Saca tu turno!</h5>
     <div class="col-12">
       <div class="flat-show-card">
         <%= simple_form_for [@provider, @booking] do |f| %>

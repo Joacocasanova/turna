@@ -3,9 +3,7 @@ import 'flatpickr/dist/themes/material_orange.css';
 
 const initflatpickr = () => {
   const datePickrs = document.querySelectorAll(".datepicker")
-  console.log(datePickrs);
   datePickrs.forEach( (datepicker) => {
-    console.log(datepicker)
     flatpickr(datepicker, {
       altInput: true,
       enableTime: true,
