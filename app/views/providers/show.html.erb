@@ -1,6 +1,6 @@
 <%= render 'shared/container' %>
-<div class="container mt-3">
-  <nav style="--bs-breadcrumb-divider: '>';margin-top: 50px;" aria-label="breadcrumb">
+<div class="container">
+  <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><%= @provider.category + 's'%></li>
       <li class="breadcrumb-item"><%= @provider.neighborhood.partition(",").first %></li>
@@ -11,6 +11,31 @@
 
   <h6 style="color:#FE6929"><strong><%= @provider.name %></strong></h6>
 
+  <div class="row">
+    <div class="col-12">
+      <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <% @provider.photos.each_with_index do |photo, index| %>
+          <div class="carousel-item <%= index == 0 ? 'active' : "" %>">
+            <div class="card-product">
+              <%= cl_image_tag photo.key, class: "d-block w-100 imgsize rounded"%>
+            </div>
+          </div>
+          <% end %>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  
   <h6 class="subtitle">Descripción</h6>
 
   <p><%= @provider.description %></p>
