@@ -1,20 +1,29 @@
 import { initflatpickr } from "../plugins/flatpickr"
 
+const setFlatpickrValues = () => {
+  return new Promise(resolve => {
+    const activeService = document.querySelector(".orange-background")
+    const hiddenInputServiceId = document.querySelector("#booking_service_id");
+    const hiddenInputDateTime = document.querySelector("#booking_start_datetime");
+    hiddenInputServiceId.value = activeService.dataset.serviceId;
+    const opens = activeService.dataset.openingTime;
+    const closes = activeService.dataset.closingTime;
+    const timeInterval = activeService.dataset.timeInterval;
+    resolve([opens, closes, timeInterval])
+  })
+}
+
 const cardSelector = () => {
-  const form = document.querySelectorAll(".services-cards");
-  const hiddenInput = document.querySelector("#booking_service_id");
-  const startDateInput = document.querySelector("#booking_start_datetime")
-  form.forEach((serviceCard) => {
+  const inputFlatPicker = document.querySelector(".flat-show-card")
+  const cards = document.querySelectorAll(".services-cards");
+  cards.forEach((serviceCard) => {
     serviceCard.addEventListener('click', (event) => {
-      form.forEach((card) => {
+      inputFlatPicker.classList.remove('d-none');
+      cards.forEach((card) => {
         card.classList.remove('orange-background');
       });
       serviceCard.classList.add('orange-background');
-      hiddenInput.value = serviceCard.dataset.serviceId;
-      startDateInput.dataset.openingTime = serviceCard.dataset.openingTime;
-      startDateInput.dataset.endingTime = serviceCard.dataset.endingTime;
-      startDateInput.dataset.timeInterval = serviceCard.dataset.timeInterval;
-      initflatpickr();
+      setFlatpickrValues().then(hours => initflatpickr(hours[0], hours[1], hours[2]))
     });
   });
 }

@@ -40,6 +40,6 @@ document.addEventListener('turbolinks:load', () => {
   initMapbox();
   initAutocomplete();
   initStarRating();
-  initflatpickr();
+  //initflatpickr("10:00", "20:00", "60");
   cardSelector();
 });

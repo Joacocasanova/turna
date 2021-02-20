@@ -58,36 +58,12 @@
 
   <hr>
 
-<!--Grid row
-    <div class="row text-center">
-        <% @provider.reviews.each do |review| %>
-
-          <div class="col-md-4 mb-md-0 mb-5">
-
-            <div class="testimonial">
-
-                <%= cl_image_tag review.user.avatar.key, style:"height:150px;width:150px", class:"rounded-circle mr-2" %>
-
-              <h4 class="font-weight-bold dark-grey-text mt-4"><%= review.user.name %></h4>
-              <p class="font-weight-normal dark-grey-text">
-                <i class="fas fa-quote-left pr-2" style="color:#FE6929"></i><%= review.content %></p>
-
-              <div class="orange-text">
-                <p><strong>Rating:</strong><% review.rating.times do  %> <i class="fas fa-star"></i>
-                <% end %></p>
-              </div>
-            </div>
-          </div>
-        <% end %>
-
-      </div> -->
-
     <h2 class="subtitle text-center font-weight-bold my-2">Servicios</h6>
       <div class="container">
         <div class="d-flex justify-content-around row">
           <% @provider.services.each do |provider_service| %>
             <div class="col-12 col-md-4 text-center">
-              <div class=" d-flex flex-column align-items-center services-cards"  data-service-id='<%=provider_service.id %>'  data-opening-time="<%= @provider.opening_time %>" data-closing-time="<%= @provider.closing_time %>" data-time-interval="<%= provider_service.min_duration %>">
+              <div class=" d-flex flex-column align-items-center services-cards"  data-service-id='<%=provider_service.id %>'  data-opening-time="<%= @provider.opens %>" data-closing-time="<%= @provider.closes %>" data-time-interval="<%= provider_service.min_duration %>">
                 <%= cl_image_tag provider_service.icon.key, style:"height:150px;width:150px", class:"rounded-circle m-4" %>
                 <h5><%= provider_service.title %></h5>
               </div>
@@ -103,10 +79,10 @@
     <hr>
     <h5 class="subtitle text-center font-weight-bold my-2">Saca tu turno!</h5>
     <div class="col-12">
-      <div class="flat-show-card">
+      <div class="flat-show-card d-none">
         <%= simple_form_for [@provider, @booking] do |f| %>
         <%= f.input :service_id , as: :hidden %>
-        <%=f.input :start_datetime, as: :string, required: false, input_html: {class: "datepicker", data: {opening_time: @provider.opening_time, closing_time: @provider.closing_time }}  %>
+        <%=f.input :start_datetime, as: :string, required: false, input_html: {class: "datepicker", data: {opening_time: @provider.opens, closing_time: @provider.closes }}  %>
           <%=f.submit "Reservar!", class: "btn btn-primary mt-2 textclass" %>
         <% end %>
 
