@@ -3,12 +3,9 @@ class ProvidersController < ApplicationController
   before_action :set_provider, only: [ :show ]
 
   def index
-    @providers = Provider.all.where(neighborhood: params["/"]["localidad"], category: params["/"]["categoria"])
-    
-    @providers_geo = @providers.geocoded
-
+    @providers = Provider.with_geocode.where("neighborhood @@ '%#{params[:localidad]}%'").where(category: params[:categoria])
     # the `geocoded` scope filters only flats with coordinates (latitude & longitude)
-    @markers = @providers_geo.geocoded.map do |provider|
+    @markers = @providers.map do |provider|
       {
         lat: provider.latitude,
         lng: provider.longitude,
@@ -18,15 +15,11 @@ class ProvidersController < ApplicationController
   end
 
   def show
-    @providers = Provider.all
-    @provider_geo = @provider.geocode
-    @markers = @provider_geo.map do |provider|
-      {
-        lat: @provider_geo[0],
-        lng: @provider_geo[1],
+    @markers = [{
+        lat: @provider.latitude,
+        lng: @provider.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { provider: @provider })
-      }
-    end
+      }]
     @booking = Booking.new
     @review = Review.new
   end

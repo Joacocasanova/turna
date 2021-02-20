@@ -6,6 +6,8 @@ class Provider < ApplicationRecord
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
+  
+  scope :with_geocode, -> { where.not(latitude: nil, longitude: nil) }
 
   validates :category, presence: true
   validates :name, presence: true
