@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_17_001409) do
+ActiveRecord::Schema.define(version: 2021_02_19_013448) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,10 +41,10 @@ ActiveRecord::Schema.define(version: 2021_02_17_001409) do
     t.datetime "end_datetime"
     t.string "status"
     t.bigint "user_id", null: false
-    t.bigint "provider_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["provider_id"], name: "index_bookings_on_provider_id"
+    t.bigint "service_id", null: false
+    t.index ["service_id"], name: "index_bookings_on_service_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
@@ -55,9 +55,9 @@ ActiveRecord::Schema.define(version: 2021_02_17_001409) do
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "rating"
     t.float "latitude"
     t.float "longitude"
-    t.integer "rating"
     t.datetime "opening_time"
     t.datetime "closing_time"
     t.string "neighborhood"
@@ -101,7 +101,7 @@ ActiveRecord::Schema.define(version: 2021_02_17_001409) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "bookings", "providers"
+  add_foreign_key "bookings", "services"
   add_foreign_key "bookings", "users"
   add_foreign_key "providers", "services"
   add_foreign_key "reviews", "bookings"

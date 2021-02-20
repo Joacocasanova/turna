@@ -25,13 +25,13 @@ class ProvidersController < ApplicationController
       }
     end
     @booking = Booking.new
-    #@flats_nearby = Flat.where( location: @flat.location ).where.not( id: @flat.id )
+    @review = Review.new
   end
 
   private
 
   def provider_params
-    params.require(:provider).permit(:name, :description, :address, :category, :rating, photos: [])
+    params.require(:provider).permit(:name, :description, :address, :category, :rating, :neighborhood, photos: [])
   end
 
   def set_provider

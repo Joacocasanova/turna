@@ -38,24 +38,24 @@
 
     <!--Grid row-->
     <div class="row text-center">
-        <% @provider.reviews.each do |review| %>
-          <!--Grid column-->
-          <div class="col-md-4 mb-md-0 mb-5">
+        <% @provider.bookings.each do | booking_review| %>
+            <!--Grid column-->
+            <div class="col-md-4 mb-md-0 mb-5">
 
-            <div class="testimonial">
-              <!--Avatar-->
-                <%= cl_image_tag review.user.avatar.key, style:"height:150px;width:150px", class:"rounded-circle mr-2" %>
-              <!--Content-->
-              <h4 class="font-weight-bold dark-grey-text mt-4"><%= review.user.name %></h4>
-              <p class="font-weight-normal dark-grey-text">
-                <i class="fas fa-quote-left pr-2" style="color:#FE6929"></i><%= review.content %></p>
-              <!--Review-->
-              <div class="orange-text">
-                <p><strong>Rating:</strong><% review.rating.times do  %> <i class="fas fa-star"></i>
-                <% end %></p>
+              <div class="testimonial">
+                <!--Avatar-->
+                  <%= cl_image_tag booking_review.customer.avatar.key, style:"height:150px;width:150px", class:"rounded-circle mr-2" %>
+                <!--Content-->
+                <h4 class="font-weight-bold dark-grey-text mt-4"><%= booking_review.customer.name %></h4>
+                <p class="font-weight-normal dark-grey-text">
+                  <i class="fas fa-quote-left pr-2" style="color:#FE6929"></i><%= booking_review.content %></p>
+                <!--Review-->
+                <div class="orange-text">
+                  <p><strong>Rating:</strong><% booking_review.rating.times do  %> <i class="fas fa-star"></i>
+                  <% end %></p>
+                </div>
               </div>
             </div>
-          </div>
         <% end %>
 
       </div>
@@ -68,7 +68,7 @@
         <div class="d-flex justify-content-around row">
           <% @provider.services.each do |provider_service| %>
             <div class="col-12 col-md-4 text-center">
-              <div class=" d-flex flex-column align-items-center">
+              <div class=" d-flex flex-column align-items-center services-cards"  data-service-id='<%=provider_service.id %>'  data-opening-time="<%= @provider.opening_time %>" data-closing-time="<%= @provider.opening_time %>" data-time-interval="<%= provider_service.min_duration %>">
                 <%= cl_image_tag provider_service.icon.key, style:"height:150px;width:150px", class:"rounded-circle m-4" %>
                 <h5><%= provider_service.title %></h5>
               </div>
@@ -76,12 +76,17 @@
           <% end %>
         </div>
       </div>
-
+<style>
+.orange-background {
+  background-color: #FE6929;
+}
+</style>
     <hr>
     <h5>Saca tu turno!</h5>
     <div class="col-12">
       <div class="flat-show-card">
         <%= simple_form_for [@provider, @booking] do |f| %>
+        <%= f.input :service_id , as: :hidden %>
         <%=f.input :start_datetime, as: :string, required: false, input_html: {class: "datepicker", data: {opening_time: @provider.opening_time, closing_time: @provider.closing_time }}  %>
           <%=f.submit "Reservar!", class: "btn btn-primary mt-2 textclass" %>
         <% end %>

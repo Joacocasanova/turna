@@ -30,6 +30,7 @@ import "bootstrap";
 import { initMapbox } from '../plugins/init_mapbox';
 import { initAutocomplete } from '../plugins/init_autocomplete';
 import { initflatpickr } from '../plugins/flatpickr';
+import { cardSelector } from '../packs/show';
 
 
 document.addEventListener('turbolinks:load', () => {
@@ -38,4 +39,5 @@ document.addEventListener('turbolinks:load', () => {
   initMapbox();
   initAutocomplete();
   initflatpickr();
+  cardSelector();
 });
