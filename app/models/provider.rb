@@ -6,7 +6,7 @@ class Provider < ApplicationRecord
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
-  
+
   scope :with_geocode, -> { where.not(latitude: nil, longitude: nil) }
 
   validates :category, presence: true
@@ -17,4 +17,12 @@ class Provider < ApplicationRecord
   validates :opening_time, presence: true
   validates :closing_time, presence: true
   validates :neighborhood, presence:true
+
+  def opens
+    opening_time.strftime("%H:%M")
+  end
+
+  def closes
+    closing_time.strftime("%H:%M")
+  end
 end
