@@ -9,6 +9,7 @@
     "bootstrap": "^4.6.0",
     "flatpickr": "^4.6.9",
     "jquery": "^3.5.1",
+    "jquery-bar-rating": "^1.2.2",
     "mapbox-gl": "^2.1.1",
     "node-gyp": "^7.1.2",
     "places": "^0.0.2",

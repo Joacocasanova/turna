@@ -29,8 +29,12 @@ import "bootstrap";
 // import { initSelect2 } from '../components/init_select2';
 import { initMapbox } from '../plugins/init_mapbox';
 import { initAutocomplete } from '../plugins/init_autocomplete';
+<<<<<<< HEAD
 import { initflatpickr } from '../plugins/flatpickr';
 import { cardSelector } from '../packs/show';
+=======
+import { initStarRating } from '../plugins/init_star_rating';
+>>>>>>> master
 
 
 document.addEventListener('turbolinks:load', () => {
@@ -38,6 +42,10 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
   initMapbox();
   initAutocomplete();
+<<<<<<< HEAD
   initflatpickr();
   cardSelector();
+=======
+  initStarRating();
+>>>>>>> master
 });

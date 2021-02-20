@@ -22,33 +22,3 @@
     </div>
   </div>
 </nav>
-
-
-
-<nav id="bottom-navbar" class="navbar fixed-bottom navbar-light bg-light">
-  <div class="d-flex justify-content-between w-100">
-    <%= link_to root_path do  %>
-      <div class="icons d-flex flex-column">
-        <i class="fas fa-home"></i>Home
-      </div>
-    <% end %>
-    <%= link_to bookings_path do  %>
-      <div class="icons d-flex flex-column align-center">
-        <i class="far fa-calendar-check"></i>Mis Turnos
-      </div>
-    <% end %>
-
-
-    <% if  %>
-      <%= link_to edit_user_registration_path(current_user) do  %>
-        <div class="icons d-flex flex-column align-center">
-          <i class="fas fa-user"></i>Mi Perfil
-        </div>
-      <% end %>
-    <% else %>
-        <div class="icons d-flex flex-column align-center">
-          <i class="fas fa-user fa-disabled"></i>Mi Perfil
-        </div>
-    <% end %>
-  </div>
-</nav>

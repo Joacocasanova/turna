@@ -12,11 +12,11 @@
   </head>
 
   <body>
+    <%= render 'shared/navbars' %>
     <%= render 'shared/flashes' %>
     <div class="contianer w-100">
       <%= yield %>
     </div>
-    <%= render 'shared/navbar' unless controller_name == "pages" && action_name == "introduction" %>
   
     <script>
     var prevScrollpos = window.pageYOffset;
@@ -35,5 +35,3 @@
   </body>
 </html>
 
-<%#= render :partial => "foo/bar" if @conditions %>
-<%#= render :partial => "pages/partials/sub_nav"  if controller_name == "company" %>
