@@ -5,9 +5,16 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(bookings_params)
     @provider = Provider.find(params[:provider_id])
+    @service = Service.find(params["booking"]["service_id"])
     @booking.customer = current_user
-    @booking.provider = @provider
     @booking.status = "accepted"
+    @booking.service = @service
+    if @service.min_duration == 30
+      time_duration = 0.5.hour
+    else
+      time_duration = 1.hour
+    end
+    @booking.end_datetime = @booking.start_datetime + time_duration
     if @booking.save
       redirect_to root_path
     else
