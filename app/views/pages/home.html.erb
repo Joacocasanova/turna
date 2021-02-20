@@ -4,18 +4,16 @@
       <strong><h1 id="title" class="m-3">Una nueva forma de organizar tus días</h1></strong>
       <p id="description" class="m-3">Usá nuestro sistema de gestión de turnos en todos tus lugares favoritos y no esperes nunca más para entrar a un lugar.</p>
     </div>
-    <%= simple_form_for root_path, url: providers_path, method: :get, html: { class: " m-0 py-3 px-4" } do |f| %>
+    <%= form_with local: true, url: providers_path, method: :get do |f| %>
           <div class="row align-items-center justify-content-around p-2">
             <div class="col-12 col-sm-12 col-md-6">
-              <%=f.input :localidad, as: :string, required: true, input_html: { placeholder:"¿Donde estás?", id: "provider_address", required: true } %>
+              <%=f.text_field :localidad, as: :string, required: true, placeholder:"¿Donde estás?", id: "provider_address" %>
             </div>
             <div class="col-12 col-sm-12 col-md-6">
-              <%= f.input :categoria, as: :select, collection: ["Peluqueria", "Dentista"], prompt: 'Seleccionar', required: true %>
+              <%= f.select :categoria, [["Peluqueria", "Peluqueria"], ["Dentista", "Dentista"]], required: true %>
             </div>
             <div class="col-12 col-md-6">
-              <%= f.button :button, class: "btn btn-lg btn-primary mt-2", style: "width:100%;border-radius:5px" do %>
-                <span>Buscar</span>
-              <% end %>
+              <%= f.submit 'Buscar', class: "btn btn-lg btn-primary mt-2", style: "width:100%;border-radius:5px" %>
             </div>
           </div>
     <% end %>
