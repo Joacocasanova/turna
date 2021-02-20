@@ -35,7 +35,7 @@
     </div>
   </div>
 
-  
+
   <h6 class="subtitle">Descripción</h6>
 
   <p><%= @provider.description %></p>
@@ -53,29 +53,25 @@
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
      </div>
     </div>
-    
+
     <hr>
-  <section class="team-section text-center my-5">
 
-    <!-- Section heading -->
-    <h2 class="h1-responsive font-weight-bold my-2" >Necesitas mas información?</h2>
-    <!-- Section description -->
-    <p class="dark-grey-text w-responsive mx-auto mb-5">Encontrá debajo las recomendaciones de otros usuarios!</p>
+  <hr>
 
-    <!--Grid row-->
+<!--Grid row
     <div class="row text-center">
         <% @provider.reviews.each do |review| %>
-          <!--Grid column-->
+
           <div class="col-md-4 mb-md-0 mb-5">
 
             <div class="testimonial">
-              <!--Avatar-->
+
                 <%= cl_image_tag review.user.avatar.key, style:"height:150px;width:150px", class:"rounded-circle mr-2" %>
-              <!--Content-->
+
               <h4 class="font-weight-bold dark-grey-text mt-4"><%= review.user.name %></h4>
               <p class="font-weight-normal dark-grey-text">
                 <i class="fas fa-quote-left pr-2" style="color:#FE6929"></i><%= review.content %></p>
-              <!--Review-->
+
               <div class="orange-text">
                 <p><strong>Rating:</strong><% review.rating.times do  %> <i class="fas fa-star"></i>
                 <% end %></p>
@@ -84,59 +80,38 @@
           </div>
         <% end %>
 
-      </div>
+      </div> -->
 
-</section>
-  <hr>
-
-    <h6 class="subtitle">Servicios</h6>
-
-    <div class="container">
-      <div class="d-flex justify-content-around">
-        <div class="icon" style="border-style: solid;border-radius: 10px;height: 50px;width: 50px">
-          <div class="options">
-          <i class="fas fa-cut fas"></i>
-          </div>
-        </div>
-
-
-
-        <div class="icon" style="border-style: solid;border-radius: 10px;height: 50px;width: 50px">
-          <div class="options">
-          <i class="fas fa-paint-brush"></i>
-          </div>
-        </div>
-
-        <div class="icon" style="border-style: solid;border-radius: 10px;height: 50px;width: 50px">
-          <div class="options">
-          <i class="fas fa-cut"></i>
-          </div>
+    <h2 class="subtitle text-center font-weight-bold my-2">Servicios</h6>
+      <div class="container">
+        <div class="d-flex justify-content-around row">
+          <% @provider.services.each do |provider_service| %>
+            <div class="col-12 col-md-4 text-center">
+              <div class=" d-flex flex-column align-items-center services-cards"  data-service-id='<%=provider_service.id %>'  data-opening-time="<%= @provider.opening_time %>" data-closing-time="<%= @provider.closing_time %>" data-time-interval="<%= provider_service.min_duration %>">
+                <%= cl_image_tag provider_service.icon.key, style:"height:150px;width:150px", class:"rounded-circle m-4" %>
+                <h5><%= provider_service.title %></h5>
+              </div>
+            </div>
+          <% end %>
         </div>
       </div>
-    </div>
-
+<style>
+.orange-background {
+  background-color: #FE6929;
+}
+</style>
     <hr>
-    <h6 class="subtitle">Elegí la fecha</h6>
+    <h5 class="subtitle text-center font-weight-bold my-2">Saca tu turno!</h5>
+    <div class="col-12">
+      <div class="flat-show-card">
+        <%= simple_form_for [@provider, @booking] do |f| %>
+        <%= f.input :service_id , as: :hidden %>
+        <%=f.input :start_datetime, as: :string, required: false, input_html: {class: "datepicker", data: {opening_time: @provider.opening_time, closing_time: @provider.closing_time }}  %>
+          <%=f.submit "Reservar!", class: "btn btn-primary mt-2 textclass" %>
+        <% end %>
 
-    <div class="resumen mb-2">
-
+      </div>
     </div>
-
-    <h6 class="subtitle">Elegí el horario</h6>
-
-    <div class="rating d-flex justify-content-center">
-      <button type="button" class="btn btn-lg btn-secondary mt-2; text-center" style="border-radius: 10px;">Horarios</button>
-    </div>
-    <h6 class="subtitle">Resumen</h6>
-
-    <div class="resumen">
-
-    </div>
-
-    <div class="rating d-flex justify-content-center">
-      <button type="button" class="btn btn-lg btn-primary mt-2" style="border-radius: 10px">Reservar turno</button>
-    </div>
-  </div>
 
   <div class="container" style="height:100px">
   </div>

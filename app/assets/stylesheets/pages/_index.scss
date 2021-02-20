@@ -1,5 +1,8 @@
 // Import page-specific CSS files here.
 @import "home";
+@import "show";
+
+
 
 .filters {
   display: flex;
@@ -29,4 +32,8 @@
 .separador {
   margin-top: 5px;
   border-color: #FE6929;
+}
+
+.orange-background {
+  background: #FE6929;
 }
