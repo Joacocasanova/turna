@@ -2,28 +2,23 @@
   <div class="container mt-3">
     <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><%= params["categoria"] + 's' %></li>
-        <li class="breadcrumb-item active" aria-current="page"> <%= params["localidad"].partition(",").first %></li>
+
       </ol>
     </nav>
 
     <hr class="separador">
     <div class="filters col-12 col-md-4">
-      <h6>Filtrar por: </h6>
-      <button type="button" class="btn btn-primary" style="border-radius: 10%;
-    padding: 3px 6px">Precio</button>
-      <button type="button" class="btn btn-primary" style="border-radius: 10%;
-    padding: 3px 6px">Rating</button>
-      <button type="button" class="btn btn-primary" style="border-radius: 10%;
-    padding: 3px 6px">Servicios</button>
+      <h6>Ordenar por: </h6>
+      <button type="button" class="btn btn-primary btnfilter" style="border-radius: 10%; padding: 3px 6px"><%= sort_link @search, :rating %></button>
+      <button type="button" class="btn btn-primary btnfilter" style="border-radius: 10%; padding: 3px 6px"><%= sort_link @search, :rating %></button>
     </div>
 
     <%= search_form_for @search do |f| %>
       <div class="field">
         <%= f.label :name, "Name contains" %>
-        <%= f.text_field :name %>
-        <%= f.label :latitude, "Latitude contains" %>
-        <%= f.text_field :latitude %>
+        <%= f.search_field :name_cont %>
+        <%= hidden_field_tag :localidad, params[:localidad] %>
+        <%= hidden_field_tag :categoria, params[:categoria] %>
       </div>
       <div class="actions"><%= f.submit "Search" %></div>
     <% end %>

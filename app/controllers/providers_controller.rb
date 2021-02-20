@@ -3,9 +3,9 @@ class ProvidersController < ApplicationController
   before_action :set_provider, only: [ :show ]
 
   def index
-    @search = Provider.ransack(params[:q])
+    @search = Provider.with_geocode.where("neighborhood @@ '%#{params[:localidad]}%'").where(category: params[:categoria]).ransack(params[:q])
 
-    @providers = @search.result.with_geocode.where("neighborhood @@ '%#{params[:localidad]}%'").where(category: params[:categoria])
+    @providers = @search.result
 
     @markers = @providers.map do |provider|
       {
