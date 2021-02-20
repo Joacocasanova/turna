@@ -18,6 +18,16 @@
     padding: 3px 6px">Servicios</button>
     </div>
 
+    <%= search_form_for @search do |f| %>
+      <div class="field">
+        <%= f.label :name, "Name contains" %>
+        <%= f.text_field :name %>
+        <%= f.label :latitude, "Latitude contains" %>
+        <%= f.text_field :latitude %>
+      </div>
+      <div class="actions"><%= f.submit "Search" %></div>
+    <% end %>
+  
     <div class="cards">
       <div class="row">
         <% @providers.each do |provider| %>
