@@ -35,7 +35,7 @@
     </div>
   </div>
 
-  
+
   <h6 class="subtitle">Descripción</h6>
 
   <p><%= @provider.description %></p>
@@ -57,6 +57,30 @@
     <hr>
 
   <hr>
+
+<!--Grid row
+    <div class="row text-center">
+        <% @provider.reviews.each do |review| %>
+
+          <div class="col-md-4 mb-md-0 mb-5">
+
+            <div class="testimonial">
+
+                <%= cl_image_tag review.user.avatar.key, style:"height:150px;width:150px", class:"rounded-circle mr-2" %>
+
+              <h4 class="font-weight-bold dark-grey-text mt-4"><%= review.user.name %></h4>
+              <p class="font-weight-normal dark-grey-text">
+                <i class="fas fa-quote-left pr-2" style="color:#FE6929"></i><%= review.content %></p>
+
+              <div class="orange-text">
+                <p><strong>Rating:</strong><% review.rating.times do  %> <i class="fas fa-star"></i>
+                <% end %></p>
+              </div>
+            </div>
+          </div>
+        <% end %>
+
+      </div> -->
 
     <h2 class="subtitle text-center font-weight-bold my-2">Servicios</h6>
       <div class="container">

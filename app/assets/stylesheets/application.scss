@@ -8,15 +8,11 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import 'mapbox-gl/dist/mapbox-gl';
+@import "jquery-bar-rating/dist/themes/css-stars";
+@import "flatpickr/dist/flatpickr";
 
 // Your CSS partials
 @import "components/index";
-@import "components/buttons";
-@import "components/cards";
 @import "pages/index";
 @import "pages/show";
 @import "pages/introduction";
-@import "components/buttons";
-@import "components/forms";
-@import "jquery-bar-rating/dist/themes/css-stars";
-@import "flatpickr/dist/flatpickr";
