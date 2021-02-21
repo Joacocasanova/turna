@@ -22,10 +22,10 @@
           <% @accepted.each do |booking| %>
             <div class="col-12 col-md-4">
                 <div class="card-product">
-                  <%= cl_image_tag booking.provider.photos.first.key, class: "card-img-index" %>
+                  <%= cl_image_tag booking.service.provider.photos.first.key, class: "card-img-index" %>
                   <div class="card-product-infos">
-                    <h2><%= booking.provider.name %></h2>
-                    <p class="description" style="margin-bottom: 10px"><%= booking.provider.description %></p>
+                    <h2><%= booking.service.provider.name %></h2>
+                    <p class="description" style="margin-bottom: 10px"><%= booking.service.provider.description %></p>
                     <p class="description" style="margin-bottom: 5px">Fecha del turno: <%= booking.start_datetime.strftime('%d/%m/%Y') %></p>
                       <%= simple_form_for booking do |f| %>
                         <%= f.hidden_field :status, value: "canceled" %>
@@ -36,19 +36,19 @@
             </div>
           <% end %>
         </div>
-      </div>    
+      </div>
     </div>
     <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-    
+
       <div class="cards">
         <div class="row">
           <% @completed.each do |booking| %>
             <div class="col-12 col-md-4">
                 <div class="card-product">
-                  <%= cl_image_tag booking.provider.photos.first.key, class: "card-img-index" %>
+                  <%= cl_image_tag booking.service.provider.photos.first.key, class: "card-img-index" %>
                   <div class="card-product-infos">
-                    <h2><%= booking.provider.name %></h2>
-                    <p class="description" style="margin-bottom: 10px"><%= booking.provider.description %></p>
+                    <h2><%= booking.service.provider.name %></h2>
+                    <p class="description" style="margin-bottom: 10px"><%= booking.service.provider.description %></p>
                     <p class="description" style="margin-bottom: 5px">Fecha del turno: <%= booking.start_datetime.strftime('%d/%m/%Y') %></p>
                     <% if booking.review.blank? %>
                       <button type="button" class="btn btn-light" style="border-radius: 10px;" data-toggle="modal" data-target="#exampleModal"><%= link_to 'Opinar', new_booking_review_path(booking) %></button>
@@ -78,22 +78,22 @@
                       </div>
                     <% end %>
                   </div>
-                </div>     
+                </div>
             </div>
           <% end %>
         </div>
       </div>
     </div>
     <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-      <div class="cards pb" style="padding-bottom: 80px">    
+      <div class="cards pb" style="padding-bottom: 80px">
         <div class="row">
           <% @canceled.each do |booking| %>
             <div class="col-12 col-md-4">
                 <div class="card-product">
-                  <%= cl_image_tag booking.provider.photos.first.key, class: "card-img-index" %>
+                  <%= cl_image_tag booking.service.provider.photos.first.key, class: "card-img-index" %>
                   <div class="card-product-infos">
-                    <h2><%= booking.provider.name %></h2>
-                    <p class="description" style="margin-bottom: 10px"><%= booking.provider.description %></p>
+                    <h2><%= booking.service.provider.name %></h2>
+                    <p class="description" style="margin-bottom: 10px"><%= booking.service.provider.description %></p>
                     <p class="description" style="margin-bottom: 5px">Fecha del turno: <%= booking.start_datetime.strftime('%d/%m/%Y') %></p>
                   </div>
                 </div>
