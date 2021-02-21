@@ -56,9 +56,28 @@
 
     <hr>
 
+    <h2 class="subtitle text-center font-weight-bold my-2">Necesitas más información?</h2>
+    <p id="description" class=" text-center m-3">Encontrá debajo las recomendaciones de otros usuarios!</p>
+    <div class="row text-center">
+        <% @reviews.each do |review| %>
+            <div class="col-md-4 mb-md-0 mb-5">
+              <div class="testimonial">
+                  <%= cl_image_tag review.user.avatar.key, style:"height:150px;width:150px", class:"rounded-circle mr-2" %>
+                <h4 class="font-weight-bold dark-grey-text mt-4"><%= review.user.name %></h4>
+                <p class="font-weight-normal dark-grey-text">
+                 <i class="fas fa-quote-left pr-2" style="color:#FE6929"></i><%= review.content %></p>
+                <div class="orange-text">
+                  <p><strong>Rating:</strong><% review.rating.times do  %> <i class="fas fa-star"></i>
+                  <% end %></p>
+                </div>
+              </div>
+            </div>
+        <% end %>
+    </div>
+
   <hr>
 
-    <h2 class="subtitle text-center font-weight-bold my-2">Servicios</h6>
+    <h2 class="subtitle text-center font-weight-bold my-2"> Elegi Tu Servicio!</h6>
       <div class="container">
         <div class="d-flex justify-content-around row">
           <% @provider.services.each do |provider_service| %>
@@ -77,7 +96,7 @@
 }
 </style>
     <hr>
-    <h5 class="subtitle text-center font-weight-bold my-2">Saca tu turno!</h5>
+    <h2 class="subtitle text-center font-weight-bold my-2">Saca tu turno!</h2>
     <div class="col-12">
       <div class="flat-show-card d-none">
         <%= simple_form_for [@provider, @booking] do |f| %>
