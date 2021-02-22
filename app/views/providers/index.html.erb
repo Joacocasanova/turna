@@ -14,17 +14,23 @@
       <button type="button" class="btn btn-primary btnfilter" style="border-radius: 10%; padding: 3px 6px"><%= sort_link @search, :rating %></button>
     </div>
 
-    <%= search_form_for @search do |f| %>
-      <div class="field col-12 col-md-4" style="display: flex; margin-bottom: 20px">
-        <%= f.search_field :name_cont, placeholder: 'Buscar por nombre', style:"
-    background-color: #F6F8FA;" %>
-        <%= hidden_field_tag :localidad, params[:localidad] %>
-        <%= hidden_field_tag :categoria, params[:categoria] %>
-        <button type="submit" class="btn btn-primary rounded-circle ml-2">
-            <i class="fas fa-search"></i>
-        </button>
+    <div id="formulario">
+      <h6 style="margin-left: 15px; cursor: pointer">Agregar filtros</h6>
+    </div>
+
+      <div id="form" style="display:none">
+        <%= search_form_for @search do |f| %>
+          <div class="field col-12 col-md-4" style="display: flex; margin-bottom: 20px">
+            <%= f.search_field :name_cont, placeholder: 'Buscar por nombre', style:"
+        background-color: #F6F8FA;" %>
+            <%= hidden_field_tag :localidad, params[:localidad] %>
+            <%= hidden_field_tag :categoria, params[:categoria] %>
+            <button type="submit" class="btn btn-primary rounded-circle ml-2">
+                <i class="fas fa-search"></i>
+            </button>
+          </div>
+        <% end %>
       </div>
-    <% end %>
   
     <div class="cards">
       <div class="row">
