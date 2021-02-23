@@ -32,6 +32,7 @@ import { initAutocomplete } from '../plugins/init_autocomplete';
 import { initStarRating } from '../plugins/init_star_rating';
 import { cardSelector } from '../packs/show';
 import { initflatpickr } from '../plugins/flatpickr';
+import { filters } from '../packs/index';
 
 
 document.addEventListener('turbolinks:load', () => {
@@ -41,4 +42,5 @@ document.addEventListener('turbolinks:load', () => {
   initAutocomplete();
   initStarRating();
   cardSelector();
+  filters();
 });

@@ -3,8 +3,10 @@ class ProvidersController < ApplicationController
   before_action :set_provider, only: [ :show ]
 
   def index
-    @providers = Provider.with_geocode.where("neighborhood @@ '%#{params[:localidad]}%'").where(category: params[:categoria])
-    # the `geocoded` scope filters only flats with coordinates (latitude & longitude)
+    @search = Provider.with_geocode.where("neighborhood @@ '%#{params[:localidad]}%'").where(category: params[:categoria]).ransack(params[:q])
+
+    @providers = @search.result.page params[:page]
+
     @markers = @providers.map do |provider|
       {
         lat: provider.latitude,

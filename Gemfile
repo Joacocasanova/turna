@@ -33,6 +33,11 @@ gem 'devise'
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'cloudinary', '~> 1.16.0'
 gem 'geocoder'
+gem 'ransack', '~> 2.4', '>= 2.4.2'
+gem 'rails_admin', '~> 2.0'
+gem 'blazer'
+gem 'kaminari'
+gem 'bootstrap4-kaminari-views'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
