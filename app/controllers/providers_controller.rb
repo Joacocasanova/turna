@@ -5,7 +5,7 @@ class ProvidersController < ApplicationController
   def index
     @search = Provider.with_geocode.where("neighborhood @@ '%#{params[:localidad]}%'").where(category: params[:categoria]).ransack(params[:q])
 
-    @providers = @search.result
+    @providers = @search.result.page params[:page]
 
     @markers = @providers.map do |provider|
       {
