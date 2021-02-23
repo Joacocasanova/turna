@@ -52,6 +52,18 @@ service_one = Service.create!(title: "Corte y arreglo de barba", price: 900, min
 service_two = Service.create!(title: "Corte de Pelo", price: 800, min_duration: 30, provider: ro_prov)
 service_three = Service.create!(title: "Color/Decoloracion", price: 1000, min_duration: 60, provider: ro_prov)
 
+service_one_tom = Service.create!(title: "Corte y arreglo de barba", price: 600, min_duration: 30, provider: tom_prov)
+service_two_tom = Service.create!(title: "Corte de Pelo", price: 700, min_duration: 30, provider: tom_prov)
+service_three_tom = Service.create!(title: "Color/Decoloracion", price: 1200, min_duration: 60, provider: tom_prov)
+
+service_one_guido = Service.create!(title: "Corte y arreglo de barba", price: 650, min_duration: 30, provider: guido_prov)
+service_two_guido = Service.create!(title: "Corte de Pelo", price: 560, min_duration: 30, provider: guido_prov)
+service_three_guido = Service.create!(title: "Color/Decoloracion", price: 1100, min_duration: 60, provider: guido_prov)
+
+service_one_camilo = Service.create!(title: "Corte y arreglo de barba", price: 900, min_duration: 30, provider: camilo_prov)
+service_two_camilo = Service.create!(title: "Corte de Pelo", price: 750, min_duration: 30, provider: camilo_prov)
+service_three_camilo = Service.create!(title: "Color/Decoloracion", price: 900, min_duration: 60, provider: camilo_prov)
+
 service_one.icon.attach(io: URI.open('https://res.cloudinary.com/dmtio0viw/image/upload/v1613522761/Turna/haircut_and_beard_fs3clq.webp'), filename: 'haircut.png', content_type: 'image/png')
 
 service_two.icon.attach(io: URI.open('https://res.cloudinary.com/dmtio0viw/image/upload/v1613522760/Turna/haircut_hbf2ee.png'), filename: 'haircut.png', content_type: 'image/png')
@@ -63,6 +75,43 @@ service_one.save
 service_two.save
 
 service_three.save
+
+service_one_tom.icon.attach(io: URI.open('https://res.cloudinary.com/dmtio0viw/image/upload/v1613522761/Turna/haircut_and_beard_fs3clq.webp'), filename: 'haircut.png', content_type: 'image/png')
+
+service_two_tom.icon.attach(io: URI.open('https://res.cloudinary.com/dmtio0viw/image/upload/v1613522760/Turna/haircut_hbf2ee.png'), filename: 'haircut.png', content_type: 'image/png')
+
+service_three_tom.icon.attach(io: URI.open('https://res.cloudinary.com/dmtio0viw/image/upload/v1613522926/Turna/hair_color_s7vot7.png'), filename: 'haircut.png', content_type: 'image/png')
+
+service_one_tom.save
+
+service_two_tom.save
+
+service_three_tom.save
+
+service_one_guido.icon.attach(io: URI.open('https://res.cloudinary.com/dmtio0viw/image/upload/v1613522761/Turna/haircut_and_beard_fs3clq.webp'), filename: 'haircut.png', content_type: 'image/png')
+
+service_two_guido.icon.attach(io: URI.open('https://res.cloudinary.com/dmtio0viw/image/upload/v1613522760/Turna/haircut_hbf2ee.png'), filename: 'haircut.png', content_type: 'image/png')
+
+service_three_guido.icon.attach(io: URI.open('https://res.cloudinary.com/dmtio0viw/image/upload/v1613522926/Turna/hair_color_s7vot7.png'), filename: 'haircut.png', content_type: 'image/png')
+
+service_one_guido.save
+
+service_two_guido.save
+
+service_three_guido.save
+
+service_one_camilo.icon.attach(io: URI.open('https://res.cloudinary.com/dmtio0viw/image/upload/v1613522761/Turna/haircut_and_beard_fs3clq.webp'), filename: 'haircut.png', content_type: 'image/png')
+
+service_two_camilo.icon.attach(io: URI.open('https://res.cloudinary.com/dmtio0viw/image/upload/v1613522760/Turna/haircut_hbf2ee.png'), filename: 'haircut.png', content_type: 'image/png')
+
+service_three_camilo.icon.attach(io: URI.open('https://res.cloudinary.com/dmtio0viw/image/upload/v1613522926/Turna/hair_color_s7vot7.png'), filename: 'haircut.png', content_type: 'image/png')
+
+service_one_camilo.save
+
+service_two_camilo.save
+
+service_three_camilo.save
+
 
 # IMAGES ATTACHING
 provider_1.each do |img|
