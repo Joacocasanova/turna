@@ -20,6 +20,12 @@ class ProvidersController < ApplicationController
         lng: @provider.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { provider: @provider })
       }]
+    @reviews = []
+    @provider.bookings.each do |booking|
+      if  booking.review != nil
+        @reviews << booking.review
+      end
+    end
     @booking = Booking.new
   end
 
