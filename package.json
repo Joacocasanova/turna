@@ -12,7 +12,6 @@
     "jquery-bar-rating": "^1.2.2",
     "mapbox-gl": "^2.1.1",
     "node-gyp": "^7.1.2",
-    "places": "^0.0.2",
     "places.js": "^1.19.0",
     "popper.js": "^1.16.1",
     "turbolinks": "^5.2.0"
