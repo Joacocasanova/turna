@@ -31,7 +31,7 @@
           </div>
         <% end %>
       </div>
-  
+
     <div class="cards">
       <div class="row">
         <% @providers.each do |provider| %>
@@ -45,7 +45,11 @@
                     <% provider.rating.times do %>
                       <i class="fas fa-star"></i>
                     <% end %>
-                    <p class="price">Precio promedio: HARDCODED</p>
+                    <% provider.services.each do |service| %>
+                      <% @prices << service.price %>
+                    <% end %>
+                      <p class="price">Precio promedio: <strong>$<%= @prices.inject(:+) / provider.services.count %></strong> </p>
+                      <% @prices = [] %>
                   </div>
                 </div>
             <% end %>
