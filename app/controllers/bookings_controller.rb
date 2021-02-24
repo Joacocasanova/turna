@@ -16,7 +16,7 @@ class BookingsController < ApplicationController
     end
     @booking.end_datetime = @booking.start_datetime + time_duration
     if @booking.save
-      redirect_to root_path
+      redirect_to bookings_path
     else
       @provider = Provider.all
       render "providers/show"
