@@ -25,4 +25,14 @@ class Provider < ApplicationRecord
   def closes
     closing_time.strftime("%H:%M")
   end
+
+  def average_price(provider)
+    precio = 0
+    count = 0
+    provider.services.each do |service|
+      precio += service.price
+      count += 1
+    end
+    precio / count
+  end
 end

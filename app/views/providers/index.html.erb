@@ -11,7 +11,7 @@
     <div class="filters col-12 col-md-4">
       <h6>Ordenar por: </h6>
       <button type="button" class="btn btn-primary btnfilter" style="border-radius: 10%; padding: 3px 6px"><%= sort_link @search, :rating %></button>
-      <button type="button" class="btn btn-primary btnfilter" style="border-radius: 10%; padding: 3px 6px"><%= sort_link @search, :rating %></button>
+      <button type="button" class="btn btn-primary btnfilter" style="border-radius: 10%; padding: 3px 6px"><%= sort_link @search, :avg_price %></button>
     </div>
 
     <div id="formulario">
@@ -45,11 +45,7 @@
                     <% provider.rating.times do %>
                       <i class="fas fa-star"></i>
                     <% end %>
-                    <% provider.services.each do |service| %>
-                      <% @prices << service.price %>
-                    <% end %>
-                      <p class="price">Precio promedio: <strong>$<%= @prices.inject(:+) / provider.services.count %></strong> </p>
-                      <% @prices = [] %>
+                    <p class="price">Precio promedio: <strong>$<%= provider.avg_price %></strong> </p>
                   </div>
                 </div>
             <% end %>
