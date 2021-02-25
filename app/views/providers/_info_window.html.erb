@@ -9,7 +9,8 @@
               <% provider.rating.times do %>
               	<i class="fas fa-star"></i>
               <% end %>
-              <p class="price" style="margin: 0">Precio promedio: HARDCODED</p>
+              <p class="price" style="margin: 0">Precio promedio:</p>
+              <p class="price" style="margin: 0; text-align: center"><strong>$<%= provider.avg_price %></p></strong>
               	<div class="d-flex justify-content-between mx-2">
                 <% if params["action"] == "index" %>
             			<%= link_to "Más Info", provider_path(provider)%>
