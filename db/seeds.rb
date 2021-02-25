@@ -12,7 +12,7 @@ puts "Creating database.."
 
 # USERS
 ro_user = User.new(name: "Rocio", last_name: "Picaza", password: "123456", email: "ropicaza@gmail.com")
-tom_user = User.new(name: "Tomas", last_name: "Agnese", password: "123456", email: "tomagnese@gmail.com")
+tom_user = User.new(name: "Tomas", last_name: "Agnese", password: "123456", email: "tomagnese@gmail.com", admin: true)
 joaco_user = User.new(name: "Joaquin", last_name: "Casanova", password: "123456", email: "joacocasanova@gmail.com")
 camilo_user = User.new(name: "Camilo", last_name: "Gonzalez", password: "123456", email: "camilogonzalez@gmail.com")
 
@@ -181,3 +181,26 @@ Review.create!(user: joaco_user, booking: joaco_experience, content: "Excelente 
 Review.create!(user: camilo_user, booking: camilo_experience, content: "Buen lugar a nivel precio/calidad. Recomendado", rating: 3)
 
 Review.create!(user: tom_user, booking: tom_experience, content: "Excelente Degrade!", rating: 5)
+
+
+def average_price(provider)
+  precio = 0
+  count = 0
+  provider.services.each do |service|
+    precio += service.price
+    count += 1
+  end
+  precio / count
+end
+
+ro_prov.avg_price = average_price(ro_prov)
+tom_prov.avg_price = average_price(tom_prov)
+joaco_prov.avg_price = average_price(joaco_prov)
+guido_prov.avg_price = average_price(guido_prov)
+camilo_prov.avg_price = average_price(camilo_prov)
+
+ro_prov.save
+tom_prov.save
+joaco_prov.save
+guido_prov.save
+camilo_prov.save
