@@ -62,7 +62,7 @@
         <% @reviews.each do |review| %>
             <div class="col-md-4 mb-md-0 mb-5">
               <div class="testimonial">
-                  <%= cl_image_tag review.user.avatar.key, style:"height:150px;width:150px", class:"rounded-circle mr-2" %>
+                  <%= cl_image_tag review.user.avatar.key, style:"height:110px;width:110px", class:"rounded-circle mr-2" %>
                 <h4 class="font-weight-bold dark-grey-text mt-4"><%= review.user.name %></h4>
                 <p class="font-weight-normal dark-grey-text">
                  <i class="fas fa-quote-left pr-2" style="color:#FE6929"></i><%= review.content %></p>
@@ -77,7 +77,7 @@
 
   <hr>
 
-    <h2 class="subtitle text-center font-weight-bold my-2"> Elegi Tu Servicio!</h6>
+    <h2 class="subtitle text-center font-weight-bold my-2"> Elegí Tu Servicio!</h6>
       <div class="container">
         <div class="d-flex justify-content-around row">
           <% @provider.services.each do |provider_service| %>
@@ -97,13 +97,13 @@
 }
 </style>
     <hr>
-    <h2 class="subtitle text-center font-weight-bold my-2">Saca tu turno!</h2>
+    <h2 class="subtitle text-center font-weight-bold my-2">Sacá tu turno!</h2>
     <div class="col-12">
       <div class="flat-show-card d-none">
         <%= simple_form_for [@provider, @booking] do |f| %>
         <%= f.input :service_id , as: :hidden %>
-        <%=f.input :start_datetime, as: :string, required: false, input_html: {class: "datepicker", data: {opening_time: @provider.opens, closing_time: @provider.closes }}  %>
-          <%=f.submit "Reservar!", class: "btn btn-primary mt-2 textclass" %>
+        <%=f.input :start_datetime, label: "Fecha y Horario", as: :string, required: false, input_html: {class: "datepicker", data: {opening_time: @provider.opens, closing_time: @provider.closes }}  %>
+          <%=f.submit "Reservar!", class: "btn btn-primary mt-2 textclass w-100" %>
         <% end %>
 
       </div>
