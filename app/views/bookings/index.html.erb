@@ -23,13 +23,14 @@
             <div class="col-12 col-md-4">
                 <div class="card-product">
                   <%= cl_image_tag booking.service.provider.photos.first.key, class: "card-img-index" %>
-                  <div class="card-product-infos">
+                  <div class="card-product-infos mt-2">
                     <h2><%= booking.service.provider.name %></h2>
-                    <p class="description" style="margin-bottom: 10px"><%= booking.service.provider.description %></p>
-                    <p class="description" style="margin-bottom: 5px">Fecha del turno: <%= booking.start_datetime.strftime('%d/%m/%Y') %></p>
+                    <p class="description" style="margin-top:0"><%= booking.service.title %></p>
+                    <p class="description" style="margin-top:0">Precio: <strong>$ <%= booking.service.price %></strong></p>
+                    <p class="description" style="margin:0">Fecha del turno: <%= booking.start_datetime.strftime('%d/%m/%Y') %>, <%= booking.start_datetime.strftime('%H:%M') %>hs</p>
                       <%= simple_form_for booking do |f| %>
                         <%= f.hidden_field :status, value: "canceled" %>
-                        <%=f.submit "Cancelar", id: "sweet-alert-rejected", class: "btn btn-light", style: "color: #FBB266;" %>
+                        <%=f.submit "Cancelar", id: "sweet-alert-rejected", class: "btn btn-light", style: "color: #FBB266;", data: { confirm: "Cancelar turno?" } %>
                       <% end %>
                   </div>
                 </div>
@@ -46,10 +47,11 @@
             <div class="col-12 col-md-4">
                 <div class="card-product">
                   <%= cl_image_tag booking.service.provider.photos.first.key, class: "card-img-index" %>
-                  <div class="card-product-infos">
+                  <div class="card-product-infos mt-2">
                     <h2><%= booking.service.provider.name %></h2>
-                    <p class="description" style="margin-bottom: 10px"><%= booking.service.provider.description %></p>
-                    <p class="description" style="margin-bottom: 5px">Fecha del turno: <%= booking.start_datetime.strftime('%d/%m/%Y') %></p>
+                    <p class="description" style="margin:0"><%= booking.service.title %></p>
+                    <p class="description" style="margin-top:0">Precio: <strong>$ <%= booking.service.price %></strong></p>
+                    <p class="description" style="margin:0">Fecha del turno: <%= booking.start_datetime.strftime('%d/%m/%Y') %>, <%= booking.start_datetime.strftime('%H:%M') %>hs</p>
                     <% if booking.review.blank? %>
                       <button type="button" class="btn btn-light" style="border-radius: 10px;" data-toggle="modal" data-target="#exampleModal"><%= link_to 'Opinar', new_booking_review_path(booking) %></button>
                     <% else %>
@@ -89,12 +91,13 @@
         <div class="row">
           <% @canceled.each do |booking| %>
             <div class="col-12 col-md-4">
-                <div class="card-product">
+                <div class="card-product mt-2">
                   <%= cl_image_tag booking.service.provider.photos.first.key, class: "card-img-index" %>
                   <div class="card-product-infos">
                     <h2><%= booking.service.provider.name %></h2>
-                    <p class="description" style="margin-bottom: 10px"><%= booking.service.provider.description %></p>
-                    <p class="description" style="margin-bottom: 5px">Fecha del turno: <%= booking.start_datetime.strftime('%d/%m/%Y') %></p>
+                    <p class="description" style="margin:0"><%= booking.service.title %></p>
+                    <p class="description" style="margin-top:0">Precio: <strong>$ <%= booking.service.price %></strong></p>
+                    <p class="description" style="margin:0">Fecha del turno: <%= booking.start_datetime.strftime('%d/%m/%Y') %>, <%= booking.start_datetime.strftime('%H:%M') %>hs</p>
                   </div>
                 </div>
             </div>
