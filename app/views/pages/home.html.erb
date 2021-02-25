@@ -1,17 +1,17 @@
 <div class="container mt-5">
   <div class="row">
     <div class="col-12">
-      <strong><h1 id="title" class="mt-3">Una nueva forma de organizar tus días</h1></strong>
+      <strong><h1 id="title" class="mt-3 fs-1 fw-bolder">Una nueva forma de organizar tus días</h1></strong>
       <p id="description" class="mt-3">Usá nuestro sistema de gestión de turnos en todos tus lugares favoritos y no esperes nunca más para entrar a un lugar.</p>
     </div>
     <div id="search-form">
       <%= form_with local: true, url: providers_path, method: :get do |f| %>
         <div class="row align-items-center m-0">
           <div class="mb-3 col-12 col-sm-12 col-md-6">
-            <%=f.text_field :localidad, as: :string, required: true, placeholder:"¿Donde estás?", id: "provider_address" %>
+            <%=f.text_field :localidad, as: :string, required: true, placeholder:"¿Donde buscás?", id: "provider_address" %>
           </div>
           <div class="mb-3 col-12 col-sm-12 col-md-6">
-            <%= f.select :categoria, [["Peluqueria", "Peluqueria"], ["Dentista", "Dentista"]], required: true, prompt: 'Para qué es el turno?' %>
+            <%= f.select :categoria, [["Peluqueria", "Peluqueria"], ["Dentista", "Dentista"]], required: true, prompt: '¿Para qué es el turno?' %>
           </div>
           <div class="mb-3 col-12 col-md-6">
             <%= f.submit 'Buscar', class: "btn btn-lg btn-primary mt-2", style: "width:100%;border-radius:5px" %>
@@ -53,20 +53,20 @@
       </div>
       <div class="col-sm-12 col-md-6">
         <h3 id="title" class="m-3">Seleccioná tu servicio</h3>
-        <p id="description" class="m-3">Una vez dentro del local , selecciona el servicio en el que quieras reservar tu turno, y hacelo acorde a las disponibilidades del lugar/profesional elegido!
+        <p id="description" class="m-3">Una vez elegido el local, seleccioná el servicio en el que quieras reservar tu turno, y hacelo acorde a las disponibilidades del lugar/profesional elegido!
         </p>
       </div>
     </div>
 </div>
 <!--descargar Apple y iOS -->
-<div class="container" style="background-color:#FE6929;height:560px;">
+<div class="container" style="background-color:#FE6929;height:400px;">
   <div class="container position text-center">
     <h3 id="title" style="color:white">¡No esperes un segundo más!</h3>
-    <p id="description" style="color:white!important">Descarga nuestra app y reserva tu turno desde cualquier lado!</p>
+    <p id="description" style="color:white!important">Descargá nuestra app y reservá tu turno desde cualquier lado!</p>
     <div class="flex social-btns w-100">
       <a class="app-btn blu flex vert" href="https://www.apple.com/">
         <i class="fab fa-apple"></i>
-        <p>Consiguelo en el <br/> <span class="big-txt">App Store</span></p>
+        <p>Consíguelo en el <br/> <span class="big-txt">App Store</span></p>
       </a>
 
       <a class="app-btn blu flex vert" href="https://play.google.com/">
