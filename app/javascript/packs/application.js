@@ -33,6 +33,7 @@ import { initStarRating } from '../plugins/init_star_rating';
 import { cardSelector } from '../packs/show';
 import { initflatpickr } from '../plugins/flatpickr';
 import { filters } from '../packs/index';
+import '../plugins/init_distance';
 
 
 document.addEventListener('turbolinks:load', () => {
