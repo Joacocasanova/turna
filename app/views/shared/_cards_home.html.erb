@@ -1,8 +1,8 @@
 <div class="cards d-flex justify-content-center">
   <% @providers.each_with_index do |provider, index| %>
     <%= link_to provider_path(provider) do  %>
-      <div class="card-home rounded-3">
-        <div class="col-12 col-md-4">
+      <div class="card rounded-3">
+        <div class="col-lg-3">
           <%= cl_image_tag provider.photos.first.key %>
           <div class="card-body bg-light">
             <p class="color-text"><%= provider.category %></span></p>
