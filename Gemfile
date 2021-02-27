@@ -39,6 +39,8 @@ gem 'blazer'
 gem 'kaminari'
 gem 'bootstrap4-kaminari-views'
 
+gem 'letter_opener', group: :development
+
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'
