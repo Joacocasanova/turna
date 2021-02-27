@@ -11,7 +11,7 @@
             <%=f.text_field :localidad, as: :string, required: true, placeholder:"¿Donde buscás?", id: "provider_address" %>
           </div>
           <div class="mb-3 col-12 col-sm-12 col-md-6">
-            <%= f.select :categoria, [["Peluqueria", "Peluqueria"], ["Dentista", "Dentista"]], required: true, prompt: '¿Para qué es el turno?' %>
+            <%= f.select :categoria, [["Barberia", "Barberia"], ["Dentista", "Dentista"]], required: true, prompt: '¿Para qué es el turno?' %>
           </div>
           <div class="mb-3 col-12 col-md-6">
             <%= f.submit 'Buscar', class: "btn btn-lg btn-primary mt-2", style: "width:100%;border-radius:5px" %>

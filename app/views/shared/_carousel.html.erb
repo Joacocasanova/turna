@@ -8,6 +8,8 @@
               <%= cl_image_tag provider.photos.first.key, class: "carousel-img" %>
               <div class="card-body bg-light">
                 <p class="color-text"><%= provider.category %></span></p>
+                <p><%= provider.neighborhood.partition(",").first %></p>
+                <p><%= provider.address.partition(",").first %></p>
                 <h5 class="card-title"> <strong><%= provider.name %></h5></strong>
                 <p><strong>Rating:</strong>
                 <% provider.rating.times do %>
