@@ -44,3 +44,4 @@ document.addEventListener('turbolinks:load', () => {
   cardSelector();
   filters();
 });
+
