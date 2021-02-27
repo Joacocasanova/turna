@@ -1,12 +1,10 @@
 <h3>Hola <%= @user.name %>,</h3>
 
-<p>Su turno en <%= @provider.name %>  fue <strong>registrado</strong> correctamente.</p>
+<p>Su turno en <%= @provider.name %>  fue <strong>cancelado</strong> correctamente.</p>
 
 <p>Fecha del turno: <%= @booking.start_datetime.strftime('%d/%m/%Y') %> a las <%= @booking.start_datetime.strftime('%H:%M') %></p>
 
 <p>Dirección del turno: <%= @provider.address %></p>
-
-<p>Te esperamos :D</p>
 
 <p>¡Saludos!</p>
 

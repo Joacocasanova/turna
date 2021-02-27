@@ -36,6 +36,8 @@ class BookingsController < ApplicationController
     set_booking
     @booking.update(bookings_params)
     @booking.status == "canceled"
+    @provider = @booking.service.provider
+    UserMailer.cancel(@booking.customer, @booking, @provider).deliver_now
     redirect_to bookings_path
   end
 

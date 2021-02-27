@@ -12,4 +12,12 @@ class UserMailer < ApplicationMailer
 
     mail to: user.email, subject: "Su turno fue registrado"
   end
+
+  def cancel(user, booking, provider)
+    @user = user
+    @booking = booking
+    @provider = provider
+
+    mail to: user.email, subject: "Su turno fue cancelado"
+  end
 end
