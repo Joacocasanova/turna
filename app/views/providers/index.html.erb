@@ -10,19 +10,19 @@
     <hr class="separador">
     <div class="filters col-12 col-md-4">
       <h6>Ordenar por: </h6>
-      <button type="button" class="btn btn-primary btnfilter" style="border-radius: 10%; padding: 3px 6px"><%= sort_link @search, :rating %></button>
-      <button type="button" class="btn btn-primary btnfilter" style="border-radius: 10%; padding: 3px 6px"><%= sort_link @search, :avg_price %></button>
+      <button type="button" class="btn btn-outline-primary btnfilter" style="border-radius: 10%; padding: 3px 6px"><%= sort_link(@search, :rating, { default_order: :desc }) %></button>
+      <button type="button" class="btn btn-outline-primary btnfilter" style="border-radius: 10%; padding: 3px 6px"><%= sort_link(@search, :avg_price, "Precio", { default_order: :desc }) %></button>
     </div>
 
     <div id="formulario">
-      <h6 style="margin-left: 15px; cursor: pointer">Agregar filtros</h6>
+      <h6 style="margin-left: 15px; margin-bottom: 20px; cursor: pointer">Agregar filtros <i class="fas fa-filter" style="color: #AA8CAA"></i></h6>
     </div>
 
       <div id="form" style="display:none">
         <%= search_form_for @search do |f| %>
           <div class="field col-12 col-md-4" style="display: flex; margin-bottom: 20px">
             <%= f.search_field :name_cont, placeholder: 'Buscar por nombre', style:"
-        background-color: #F6F8FA;" %>
+        background-color: #F6F8FA;", style:"border-radius: 10px; border-color: #AA8CAA" %>
             <%= hidden_field_tag :localidad, params[:localidad] %>
             <%= hidden_field_tag :categoria, params[:categoria] %>
             <button type="submit" class="btn btn-primary rounded-circle ml-2">
