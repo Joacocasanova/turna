@@ -1,28 +1,21 @@
 <nav id="search-navbar" class="navbar fixed-top navbar-light bg-light m-0 d-flex">
-  <div class="">
-    <%= link_to home_path do %>
-      <img src="https://res.cloudinary.com/divzp8hs4/image/upload/v1613229854/Turna/LOGO_small_bze1ve.png" alt="Turna Logo" style="height:40px">
-    <% end %>
-  </div>
-  <div class="pos-f-t">
-    <div class="collapse" id="navbarToggleExternalContent">
-    <p>Otro servicio?</p>
-      <div class="bg-light p-1">
-      <%= simple_form_for home_path, url: providers_path, method: :get, html: { class: "m-0 py-0 px-0" } do |f| %>
-        <div class="col-12 d-inline-flex pr-0">
-          <%= f.input :localidad, as: :string, label: false, required: true, input_html: { placeholder:"Donde?", id: "provider_address"}, wrapper_html: { class: 'hide' } %>
-          <%= f.input :categoria, as: :select, label: false, collection: ["Peluqueria", "Dentista"], required: false %>
-          <%= f.button :button, class: "btn btn-primary rounded-circle ml-2", style: "width:40px;height:40px;" do %>
-            <i class="fas fa-search"></i>
-          <% end %>
+  <div class="bg-light p-0">
+    <div id="search-form">
+      <%= form_with local: true, url: providers_path, method: :get do |f| %>
+        <div class="row align-items-center m-0 d-flex">
+          <div class="mb-2 ml-0 col-7 col-sm-12 col-md-6 p-0">
+            <%=f.text_field :localidad, as: :string, required: true, placeholder:"Ubicación", id: "provider_address", style: "font-size: 15px" %>
+          </div>
+          <div class="mb-2 col-3 col-sm-12 col-md-6 p-0">
+            <%= f.select :categoria, [["Barberia", "Barberia"], ["Dentista", "Dentista"]], required: true, prompt: 'Servicio', style: "font-size: 12px!important" %>
+          </div>
+          <div class="mb-2 col-2 col-md-2">
+            <%= f.button class: "btn btn-primary rounded-circle", style: "width:40px;height:40px;", type: 'submit' do %>
+              <i class='fas fa-search' ></i>
+            <% end %>
+          </div>
         </div>
       <% end %>
-      </div>
     </div>
-    <nav class="navbar" id="navbar-toggle" >
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    </nav>
   </div>
 </nav>
