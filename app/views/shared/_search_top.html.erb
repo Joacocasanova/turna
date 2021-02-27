@@ -7,7 +7,7 @@
             <%=f.text_field :localidad, as: :string, required: true, placeholder:"Ubicación", id: "provider_address", style: "font-size: 15px" %>
           </div>
           <div class="mb-2 col-3 col-sm-12 col-md-6 p-0">
-            <%= f.select :categoria, [["Barberia", "Barberia"], ["Dentista", "Dentista"]], required: true, prompt: 'Servicio', style: "font-size: 12px!important" %>
+            <%= f.select :categoria, [["Barberia", "Barberia"], ["Dentista", "Dentista"]], required: true, prompt: 'Servicio', style: "font-size: 12px!important;" %>
           </div>
           <div class="mb-2 col-2 col-md-2">
             <%= f.button class: "btn btn-primary rounded-circle", style: "width:40px;height:40px;", type: 'submit' do %>

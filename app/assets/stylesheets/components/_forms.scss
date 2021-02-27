@@ -22,8 +22,8 @@
   position: relative;
   vertical-align: top;
   border: grey;
-  padding-right: 35px;
-  padding-left: 16px;
+  padding-right: 12px;
+  padding-left: 12px;
   line-height: 40px;
   height: 40px;
   border: 1px solid #CCC;
@@ -32,6 +32,9 @@
   appearance: none;
   box-sizing: border-box;
   color: grey;
+  option {
+    font-size: 10px;
+  }
 }
 
 #search-form {
