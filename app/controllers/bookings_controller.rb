@@ -16,6 +16,7 @@ class BookingsController < ApplicationController
     end
     @booking.end_datetime = @booking.start_datetime + time_duration
     if @booking.save
+      UserMailer.thankyou(@booking.customer, @booking, @provider).deliver_now
       redirect_to bookings_path
     else
       @provider = Provider.all

@@ -1,0 +1,9 @@
+<h3>Hola <%= @user.name %>,</h3>
+
+<p>Su turno en <%= @provider.name %>  fue registrado correctamente!</p>
+
+<p>Fecha del turno: <%= @booking.start_datetime.strftime('%d/%m/%Y') %> a las <%= @booking.start_datetime.strftime('%H:%M') %></p>
+
+<p>Saludos!</p>
+
+<%= link_to "Turna team", root_url %>
