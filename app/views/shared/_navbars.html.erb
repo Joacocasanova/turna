@@ -1,7 +1,9 @@
 <% if controller_name == "providers" && (action_name == "show" || action_name == "index") %>
   <%= render 'shared/search_top' %>
+  <%= render 'shared/bottom_navbar' %>
+<% elsif controller_name == "pages" && action_name == "introduction" %>
 <% else %>
   <%= render 'shared/regular_top' %>
+  <%= render 'shared/bottom_navbar' %>
 <% end %>
 
-<%= render 'shared/bottom_navbar' %>
