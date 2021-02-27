@@ -53,3 +53,24 @@
 .sort_link {
   color: white !important;
 }
+
+.btn-outline-primary {
+  background-color: inherit;
+  border-radius: 20% !important;
+}
+
+.sort_link {
+  color: $turna !important;
+}
+
+.btn-outline-primary:hover {
+  background-color: inherit !important;
+}
+
+.btn-outline-primary:focus {
+  background-color: inherit !important;
+}
+
+.btn-outline-primary:active {
+  background-color: inherit !important;
+}
