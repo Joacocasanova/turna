@@ -38,14 +38,14 @@ provider_5 = ["https://res.cloudinary.com/divzp8hs4/image/upload/v1613086519/Tur
 
 
 
-ro_prov = Provider.create!(category: "Peluqueria", name: "Pelu de RO", address: "Paraguay 5301, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", description: "Corte, tintura, manicura", rating: 5, opening_time: '10:00', closing_time: '20:00', neighborhood: "Palermo, Autonomous City of Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina")
-tom_prov = Provider.create!(category: "Peluqueria", name: "Pelu de TOM", address: "Humboldt 2120, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", description: "Barba, corte, perfilado", rating: 4, opening_time: '10:00', closing_time: '20:00', neighborhood: "Palermo, Autonomous City of Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina
+ro_prov = Provider.create!(category: "Barberia", name: "The Barbers", address: "Paraguay 5301, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", description: "Corte, tintura, manicura", rating: 5, opening_time: '10:00', closing_time: '20:00', neighborhood: "Palermo, Autonomous City of Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina")
+tom_prov = Provider.create!(category: "Barberia", name: "Sir Fausto", address: "Humboldt 2120, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", description: "Barba, corte, perfilado", rating: 4, opening_time: '10:00', closing_time: '20:00', neighborhood: "Palermo, Autonomous City of Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina
 " )
-joaco_prov = Provider.create!(category: "Peluqueria", name: "Pelu de JOACO", address: "Bonpland 1874, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", description: "Corte, depilacion, alisados", rating: 3, opening_time: '10:00', closing_time: '20:00', neighborhood: "Palermo, Autonomous City of Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina
+joaco_prov = Provider.create!(category: "Barberia", name: "The Barber Job", address: "Bonpland 1874, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", description: "Corte, depilacion, alisados", rating: 3, opening_time: '10:00', closing_time: '20:00', neighborhood: "Palermo, Autonomous City of Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina
 " )
-guido_prov = Provider.create!(category: "Peluqueria", name: "Pelu de Guido", address: "Soler 5608, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", description: "Tintura, depilacion, perfilado", rating: 5, opening_time: '10:00', closing_time: '20:00', neighborhood: "Palermo, Autonomous City of Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina
+guido_prov = Provider.create!(category: "Barberia", name: "Barber Truck", address: "Soler 5608, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", description: "Tintura, depilacion, perfilado", rating: 5, opening_time: '10:00', closing_time: '20:00', neighborhood: "Palermo, Autonomous City of Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina
 " )
-camilo_prov = Provider.create!(category: "Peluqueria", name: "Pelu de Camilo", address: "Fitz Roy 1834, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", description: "Barba, alisado, manicura", rating: 4, opening_time: '10:00', closing_time: '20:00', neighborhood: "Palermo, Autonomous City of Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina
+camilo_prov = Provider.create!(category: "Barberia", name: "The Barber Shop", address: "Fitz Roy 1834, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", description: "Barba, alisado, manicura", rating: 4, opening_time: '10:00', closing_time: '20:00', neighborhood: "Palermo, Autonomous City of Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina
 " )
 
 service_one = Service.create!(title: "Corte y arreglo de barba", price: 900, min_duration: 30, provider: ro_prov)
