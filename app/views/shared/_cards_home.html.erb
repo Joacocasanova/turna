@@ -1,18 +1,20 @@
+<div class="row d-flex justify-content-center">
 <% @providers.each_with_index do |provider, index| %>
-  <%= link_to provider_path(provider) do  %>
-    <div class="col-12 col-md-4 col-lg-3 mt-3">
-      <div class="card rounded-3">
-        <%= cl_image_tag provider.photos.first.key, class: "carousel-img" %>
-        <div class="card-body bg-light">
-          <p class="color-text"><%= provider.category %></span></p>
-          <h5 class="card-title"> <strong><%= provider.name %></h5></strong>
-          <p><strong>Rating:</strong>
-          <% provider.rating.times do %>
-              <i class="fas fa-star"></i>
-          <% end %>
-          </p>
+    <%= link_to provider_path(provider) do  %>
+      <div class="col-md-4 col-lg-3 mt-3">
+        <div class="card rounded-3">
+          <%= cl_image_tag provider.photos.first.key, class: "carousel-img" %>
+          <div class="card-body bg-light">
+            <p class="color-text"><%= provider.category %></span></p>
+            <h5 class="card-title"> <strong><%= provider.name %></h5></strong>
+            <p><strong>Rating:</strong>
+            <% provider.rating.times do %>
+                <i class="fas fa-star"></i>
+            <% end %>
+            </p>
+          </div>
         </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
 <% end %>
+</div>

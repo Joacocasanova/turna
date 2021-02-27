@@ -79,7 +79,7 @@
 <!--Nuestros negocios -->
 <div class="container p-3">
   <h3 id="title">Nuestros negocios favoritos</h3>
-  <% if media="(max-width: 1200px)" %>
+  <% if media="(min-width: 1200px)" %>
     <%= render 'shared/cards_home' %>
   <% else %>
     <%= render 'shared/carousel' %>
