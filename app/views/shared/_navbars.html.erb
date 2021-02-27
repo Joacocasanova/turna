@@ -2,6 +2,12 @@
   <%= render 'shared/search_top' %>
   <%= render 'shared/bottom_navbar' %>
 <% elsif controller_name == "pages" && action_name == "introduction" %>
+<% elsif controller_name == "pages" && action_name == "home" %>
+  <%= render 'shared/regular_top' %>
+<% elsif controller_name == "sessions" && action_name == "new"  %>
+  <%= render 'shared/regular_top' %>
+<% elsif controller_name == "registrations" && action_name == "new"  %>
+  <%= render 'shared/regular_top' %>
 <% else %>
   <%= render 'shared/regular_top' %>
   <%= render 'shared/bottom_navbar' %>

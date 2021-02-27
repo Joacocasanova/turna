@@ -5,23 +5,33 @@
         <i class="fas fa-home"></i>Home
       </div>
     <% end %>
-    <%= link_to bookings_path do  %>
-      <div class="icons d-flex flex-column align-center">
-        <i class="far fa-calendar-check"></i>Mis Turnos
-      </div>
+    <% if user_signed_in? %>
+      <%= link_to bookings_path do  %>
+        <div class="icons d-flex flex-column align-center">
+          <i class="far fa-calendar-check"></i>Mis Turnos
+        </div>
+      <% end %>
+    <% else %>
+      <%= link_to new_user_registration_path do  %>
+        <div class="icons d-flex flex-column align-center">
+          <i class="far fa-calendar-check"></i>Registrarse
+        </div>
+      <% end %>
     <% end %>
 
 
-    <% if  %>
+    <% if user_signed_in? %>
       <%= link_to edit_user_registration_path(current_user) do  %>
         <div class="icons d-flex flex-column align-center">
           <i class="fas fa-user"></i>Mi Perfil
         </div>
       <% end %>
     <% else %>
+      <%= link_to new_user_session_path do  %>
         <div class="icons d-flex flex-column align-center">
-          <i class="fas fa-user fa-disabled"></i>Mi Perfil
+          <i class="fas fa-user"></i>Ingresar
         </div>
+      <% end %>
     <% end %>
   </div>
 </nav>
