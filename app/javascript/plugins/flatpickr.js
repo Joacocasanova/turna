@@ -8,8 +8,8 @@ const initflatpickr = (min, max, timeInterval) => {
     flatpickr(datepicker, {
       "locale": Spanish,
       altInput: true,
-      enableTime: true,
       dateFormat: "Y-m-d H:i",
+      disable: ["2021-02-28 11:30"],
       time_24hr: true,
       minTime: min,
       maxTime: max,
