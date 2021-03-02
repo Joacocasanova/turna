@@ -6,7 +6,6 @@ if(distances) {
   let userLatitude;
   let userLongitude;
   navigator.geolocation.getCurrentPosition((data) => {
-    console.log("1");
     userLatitude = data.coords.latitude;
     userLongitude = data.coords.longitude;
     const userCoordinates = [userLatitude, userLongitude];
