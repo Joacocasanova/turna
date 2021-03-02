@@ -85,7 +85,7 @@
               <div class=" d-flex flex-column align-items-center services-cards"  data-service-id='<%=provider_service.id %>'  data-opening-time="<%= @provider.opens %>" data-closing-time="<%= @provider.closes %>" data-time-interval="<%= provider_service.min_duration %>">
                 <%= cl_image_tag provider_service.icon.key, style:"height:150px;width:150px", class:"rounded-circle m-4" %>
                 <h5><%= provider_service.title %></h5>
-                <h5><strong>$<%= provider_service.price %></strong></h5>
+                <h5><strong><%= humanized_money_with_symbol(provider_service.price) %></strong></h5>
               </div>
             </div>
           <% end %>

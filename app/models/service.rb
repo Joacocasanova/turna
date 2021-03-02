@@ -1,6 +1,7 @@
 class Service < ApplicationRecord
   belongs_to :provider
   has_many :bookings
+  monetize :price_cents
 
   validates :title, presence: true
   validates :price, presence: true

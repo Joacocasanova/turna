@@ -32,6 +32,10 @@
                         <%= f.hidden_field :status, value: "canceled" %>
                         <%=f.submit "Cancelar", id: "sweet-alert-rejected", class: "btn btn-light", style: "color: #FBB266;", data: { confirm: "Cancelar turno?" } %>
                       <% end %>
+                      <%= form_tag booking do %>
+                        <%= hidden_field_tag 'booking_id', booking.id %>
+                        <%= submit_tag 'Pagar', class: 'btn btn-primary' %>
+                      <% end %>
                   </div>
                 </div>
             </div>
