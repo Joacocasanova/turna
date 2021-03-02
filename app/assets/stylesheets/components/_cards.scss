@@ -43,6 +43,7 @@
 
 .price {
   color: #000000;
+  font-size: 13px;
 }
 
 .description {
@@ -71,4 +72,14 @@
 
 .carousel-img {
   width: 100%;
+}
+
+.card-img-index {
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10%;
+}
+
+.mapboxgl-popup-content {
+  width: 350px;
 }
