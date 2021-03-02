@@ -2,6 +2,9 @@
   <%= render 'shared/search_top' %>
   <%= render 'shared/bottom_navbar' %>
 <% elsif controller_name == "pages" && action_name == "introduction" %>
+<% elsif controller_name == "pages" && action_name == "home" && current_user != nil %>
+  <%= render 'shared/regular_top' %>
+  <%= render 'shared/bottom_navbar' %>
 <% elsif controller_name == "pages" && action_name == "home" %>
   <%= render 'shared/regular_top' %>
 <% elsif controller_name == "sessions" && action_name == "new"  %>
