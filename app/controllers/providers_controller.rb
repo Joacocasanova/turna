@@ -31,6 +31,29 @@ class ProvidersController < ApplicationController
     @booking = Booking.new
   end
 
+  def new
+    @provider = Provider.new
+  end
+
+  def create
+    @provider = Provider.new
+    @provider.name = params["provider"]["name"]
+    @provider.category = params["provider"]["category"]
+    @provider.address = params["provider"]["address"]
+    @provider.neighborhood = params["provider"]["address"]
+    @provider.description = params["provider"]["description"]
+
+    @provider.opening_time = params["provider"]["opening_time"]
+    @provider.closing_time = params["provider"]["closing_time"]
+    @provider.rating = params["provider"]["rating"]
+
+
+    @provider.save!
+    redirect_to home_path
+
+  end
+
+
   private
 
   def provider_params

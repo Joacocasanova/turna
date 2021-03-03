@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   post 'send_provider', to: 'pages#send_provider'
   get 'contact', to: 'pages#contact'
   get 'home', to: 'pages#home'
-  resources :providers, only: [ :index, :show ] do
+  resources :providers, only: [ :index, :show, :new, :create ] do
     resources :bookings, only: [:create]
   end
   resources :bookings, only: [ :index, :update ] do
