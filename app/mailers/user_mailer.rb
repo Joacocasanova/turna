@@ -20,4 +20,13 @@ class UserMailer < ApplicationMailer
 
     mail to: user.email, subject: "Su turno fue cancelado"
   end
+
+  def provider_alta(name, category, address, description)
+    @name = name
+    @category = category
+    @address = address
+    @description = description
+
+    mail to: "turnamonster@gmail.com", subject: "Nueva solicitud de alta"
+  end
 end
