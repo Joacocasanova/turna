@@ -39,14 +39,17 @@
             <%= link_to provider_path(provider) do %>
                 <div class="card-product">
                 <%= cl_image_tag provider.photos.first.key, class: "card-img-index" %>
-                  <div class="card-product-infos">
-                    <h2><%= provider.name %></h2>
-                    <p class="description"><%= provider.description %></p>
+                  <div class="card-product-infos h-100">
+                    <h2 class=""><%= provider.name %></h2>
+                    <p class="description"><%= truncate(provider.description, length: 23) %></p>
                     <% provider.rating.times do %>
-                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star mb-1" style="font-size: 10px"></i>
                     <% end %>
-                    <p class="price">Precio promedio: <strong>$<%= provider.avg_price %></strong> </p>
-                    <p class="distance" data-latitude="<%= provider.latitude%>" data-longitude="<%= provider.longitude%>"></p>
+                    <p class="price my-1">Precio promedio: <strong>$<%= provider.avg_price %></strong> </p>
+                    <div class= "d-flex justify-content-between">
+                      <p class="distance m-0" data-latitude="<%= provider.latitude%>" data-longitude="<%= provider.longitude%>"></p>
+                      <i class="fas fa-location-arrow"></i>
+                    </div>
                   </div>
                 </div>
             <% end %>
