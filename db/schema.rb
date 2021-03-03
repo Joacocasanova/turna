@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_25_211445) do
+ActiveRecord::Schema.define(version: 2021_03_03_181832) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -119,6 +119,7 @@ ActiveRecord::Schema.define(version: 2021_02_25_211445) do
     t.string "neighborhood"
     t.bigint "service_id"
     t.integer "avg_price"
+    t.boolean "status", default: false
     t.index ["service_id"], name: "index_providers_on_service_id"
   end
 
