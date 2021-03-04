@@ -11,7 +11,7 @@
             <%=f.text_field :localidad, as: :string, required: true, placeholder:"¿Donde buscás?", id: "provider_address" %>
           </div>
           <div class="mb-3 col-12 col-sm-12 col-md-6">
-            <%= f.select :categoria, [["Barberia", "Barberia"], ["Dentista", "Dentista"]], required: true, prompt: '¿Para qué es el turno?' %>
+            <%= f.select :categoria, [["Barberia", "Barberia"], ["Veterinaria", "Veterinaria"]], required: true, prompt: '¿Para qué es el turno?' %>
           </div>
           <div class="mb-3 col-12 col-md-6">
             <%= f.submit 'Buscar', class: "btn btn-lg btn-primary mt-2", style: "width:100%;border-radius:5px" %>
@@ -92,6 +92,6 @@
   <h3 id="title" style="color:white; padding-top:10px">No dudes en contactarnos!</h3>
   <div class="d-flex flex-column m-3 p-3">
     <%= link_to "¿Quienes somos?", about_path, class:"m-2", style:"color: white" %> <br>
-    <%= link_to "Contactanos", contact_path, class: "m-2", style:"color: white" %>
+    <%= link_to "Registrá tu negocio!", contact_path, class: "m-2", style:"color: white" %>
   </div>
 </div>

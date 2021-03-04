@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#introduction'
   get 'about', to: 'pages#about'
+  post 'send_provider', to: 'pages#send_provider'
   get 'contact', to: 'pages#contact'
   get 'home', to: 'pages#home'
   resources :providers, only: [ :index, :show ] do

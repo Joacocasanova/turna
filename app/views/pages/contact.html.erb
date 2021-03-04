@@ -1,1 +1,24 @@
-<h1>hola</h1>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-12">
+      <strong><h1 id="title" class="m-3">Abrí tu negocio completando el siguiente formulario</h1></strong>
+      <%= simple_form_for :abc, url: send_provider_path, method: "POST" do |f| %>
+        <%= f.input :name, label: "Nombre del local", required: true %>
+        <%= f.input :category, label: 'Rubro de su local', required: true %>
+        <%= f.input :address, label: 'Dirección', required: true %>
+        <%= f.input :description, label: 'Descripción', required: true %>
+       
+        <%= f.input :servicio1, label: 'Título de su servicio 1', required: true %>
+        <%= f.input :precio1, as: :integer, label: 'Precio servicio 1', required: true %>
+
+        <%= f.input :servicio2, label: 'Título de su servicio 2', required: false %>
+        <%= f.input :precio2, as: :integer, label: 'Precio servicio 2', required: false %>
+
+        <%= f.input :servicio3, label: 'Título de su servicio 3', required: false %>        
+        <%= f.input :precio3, as: :integer, label: 'Precio servicio 3', required: false %>
+        
+        <%= f.button :submit, "Enviar" %>
+      <% end %>
+    </div>      
+  </div>      
+</div>

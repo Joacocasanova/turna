@@ -7,14 +7,15 @@
             <div class="card rounded-3">
               <%= cl_image_tag provider.photos.first.key, class: "carousel-img" %>
               <div class="card-body bg-light">
-                <p class="color-text"><%= provider.category %></span></p>
-                <p><%= provider.neighborhood.partition(",").first %></p>
-                <p><%= provider.address.partition(",").first %></p>
-                <h5 class="card-title"> <strong><%= provider.name %></h5></strong>
-                <p><strong>Rating:</strong>
+                <h5 class="card-title mb-1"> <strong><%= provider.name %></h5></strong>
                 <% provider.rating.times do %>
-                    <i class="fas fa-star"></i>
+                  <i class="fas fa-star my-2" style="font-size: 10px"></i>
                 <% end %>
+                <p class="text-dark fs-6 fw-bolder"><%= provider.category %></span></p>
+                <div class="d-flex">
+                  <p style="font-size: 14px"><%= provider.neighborhood.partition(",").first %> - </p>
+                  <p style="font-size: 14px"><%= provider.address.partition(",").first %></p><i class="fas fa-location-arrow ml-2"></i>
+                </div>
                 </p>
               </div>
             </div>
