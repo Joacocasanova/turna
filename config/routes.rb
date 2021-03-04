@@ -13,6 +13,10 @@ Rails.application.routes.draw do
     resources :bookings, only: [:create]
   end
   resources :bookings, only: [ :index, :update ] do
+    resources :payments, only: [ :new ]
     resources :reviews, only: [ :new, :create ]
   end
+
+  post 'prepare_payment', to: 'bookings#prepare_payment'
+  mount StripeEvent::Engine, at: '/stripe-webhooks'
 end

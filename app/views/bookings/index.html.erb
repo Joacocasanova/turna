@@ -28,10 +28,13 @@
                     <p class="description" style="margin-top:0"><%= booking.service.title %></p>
                     <p class="description" style="margin-top:0">Precio: <strong>$ <%= booking.service.price %></strong></p>
                     <p class="description" style="margin:0">Fecha del turno: <%= booking.start_datetime.strftime('%d/%m/%Y') %>, <%= booking.start_datetime.strftime('%H:%M') %>hs</p>
+                    <div class="d-flex">
                       <%= simple_form_for booking do |f| %>
                         <%= f.hidden_field :status, value: "canceled" %>
                         <%=f.submit "Cancelar", id: "sweet-alert-rejected", class: "btn btn-light", style: "color: #FBB266;", data: { confirm: "Cancelar turno?" } %>
                       <% end %>
+                      <%= link_to "Pagar", new_booking_payment_path(booking) %>
+                    </div>
                   </div>
                 </div>
             </div>

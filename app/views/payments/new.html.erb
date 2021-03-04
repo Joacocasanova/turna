@@ -1,0 +1,22 @@
+<!-- app/views/payments/new.html.erb -->
+<div class="container">
+  <div class="row py-4">
+    <div class="col-12 col-md-4"><%= image_tag @booking.service.icon, width: '100%' %></div>
+    <div class="col">
+      <h1>Checkout summary</h1>
+      <p>Purchase of <strong><%= @booking.service.title %></strong> for <strong><%= humanized_money_with_symbol @booking.service.price %></strong></p>
+      <%= link_to 'prepare_payment', prepare_payment_path(booking_id: @booking), method: "post" %>
+      <button id="pay" class="btn btn-primary">Pay</button>
+      <script src="https://js.stripe.com/v3/"></script>
+      <script>
+        const paymentButton = document.getElementById('pay');
+        paymentButton.addEventListener('click', () => {
+          const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
+          stripe.redirectToCheckout({
+            sessionId: '<%= @booking.checkout_session_id %>'
+          });
+        });
+      </script>
+    </div>
+  </div>
+</div>
