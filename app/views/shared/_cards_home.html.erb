@@ -3,7 +3,7 @@
     <div class="col-12 col-md-6 col-lg-3 mt-3">
       <%= link_to provider_path(provider) do  %>
           <div class="card h-100">
-            <%= cl_image_tag provider.photos.first.key, class: " mb-1" %>
+            <%= cl_image_tag provider.photos.first.key, class: "desktop-img mb-1" %>
             <div class="card-body bg-light">
               <h5 class="card-title mb-1"> <strong><%= provider.name %></h5></strong>
               <% provider.rating.times do %>
