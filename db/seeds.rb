@@ -167,37 +167,37 @@ service_three_joaco.save
 # ICONS CREATION - PROV 2
 
 
-service_vet_ro_one.icon.attach(io: URI.open('https://res.cloudinary.com/divzp8hs4/image/upload/v1614821965/Turna/Veterinaria/consultaRecurso_2_bbq8tm.jpg'), filename: 'consulta.jpg', content_type: 'image/jpg')
-service_vet_ro_two.icon.attach(io: URI.open('https://res.cloudinary.com/divzp8hs4/image/upload/v1614821965/Turna/Veterinaria/corteRecurso_1_n4v8ch.jpg'), filename: 'corte.jpg', content_type: 'image/jpg')
-service_vet_ro_three.icon.attach(io: URI.open('https://res.cloudinary.com/divzp8hs4/image/upload/v1614821966/Turna/Veterinaria/vacunaRecurso_3_cdgues.jpg'), filename: 'vacuna.jpg', content_type: 'image/jpg')
+service_vet_ro_one.icon.attach(io: URI.open('https://res.cloudinary.com/divzp8hs4/image/upload/v1614901969/Turna/Veterinaria/vacunaRecurso_2_xpcjjy.jpg'), filename: 'consulta.jpg', content_type: 'image/jpg')
+service_vet_ro_two.icon.attach(io: URI.open('https://res.cloudinary.com/divzp8hs4/image/upload/v1614902002/Turna/Veterinaria/vacunaRecurso_1_oxgnsc.jpg'), filename: 'corte.jpg', content_type: 'image/jpg')
+service_vet_ro_three.icon.attach(io: URI.open('https://res.cloudinary.com/divzp8hs4/image/upload/v1614901969/Turna/Veterinaria/vacunaRecurso_3_x6yxpp.jpg'), filename: 'vacuna.jpg', content_type: 'image/jpg')
 service_vet_ro_one.save
 service_vet_ro_two.save
 service_vet_ro_three.save
 
-service_vet_tom_one.icon.attach(io: URI.open('https://res.cloudinary.com/divzp8hs4/image/upload/v1614821965/Turna/Veterinaria/consultaRecurso_2_bbq8tm.jpg'), filename: 'consulta.jpg', content_type: 'image/jpg')
-service_vet_tom_two.icon.attach(io: URI.open('https://res.cloudinary.com/divzp8hs4/image/upload/v1614821965/Turna/Veterinaria/corteRecurso_1_n4v8ch.jpg'), filename: 'corte.jpg', content_type: 'image/jpg')
-service_vet_tom_three.icon.attach(io: URI.open('https://res.cloudinary.com/divzp8hs4/image/upload/v1614821966/Turna/Veterinaria/vacunaRecurso_3_cdgues.jpg'), filename: 'vacuna.jpg', content_type: 'image/jpg')
+service_vet_tom_one.icon.attach(io: URI.open('https://res.cloudinary.com/divzp8hs4/image/upload/v1614901969/Turna/Veterinaria/vacunaRecurso_2_xpcjjy.jpg'), filename: 'consulta.jpg', content_type: 'image/jpg')
+service_vet_tom_two.icon.attach(io: URI.open('https://res.cloudinary.com/divzp8hs4/image/upload/v1614902002/Turna/Veterinaria/vacunaRecurso_1_oxgnsc.jpg'), filename: 'corte.jpg', content_type: 'image/jpg')
+service_vet_tom_three.icon.attach(io: URI.open('https://res.cloudinary.com/divzp8hs4/image/upload/v1614901969/Turna/Veterinaria/vacunaRecurso_3_x6yxpp.jpg'), filename: 'vacuna.jpg', content_type: 'image/jpg')
 service_vet_tom_one.save
 service_vet_tom_two.save
 service_vet_tom_three.save
 
-service_vet_guido_one.icon.attach(io: URI.open('https://res.cloudinary.com/divzp8hs4/image/upload/v1614821965/Turna/Veterinaria/consultaRecurso_2_bbq8tm.jpg'), filename: 'consulta.jpg', content_type: 'image/jpg')
-service_vet_guido_two.icon.attach(io: URI.open('https://res.cloudinary.com/divzp8hs4/image/upload/v1614821965/Turna/Veterinaria/corteRecurso_1_n4v8ch.jpg'), filename: 'corte.jpg', content_type: 'image/jpg')
-service_vet_guido_three.icon.attach(io: URI.open('https://res.cloudinary.com/divzp8hs4/image/upload/v1614821966/Turna/Veterinaria/vacunaRecurso_3_cdgues.jpg'), filename: 'vacuna.jpg', content_type: 'image/jpg')
+service_vet_guido_one.icon.attach(io: URI.open('https://res.cloudinary.com/divzp8hs4/image/upload/v1614901969/Turna/Veterinaria/vacunaRecurso_2_xpcjjy.jpg'), filename: 'consulta.jpg', content_type: 'image/jpg')
+service_vet_guido_two.icon.attach(io: URI.open('https://res.cloudinary.com/divzp8hs4/image/upload/v1614902002/Turna/Veterinaria/vacunaRecurso_1_oxgnsc.jpg'), filename: 'corte.jpg', content_type: 'image/jpg')
+service_vet_guido_three.icon.attach(io: URI.open('https://res.cloudinary.com/divzp8hs4/image/upload/v1614901969/Turna/Veterinaria/vacunaRecurso_3_x6yxpp.jpg'), filename: 'vacuna.jpg', content_type: 'image/jpg')
 service_vet_guido_one.save
 service_vet_guido_two.save
 service_vet_guido_three.save
 
-service_vet_camilo_one.icon.attach(io: URI.open('https://res.cloudinary.com/divzp8hs4/image/upload/v1614821965/Turna/Veterinaria/consultaRecurso_2_bbq8tm.jpg'), filename: 'consulta.jpg', content_type: 'image/jpg')
-service_vet_camilo_two.icon.attach(io: URI.open('https://res.cloudinary.com/divzp8hs4/image/upload/v1614821965/Turna/Veterinaria/corteRecurso_1_n4v8ch.jpg'), filename: 'corte.jpg', content_type: 'image/jpg')
-service_vet_camilo_three.icon.attach(io: URI.open('https://res.cloudinary.com/divzp8hs4/image/upload/v1614821966/Turna/Veterinaria/vacunaRecurso_3_cdgues.jpg'), filename: 'vacuna.jpg', content_type: 'image/jpg')
+service_vet_camilo_one.icon.attach(io: URI.open('https://res.cloudinary.com/divzp8hs4/image/upload/v1614901969/Turna/Veterinaria/vacunaRecurso_2_xpcjjy.jpg'), filename: 'consulta.jpg', content_type: 'image/jpg')
+service_vet_camilo_two.icon.attach(io: URI.open('https://res.cloudinary.com/divzp8hs4/image/upload/v1614902002/Turna/Veterinaria/vacunaRecurso_1_oxgnsc.jpg'), filename: 'corte.jpg', content_type: 'image/jpg')
+service_vet_camilo_three.icon.attach(io: URI.open('https://res.cloudinary.com/divzp8hs4/image/upload/v1614901969/Turna/Veterinaria/vacunaRecurso_3_x6yxpp.jpg'), filename: 'vacuna.jpg', content_type: 'image/jpg')
 service_vet_camilo_one.save
 service_vet_camilo_two.save
 service_vet_camilo_three.save
 
-service_vet_joaco_one.icon.attach(io: URI.open('https://res.cloudinary.com/divzp8hs4/image/upload/v1614821965/Turna/Veterinaria/consultaRecurso_2_bbq8tm.jpg'), filename: 'consulta.jpg', content_type: 'image/jpg')
-service_vet_joaco_two.icon.attach(io: URI.open('https://res.cloudinary.com/divzp8hs4/image/upload/v1614821965/Turna/Veterinaria/corteRecurso_1_n4v8ch.jpg'), filename: 'corte.jpg', content_type: 'image/jpg')
-service_vet_joaco_three.icon.attach(io: URI.open('https://res.cloudinary.com/divzp8hs4/image/upload/v1614821966/Turna/Veterinaria/vacunaRecurso_3_cdgues.jpg'), filename: 'vacuna.jpg', content_type: 'image/jpg')
+service_vet_joaco_one.icon.attach(io: URI.open('https://res.cloudinary.com/divzp8hs4/image/upload/v1614901969/Turna/Veterinaria/vacunaRecurso_2_xpcjjy.jpg'), filename: 'consulta.jpg', content_type: 'image/jpg')
+service_vet_joaco_two.icon.attach(io: URI.open('https://res.cloudinary.com/divzp8hs4/image/upload/v1614902002/Turna/Veterinaria/vacunaRecurso_1_oxgnsc.jpg'), filename: 'corte.jpg', content_type: 'image/jpg')
+service_vet_joaco_three.icon.attach(io: URI.open('https://res.cloudinary.com/divzp8hs4/image/upload/v1614901969/Turna/Veterinaria/vacunaRecurso_3_x6yxpp.jpg'), filename: 'vacuna.jpg', content_type: 'image/jpg')
 service_vet_joaco_one.save
 service_vet_joaco_two.save
 service_vet_joaco_three.save
