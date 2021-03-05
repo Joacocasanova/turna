@@ -29,6 +29,7 @@ class ProvidersController < ApplicationController
       end
     end
     @booking = Booking.new
+    @url = params[:url]
   end
 
   private
