@@ -28,12 +28,17 @@
                     <p class="description" style="margin-top:0"><%= booking.service.title %></p>
                     <p class="description" style="margin-top:0">Precio: <strong>$ <%= booking.service.price %></strong></p>
                     <p class="description" style="margin:0">Fecha del turno: <%= booking.start_datetime.strftime('%d/%m/%Y') %>, <%= booking.start_datetime.strftime('%H:%M') %>hs</p>
-                    <div class="d-flex">
+                    <% if booking.payment_status == "paid" %>
+                      <span class="badge badge-success" style="color:white;font-size:15px;border-radius:5px">Pago Confirmado</span>
+                    <% end %>
+                    <div class="d-flex align-items-center">
+                    <% if booking.payment_status == "pending" %>
                       <%= simple_form_for booking do |f| %>
                         <%= f.hidden_field :status, value: "canceled" %>
-                        <%=f.submit "Cancelar", id: "sweet-alert-rejected", class: "btn btn-light", style: "color: #FBB266;", data: { confirm: "Cancelar turno?" } %>
+                        <%=f.submit "Cancelar", id: "sweet-alert-rejected", class: "btn btn-light p-0 mr-3", style: "color: #FBB266;", data: { confirm: "Cancelar turno?" } %>
                       <% end %>
-                      <%= link_to "Pagar", new_booking_payment_path(booking) %>
+                      <%= link_to "Pagar", new_booking_payment_path(booking), class: "btn btn-light", style:"font-size:12px;border-radius:5px;height:30px" %>
+                    <% end %>
                     </div>
                   </div>
                 </div>
@@ -109,4 +114,6 @@
       </div>
     </div>
   </div>
+</div>
+<div class="container" style="height:15px">
 </div>
