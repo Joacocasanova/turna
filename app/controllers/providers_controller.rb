@@ -33,23 +33,20 @@ class ProvidersController < ApplicationController
 
   def new
     @provider = Provider.new
+    3.times do
+      @provider.services.build
+    end
   end
 
   def create
-    @provider = Provider.new
-    @provider.name = params["provider"]["name"]
-    @provider.category = params["provider"]["category"]
-    @provider.address = params["provider"]["address"]
-    @provider.neighborhood = params["provider"]["address"]
-    @provider.description = params["provider"]["description"]
+    @provider = Provider.new(provider_params)
+    @provider.rating = 0
 
-    @provider.opening_time = params["provider"]["opening_time"]
-    @provider.closing_time = params["provider"]["closing_time"]
-    @provider.rating = params["provider"]["rating"]
-
-
-    @provider.save!
-    redirect_to home_path
+    if @provider.save
+      redirect_to home_path
+    else
+      render :new
+    end
 
   end
 
@@ -57,7 +54,7 @@ class ProvidersController < ApplicationController
   private
 
   def provider_params
-    params.require(:provider).permit(:name, :description, :address, :category, :rating, :neighborhood, photos: [])
+    params.require(:provider).permit(:name, :description, :address, :category, :rating, :neighborhood, :opening_time, :closing_time, photos: [], services_attributes: [ :title, :price, :min_duration ])
   end
 
   def set_provider

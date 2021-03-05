@@ -46,3 +46,17 @@
      width: 100%;
    }
 }
+
+@media (min-width: 860px) {
+  .form-provider{
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 860px) {
+  .price{
+    display: flex;
+    justify-content: space-between;
+  }
+}

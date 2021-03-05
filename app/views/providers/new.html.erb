@@ -4,13 +4,24 @@
       <strong><h1 id="title" class="m-3">Abrí tu negocio completando el siguiente formulario</h1></strong>
 
       <%= simple_form_for [ @provider ] do |f| %>
-        <%= f.input :name %>
-        <%= f.input :category %>
-        <%= f.input :address %>
-        <%= f.input :neighborhood %>
-        <%= f.input :description %>
-        <%= f.input :opening_time %>
-        <%= f.input :closing_time %>
+        <%= f.input :name, label: "Nombre" %>
+        <%= f.input :category, label: "Categoría", :collection => %w[Barberia Dentista] %>
+        <%= f.input :address, label: "Dirección" %>
+        <%= f.input :neighborhood, label: "Barrio" %>
+        <%= f.input :description, label: "Descripción" %>
+        <%= f.input :opening_time, as: :time, label: "Horario de apertura" %>
+        <%= f.input :closing_time, as: :time, label: "Horario de cierre" %>
+        
+        <h3>Agregar servicios</h3>
+        <% i = 1 %>
+        <%= f.simple_fields_for :services do |service|  %>
+          <h5>Servicio <%= "#{i}" %></h5>
+          <%= service.input :title, required: false, label: "Titulo" %>
+          <%= service.input :price, required: false, label: "Precio" %>
+          <%= service.input :min_duration, required: false, label: "Duración" %>
+          <% i += 1 %>
+        <% end %>
+        <%= f.input :photos, as: :file, input_html: { multiple: true } %>
         <%= f.submit "Contacto", class: "btn btn-primary" %>
       <% end %>
     </div>

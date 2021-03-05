@@ -13,9 +13,4 @@ class PagesController < ApplicationController
 
   def introduction
   end
-
-  def send_provider
-    UserMailer.provider_alta(params["abc"]["name"], params["abc"]["category"], params["abc"]["address"], params["abc"]["description"]).deliver_later
-    redirect_to home_path
-  end
 end
