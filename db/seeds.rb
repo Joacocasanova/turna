@@ -270,27 +270,27 @@ start_date = Date.today
 
 # BOOKINGS - PROV 1
 
-joaco_experience = Booking.create!(customer: joaco_user, service: service_one, start_datetime: start_date - 3.days + 16.hours, end_datetime: start_date - 3.days + 16.hours + 45.minutes, status: "accepted")
+joaco_experience = Booking.create!(customer: joaco_user, service: service_one, start_datetime: start_date - 3.days + 16.hours, end_datetime: start_date - 3.days + 16.hours + 45.minutes, status: "accepted", payment_status:"pending")
 
-tom_experience = Booking.create!(customer: tom_user, service: service_one, start_datetime: start_date + 2.days + 16.hours, end_datetime: start_date + 2.days + 16.hours + 45.minutes, status: "accepted")
+tom_experience = Booking.create!(customer: tom_user, service: service_one, start_datetime: start_date + 2.days + 16.hours, end_datetime: start_date + 2.days + 16.hours + 45.minutes, status: "accepted", payment_status:"pending")
 
-tom_experience1 = Booking.create!(customer: tom_user, service: service_one, start_datetime: start_date - 2.days + 16.hours, end_datetime: start_date - 2.days + 16.hours + 45.minutes, status: "completed")
+tom_experience1 = Booking.create!(customer: tom_user, service: service_one, start_datetime: start_date - 2.days + 16.hours, end_datetime: start_date - 2.days + 16.hours + 45.minutes, status: "completed", payment_status:"pending")
 
-tom_experience2 = Booking.create!(customer: tom_user, service: service_one, start_datetime: start_date - 2.days + 16.hours, end_datetime: start_date - 2.days + 16.hours + 45.minutes, status: "canceled")
+tom_experience2 = Booking.create!(customer: tom_user, service: service_one, start_datetime: start_date - 2.days + 16.hours, end_datetime: start_date - 2.days + 16.hours + 45.minutes, status: "canceled", payment_status:"pending")
 
-camilo_experience = Booking.create!(customer: camilo_user, service: service_one, start_datetime: start_date - 4.days + 16.hours, end_datetime: start_date - 4.days + 16.hours + 45.minutes, status: "accepted")
+camilo_experience = Booking.create!(customer: camilo_user, service: service_one, start_datetime: start_date - 4.days + 16.hours, end_datetime: start_date - 4.days + 16.hours + 45.minutes, status: "accepted", payment_status:"pending")
 
 # BOOKINGS - PROV 2
 
-joaco_experience_vet = Booking.create!(customer: joaco_user, service: service_vet_ro_one, start_datetime: start_date - 3.days + 16.hours, end_datetime: start_date - 3.days + 16.hours + 45.minutes, status: "accepted")
+joaco_experience_vet = Booking.create!(customer: joaco_user, service: service_vet_ro_one, start_datetime: start_date - 3.days + 16.hours, end_datetime: start_date - 3.days + 16.hours + 45.minutes, status: "accepted", payment_status:"pending")
 
-tom_experience_vet = Booking.create!(customer: tom_user, service: service_vet_ro_two, start_datetime: start_date + 2.days + 16.hours, end_datetime: start_date + 2.days + 16.hours + 45.minutes, status: "accepted")
+tom_experience_vet = Booking.create!(customer: tom_user, service: service_vet_ro_two, start_datetime: start_date + 2.days + 16.hours, end_datetime: start_date + 2.days + 16.hours + 45.minutes, status: "accepted", payment_status: "pending")
 
-tom_experience_vet2 = Booking.create!(customer: tom_user, service: service_vet_ro_one, start_datetime: start_date - 2.days + 16.hours, end_datetime: start_date - 2.days + 16.hours + 45.minutes, status: "completed")
+tom_experience_vet2 = Booking.create!(customer: tom_user, service: service_vet_ro_one, start_datetime: start_date - 2.days + 16.hours, end_datetime: start_date - 2.days + 16.hours + 45.minutes, status: "completed", payment_status: "pending")
 
-tom_experience_vet3 = Booking.create!(customer: tom_user, service: service_vet_ro_three, start_datetime: start_date - 2.days + 16.hours, end_datetime: start_date - 2.days + 16.hours + 45.minutes, status: "canceled")
+tom_experience_vet3 = Booking.create!(customer: tom_user, service: service_vet_ro_three, start_datetime: start_date - 2.days + 16.hours, end_datetime: start_date - 2.days + 16.hours + 45.minutes, status: "canceled", payment_status: "pending")
 
-camilo_experience_vet = Booking.create!(customer: camilo_user, service: service_vet_ro_one, start_datetime: start_date - 4.days + 16.hours, end_datetime: start_date - 4.days + 16.hours + 45.minutes, status: "accepted")
+camilo_experience_vet = Booking.create!(customer: camilo_user, service: service_vet_ro_one, start_datetime: start_date - 4.days + 16.hours, end_datetime: start_date - 4.days + 16.hours + 45.minutes, status: "accepted", payment_status: "pending")
 
 # REVIEWS - PROV 1
 
