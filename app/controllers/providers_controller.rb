@@ -2,10 +2,10 @@ require 'open-uri'
 
 class ProvidersController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index, :show ]
-  before_action :set_provider, only: [ :show ]
+  before_action :set_provider, only: [ :show, :update ]
 
   def index
-    @search = Provider.with_geocode.where("neighborhood @@ '%#{params[:localidad]}%'").where(category: params[:categoria]).ransack(params[:q])
+    @search = Provider.with_geocode.where("neighborhood @@ '%#{params[:localidad]}%'").where(category: params[:categoria], status: true).ransack(params[:q])
 
     @providers = @search.result.page params[:page]
     @prices = []
@@ -62,9 +62,13 @@ class ProvidersController < ApplicationController
     else
       render :new
     end
-
   end
 
+  def update
+    @provider.status = !@provider.status
+    @provider.save!
+    redirect_to pending_providers_path
+  end
 
   private
 

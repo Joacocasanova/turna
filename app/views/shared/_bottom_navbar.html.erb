@@ -5,7 +5,14 @@
         <i class="fas fa-home"></i>Home
       </div>
     <% end %>
-    <% if user_signed_in? %>
+
+    <% if current_user.admin? %>
+      <%= link_to pending_providers_path do %>
+        <div class="icons d-flex flex-column align-center">
+          <i class="fas fa-store"></i>Providers
+        </div>
+      <% end %>
+    <% elsif user_signed_in? %>
       <%= link_to bookings_path do  %>
         <div class="icons d-flex flex-column align-center">
           <i class="far fa-calendar-check"></i>Mis Turnos
@@ -18,7 +25,6 @@
         </div>
       <% end %>
     <% end %>
-
 
     <% if user_signed_in? %>
       <%= link_to edit_user_registration_path(current_user) do  %>
