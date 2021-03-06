@@ -109,12 +109,14 @@
         <%= simple_form_for [@provider, @booking] do |f| %>
         <%= f.input :service_id , as: :hidden %>
         <%=f.input :start_datetime, label: "Fecha y Horario", as: :string, required: false, input_html: {class: "datepicker", data: {opening_time: @provider.opens, closing_time: @provider.closes }}  %>
-          <%=f.submit "Reservar!", class: "btn btn-primary mt-2 textclass w-100" %>
+        <div class= "col-12">
+          <div id="time-slots" class="time-container">
+          </div>
+        </div>
+          <%=f.submit "Reservar!", class: "btn btn-primary mt-2 textclass w-100", id:"booking_submit" %>
         <% end %>
-
       </div>
     </div>
-
   <div class="container" style="height:100px">
   </div>
 <%= render 'shared/container' %>

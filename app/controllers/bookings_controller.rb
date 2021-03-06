@@ -10,18 +10,23 @@ class BookingsController < ApplicationController
     @booking.status = "accepted"
     @booking.payment_status = "pending"
     @booking.service = @service
-    if @service.min_duration == 30
-      time_duration = 0.5.hour
-    else
-      time_duration = 1.hour
-    end
-    @booking.end_datetime = @booking.start_datetime + time_duration
-    if @booking.save
+    if @booking.save!
       UserMailer.thankyou(@booking.customer, @booking, @provider).deliver_later
       redirect_to bookings_path
     else
-      @provider = Provider.all
-      render "providers/show"
+      @markers = [{
+        lat: @provider.latitude,
+        lng: @provider.longitude,
+        infoWindow: render_to_string(partial: "providers/info_window", locals: { provider: @provider })
+      }]
+      @reviews = []
+      @provider.bookings.each do |booking|
+        if  booking.review != nil
+          @reviews << booking.review
+        end
+      end
+      @url = params[:url]
+      redirect_to provider_path(@provider)
     end
   end
 
