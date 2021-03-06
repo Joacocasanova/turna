@@ -6,6 +6,7 @@ class Provider < ApplicationRecord
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
+  before_save :calculate_average
 
   scope :with_geocode, -> { where.not(latitude: nil, longitude: nil) }
 
@@ -17,6 +18,8 @@ class Provider < ApplicationRecord
   validates :opening_time, presence: true
   validates :closing_time, presence: true
   validates :neighborhood, presence:true
+
+  accepts_nested_attributes_for :services, reject_if: :all_blank
 
   def opens
     opening_time.strftime("%H:%M")
@@ -33,6 +36,14 @@ class Provider < ApplicationRecord
       precio += service.price
       count += 1
     end
-    precio / count
+    if count != 0
+      return (precio / count).round
+    else
+      return 0
+    end
+  end
+
+  def calculate_average
+    self.avg_price = average_price(self)
   end
 end
