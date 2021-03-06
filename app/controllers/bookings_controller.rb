@@ -8,6 +8,7 @@ class BookingsController < ApplicationController
     @service = Service.find(params["booking"]["service_id"])
     @booking.customer = current_user
     @booking.status = "accepted"
+    @booking.payment_status = "pending"
     @booking.service = @service
     if @service.min_duration == 30
       time_duration = 0.5.hour
@@ -40,6 +41,8 @@ class BookingsController < ApplicationController
     UserMailer.cancel(@booking.customer, @booking, @provider).deliver_later
     redirect_to bookings_path
   end
+
+
 
   private
 

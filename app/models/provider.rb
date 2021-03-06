@@ -36,7 +36,11 @@ class Provider < ApplicationRecord
       precio += service.price
       count += 1
     end
-    precio / count
+    if count != 0
+      return (precio / count).round
+    else
+      return 0
+    end
   end
 
   def calculate_average

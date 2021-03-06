@@ -72,12 +72,18 @@
 
 .carousel-img {
   width: 100%;
+  height: 200px;
+}
+
+.desktop-img {
+  height: 10rem;
 }
 
 .card-img-index {
   height: 100%;
   object-fit: cover;
   border-radius: 10%;
+  width: 160px;
 }
 
 .mapboxgl-popup-content {

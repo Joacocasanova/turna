@@ -1,9 +1,15 @@
 <%= render 'shared/container' %>
 <div class="container">
   <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item"><%= @provider.category + 's'%></li>
-      <li class="breadcrumb-item"><%= @provider.neighborhood.partition(",").first %></li>
+    <ol class="breadcrumb align-items-center">
+      <%= link_to home_path do %>
+        <li class="breadcrumb-item"><%= @provider.neighborhood.partition(",").first %></li>
+      <% end %>
+      <i class="fas fa-greater-than mx-2 align-center" style="font-size: 10px"></i>
+        <%= link_to @url do  %>
+          <li class="breadcrumb-item"><%= @provider.category + 's'%></li></li>
+        <% end %>
+      <i class="fas fa-greater-than mx-2 align-center" style="font-size: 10px"></i>
       <li class="breadcrumb-item active" aria-current="page"><%= @provider.name %></li>
     </ol>
   </nav>
@@ -85,7 +91,7 @@
               <div class=" d-flex flex-column align-items-center services-cards"  data-service-id='<%=provider_service.id %>'  data-opening-time="<%= @provider.opens %>" data-closing-time="<%= @provider.closes %>" data-time-interval="<%= provider_service.min_duration %>">
                 <%= cl_image_tag provider_service.icon.key, style:"height:150px;width:150px", class:"rounded-circle m-4" %>
                 <h5><%= provider_service.title %></h5>
-                <h5><strong>$<%= provider_service.price %></strong></h5>
+                <h5><strong><%= humanized_money_with_symbol(provider_service.price) %></strong></h5>
               </div>
             </div>
           <% end %>

@@ -100,6 +100,8 @@ ActiveRecord::Schema.define(version: 2021_03_03_181832) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "service_id", null: false
+    t.string "payment_status"
+    t.string "checkout_session_id"
     t.index ["service_id"], name: "index_bookings_on_service_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
@@ -136,11 +138,11 @@ ActiveRecord::Schema.define(version: 2021_03_03_181832) do
 
   create_table "services", force: :cascade do |t|
     t.string "title"
-    t.integer "price"
     t.bigint "provider_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "min_duration"
+    t.integer "price_cents", default: 0, null: false
     t.index ["provider_id"], name: "index_services_on_provider_id"
   end
 

@@ -5,7 +5,7 @@
 
       <%= simple_form_for [ @provider ] do |f| %>
         <%= f.input :name, label: "Nombre" %>
-        <%= f.input :category, label: "Categoría", :collection => %w[Barberia Dentista] %>
+        <%= f.input :category, label: "Categoría", :collection => %w[Barberia Veterinaria] %>
         <%= f.input :address, label: "Dirección" %>
         <%= f.input :neighborhood, label: "Barrio" %>
         <%= f.input :description, label: "Descripción" %>
@@ -16,7 +16,7 @@
         <% i = 1 %>
         <%= f.simple_fields_for :services do |service|  %>
           <h5>Servicio <%= "#{i}" %></h5>
-          <%= service.input :title, required: false, label: "Titulo", collection: ["Corte y arreglo de barba", "Corte de Pelo", "Color/Decoloracion"] %>
+          <%= service.input :title, required: false, label: "Titulo", collection: ["Corte y arreglo de barba", "Corte de Pelo", "Color/Decoloracion", "Consulta", "Baño y Cepillado", "Vacunación anual"] %>
           <%= service.input :price, required: false, label: "Precio" %>
           <%= service.input :min_duration, required: false, label: "Duración" %>
           <% i += 1 %>
