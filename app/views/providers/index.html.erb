@@ -46,23 +46,23 @@
           <% end %>
         </div>
 
-      <div class="cards">
-        <div class="row">
-          <% @providers.each do |provider| %>
-            <div class="col-12 col-md-4">
-              <%= link_to provider_path({id: provider.id, url: request.url}) do %>
-                  <div class="card-product">
-                  <%= cl_image_tag provider.photos.first.key, class: "card-img-index" %>
-                    <div class="card-product-infos h-100">
-                      <h2 class=""><%= provider.name %></h2>
-                      <p class="description"><%= truncate(provider.description, length: 23) %></p>
-                      <% provider.rating.times do %>
-                        <i class="fas fa-star mb-1" style="font-size: 10px"></i>
-                      <% end %>
-                      <p class="price my-1">Precio promedio: <strong>$<%= provider.avg_price %></strong> </p>
-                      <div class= "d-flex justify-content-between">
-                        <p class="distance m-0" data-latitude="<%= provider.latitude%>" data-longitude="<%= provider.longitude%>"></p>
-                        <i class="fas fa-location-arrow"></i>
+    <div class="cards">
+      <div class="row">
+        <% @providers.each do |provider| %>
+          <div class="col-12 col-md-4 mb-2">
+            <%= link_to provider_path({id: provider.id, url: request.url}) do %>
+                <div class="card-product">
+                <%= cl_image_tag provider.photos.first.key, class: "card-img-index" %>
+                  <div class="card-product-infos h-100">
+                    <h2 class=""><%= provider.name %></h2>
+                    <p class="description"><%= truncate(provider.description, length: 23) %></p>
+                    <% provider.rating.times do %>
+                      <i class="fas fa-star mb-1" style="font-size: 10px"></i>
+                    <% end %>
+                    <p class="price my-1">Precio promedio: <strong>$<%= provider.avg_price %></strong> </p>
+                    <div class= "d-flex justify-content-between">
+                      <p class="distance m-0" data-latitude="<%= provider.latitude%>" data-longitude="<%= provider.longitude%>"></p>
+                      <i class="fas fa-location-arrow"></i>
                       </div>
                     </div>
                   </div>

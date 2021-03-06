@@ -3,7 +3,7 @@
 
   <strong><h1 id="title" class="pt-2">Mis turnos</h1></strong>
   <div class="align-left">
-    <ul class="nav nav-pills my-3" style="justify-content: evenly;" id="pills-tab" role="tablist">
+    <ul class="nav nav-pills my-3" style="justify-content: center;" id="pills-tab" role="tablist">
       <li class="nav-item" role="presentation">
         <button id="filters" class="btn btn-primary active m-1" id="pills-home-tab" data-toggle="pill" data-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Pendientes</button>
       </li>
@@ -20,25 +20,25 @@
       <div class="cards">
         <div class="row">
           <% @accepted.each do |booking| %>
-            <div class="col-12 col-md-4">
+            <div class="col-12 col-md-4 mb-2">
                 <div class="card-product">
                   <%= cl_image_tag booking.service.provider.photos.first.key, class: "card-img-index" %>
-                  <div class="card-product-infos mt-2">
+                  <div class="card-product-infos mt-2 mr-2">
                     <h2><%= booking.service.provider.name %></h2>
                     <p class="description" style="margin-top:0"><%= booking.service.title %></p>
                     <p class="description" style="margin-top:0">Precio: <strong>$ <%= booking.service.price %></strong></p>
                     <p class="description" style="margin:0">Fecha del turno: <%= booking.start_datetime.strftime('%d/%m/%Y') %>, <%= booking.start_datetime.strftime('%H:%M') %>hs</p>
                     <% if booking.payment_status == "paid" %>
-                      <span class="badge badge-success" style="color:white;font-size:15px;border-radius:5px">Pago Confirmado</span>
+                      <span class="badge badge-success" style="color:white;font-size:12px;border-radius:5px">Pago Confirmado</span>
                     <% end %>
-                    <div class="d-flex align-items-center">
-                    <% if booking.payment_status == "pending" %>
+                    <div class="">
+                      <% if booking.payment_status == "pending" %>
+                        <%= link_to "Pagar", new_booking_payment_path(booking), class: "btn btn-primary w-100 mt-1 mb-2", style:"font-size:12px;border-radius:5px;height:30px" %>
+                      <% end %>
                       <%= simple_form_for booking do |f| %>
                         <%= f.hidden_field :status, value: "canceled" %>
-                        <%=f.submit "Cancelar", id: "sweet-alert-rejected", class: "btn btn-light p-0 mr-3", style: "color: #FBB266;", data: { confirm: "Cancelar turno?" } %>
+                        <%=f.submit "Cancelar", class: "btn btn-light w-100 my-0 py-1", style: "color: #343A40;font-size:12px", data: { confirm: "Cancelar turno?" } %>
                       <% end %>
-                      <%= link_to "Pagar", new_booking_payment_path(booking), class: "btn btn-light", style:"font-size:12px;border-radius:5px;height:30px" %>
-                    <% end %>
                     </div>
                   </div>
                 </div>
@@ -52,18 +52,18 @@
       <div class="cards">
         <div class="row">
           <% @completed.each do |booking| %>
-            <div class="col-12 col-md-4">
+            <div class="col-12 col-md-4 mb-2">
                 <div class="card-product">
                   <%= cl_image_tag booking.service.provider.photos.first.key, class: "card-img-index" %>
-                  <div class="card-product-infos mt-2">
+                  <div class="card-product-infos mt-2 mr-2">
                     <h2><%= booking.service.provider.name %></h2>
                     <p class="description" style="margin:0"><%= booking.service.title %></p>
                     <p class="description" style="margin-top:0">Precio: <strong>$ <%= booking.service.price %></strong></p>
                     <p class="description" style="margin:0">Fecha del turno: <%= booking.start_datetime.strftime('%d/%m/%Y') %>, <%= booking.start_datetime.strftime('%H:%M') %>hs</p>
                     <% if booking.review.blank? %>
-                      <button type="button" class="btn btn-light" style="border-radius: 10px;" data-toggle="modal" data-target="#exampleModal"><%= link_to 'Opinar', new_booking_review_path(booking) %></button>
+                      <%= link_to 'Opinar', new_booking_review_path(booking), class: "btn btn-primary w-100 mt-1 mb-2", style:"font-size:12px;border-radius:5px;height:30px" %>
                     <% else %>
-                      <button type="button" class="btn btn-light" style="border-radius: 10px; color: #FBB266"  data-toggle="modal" data-target="#exampleModal"> Ver opinión</button>
+                      <button type="button" class="btn btn-primary w-100 mt-1 mb-2", style="font-size:12px;border-radius:5px;height:30px" data-toggle="modal" data-target="#exampleModal"> Ver opinión</button>
                       <!-- Modal -->
                       <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
@@ -98,14 +98,15 @@
       <div class="cards pb" style="padding-bottom: 80px">
         <div class="row">
           <% @canceled.each do |booking| %>
-            <div class="col-12 col-md-4">
-                <div class="card-product mt-2">
+            <div class="col-12 col-md-4 mb-2">
+                <div class="card-product mt-2 mr-2">
                   <%= cl_image_tag booking.service.provider.photos.first.key, class: "card-img-index" %>
                   <div class="card-product-infos">
                     <h2><%= booking.service.provider.name %></h2>
                     <p class="description" style="margin:0"><%= booking.service.title %></p>
                     <p class="description" style="margin-top:0">Precio: <strong>$ <%= booking.service.price %></strong></p>
                     <p class="description" style="margin:0">Fecha del turno: <%= booking.start_datetime.strftime('%d/%m/%Y') %>, <%= booking.start_datetime.strftime('%H:%M') %>hs</p>
+                    <p style="color: red; font-weight: bold">Cancelado</p>
                   </div>
                 </div>
             </div>
