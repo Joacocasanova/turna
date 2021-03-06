@@ -308,44 +308,18 @@ Review.create!(user: camilo_user, booking: camilo_experience_vet, content: "Reoc
 
 Review.create!(user: tom_user, booking: tom_experience_vet, content: "Atentos y siempre y cuidando a mis perros, los recomiendo!", rating: 5)
 
+puts "Saving providers"
 
-def average_price(provider)
-  precio = 0
-  count = 0
-  provider.services.each do |service|
-    precio += service.price
-    count += 1
-  end
-  if count != 0
-    return (precio / count).round
-  else
-    return 0
-  end
-end
+# SAVING BARBERIA PROVIDERS
+ro_prov.reload.save!
+tom_prov.reload.save!
+joaco_prov.reload.save!
+guido_prov.reload.save!
+camilo_prov.reload.save!
 
-
-# PRICES - PROV 1
-ro_prov.avg_price = average_price(ro_prov)
-tom_prov.avg_price = average_price(tom_prov)
-joaco_prov.avg_price = average_price(joaco_prov)
-guido_prov.avg_price = average_price(guido_prov)
-camilo_prov.avg_price = average_price(camilo_prov)
-
-ro_prov.save
-tom_prov.save
-joaco_prov.save
-guido_prov.save
-camilo_prov.save
-
-# PRICES - PROV 2
-ro_prov_vet.avg_price = average_price(ro_prov_vet)
-tom_prov_vet.avg_price = average_price(tom_prov_vet)
-joaco_prov_vet.avg_price = average_price(joaco_prov_vet)
-guido_prov_vet.avg_price = average_price(guido_prov_vet)
-camilo_prov_vet.avg_price = average_price(camilo_prov_vet)
-
-ro_prov_vet.save
-tom_prov_vet.save
-joaco_prov_vet.save
-guido_prov_vet.save
-camilo_prov_vet.save
+# SAVING VET PROVIDERS
+ro_prov_vet.reload.save!
+tom_prov_vet.reload.save!
+joaco_prov_vet.reload.save!
+guido_prov_vet.reload.save!
+camilo_prov_vet.reload.save!
