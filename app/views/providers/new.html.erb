@@ -16,12 +16,12 @@
         <% i = 1 %>
         <%= f.simple_fields_for :services do |service|  %>
           <h5>Servicio <%= "#{i}" %></h5>
-          <%= service.input :title, required: false, label: "Titulo" %>
+          <%= service.input :title, required: false, label: "Titulo", collection: ["Corte y arreglo de barba", "Corte de Pelo", "Color/Decoloracion"] %>
           <%= service.input :price, required: false, label: "Precio" %>
           <%= service.input :min_duration, required: false, label: "Duración" %>
           <% i += 1 %>
         <% end %>
-        <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+        <%= f.input :photos, as: :file, input_html: { multiple: true }, required: true %>
         <%= f.submit "Contacto", class: "btn btn-primary" %>
       <% end %>
     </div>

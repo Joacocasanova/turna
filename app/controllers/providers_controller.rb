@@ -1,3 +1,5 @@
+require 'open-uri'
+
 class ProvidersController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index, :show ]
   before_action :set_provider, only: [ :show ]
@@ -41,6 +43,37 @@ class ProvidersController < ApplicationController
   def create
     @provider = Provider.new(provider_params)
     @provider.rating = 0
+    @provider.services.first.icon.attach(io: URI.open('https://res.cloudinary.com/dmtio0viw/image/upload/v1613522761/Turna/haircut_and_beard_fs3clq.webp'), filename: 'haircut.png', content_type: 'image/png')
+
+    if @provider.services.first
+      if @provider.services.first.title == "Corte y arreglo de barba"
+        @provider.services.first.icon.attach(io: URI.open('https://res.cloudinary.com/dmtio0viw/image/upload/v1613522761/Turna/haircut_and_beard_fs3clq.webp'), filename: 'haircut.png', content_type: 'image/png')
+      elsif @provider.services.first.title == "Corte de Pelo"
+        @provider.services.first.icon.attach(io: URI.open('https://res.cloudinary.com/dmtio0viw/image/upload/v1613522760/Turna/haircut_hbf2ee.png'), filename: 'haircut.png', content_type: 'image/png')
+      elsif @provider.services.first.title == "Color/Decoloracion"
+        @provider.services.first.icon.attach(io: URI.open('https://res.cloudinary.com/dmtio0viw/image/upload/v1613522926/Turna/hair_color_s7vot7.png'), filename: 'haircut.png', content_type: 'image/png')
+      end
+    end
+
+    if @provider.services.second
+      if @provider.services.second.title == "Corte y arreglo de barba"
+        @provider.services.second.icon.attach(io: URI.open('https://res.cloudinary.com/dmtio0viw/image/upload/v1613522761/Turna/haircut_and_beard_fs3clq.webp'), filename: 'haircut.png', content_type: 'image/png')
+      elsif @provider.services.second.title == "Corte de Pelo"
+        @provider.services.second.icon.attach(io: URI.open('https://res.cloudinary.com/dmtio0viw/image/upload/v1613522760/Turna/haircut_hbf2ee.png'), filename: 'haircut.png', content_type: 'image/png')
+      elsif @provider.services.second.title == "Color/Decoloracion"
+        @provider.services.second.icon.attach(io: URI.open('https://res.cloudinary.com/dmtio0viw/image/upload/v1613522926/Turna/hair_color_s7vot7.png'), filename: 'haircut.png', content_type: 'image/png')
+      end
+    end
+
+    if @provider.services.third
+      if @provider.services.third.title == "Corte y arreglo de barba"
+        @provider.services.third.icon.attach(io: URI.open('https://res.cloudinary.com/dmtio0viw/image/upload/v1613522761/Turna/haircut_and_beard_fs3clq.webp'), filename: 'haircut.png', content_type: 'image/png')
+      elsif @provider.services.third.title == "Corte de Pelo"
+        @provider.services.third.icon.attach(io: URI.open('https://res.cloudinary.com/dmtio0viw/image/upload/v1613522760/Turna/haircut_hbf2ee.png'), filename: 'haircut.png', content_type: 'image/png')
+      elsif @provider.services.third.title == "Color/Decoloracion"
+        @provider.services.third.icon.attach(io: URI.open('https://res.cloudinary.com/dmtio0viw/image/upload/v1613522926/Turna/hair_color_s7vot7.png'), filename: 'haircut.png', content_type: 'image/png')
+      end
+    end
 
     if @provider.save
       redirect_to home_path
