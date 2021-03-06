@@ -104,3 +104,15 @@
     object-fit: cover;
   }
 }
+
+#icon-img-payment {
+  height: 100%;
+  width: 40%;
+}
+
+@media (min-width: 1200px) {
+  #icon-img-payment {
+    width: 150px;
+    height: 150px;
+  }
+}
