@@ -1,22 +1,32 @@
-<!-- app/views/payments/new.html.erb -->
 <%= render 'shared/container' %>
 <div class="container">
-  <div class="row py-4">
-    <div class="col-12 col-md-4"><%= image_tag @booking.service.icon, width: '100%' %></div>
-    <div class="col">
-      <h1>Checkout summary</h1>
-      <p>Purchase of <strong><%= @booking.service.title %></strong> for <strong><%= humanized_money_with_symbol @booking.service.price %></strong></p>
-      <button id="pay" class="btn btn-primary">Pagar</button>
-      <script src="https://js.stripe.com/v3/"></script>
-      <script>
-        const paymentButton = document.getElementById('pay');
-        paymentButton.addEventListener('click', () => {
-          const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
-          stripe.redirectToCheckout({
-            sessionId: '<%= @booking.checkout_session_id %>'
+  <div class="row p-4">
+    <div class="col-12 col-md-6 offset-md-3">
+      <h4 class="text-center mb-4">Resumen de tu compra</h4>
+      <div class="text-center">
+        <%= image_tag @booking.service.icon, id:"icon-img-payment"%>
+        <div class="d-block ml-2">
+          <p style="font-size: 30px; margin-bottom: 1px"><strong><%= @booking.service.provider.name %></strong></p>
+          <p class="font-italic fs-4"><%= @booking.service.provider.address.partition(",").first %></p>
+          <p><%= @booking.service.title %></p>
+          <p><strong><%= @booking.start_datetime.strftime('%d/%m/%Y') %>, <%= @booking.start_datetime.strftime('%H:%M') %>hs</strong></p>
+          <p style="font-size: 20px; margin-bottom: 2px">Precio <strong><%= humanized_money_with_symbol @booking.service.price %></strong></p>
+        </div>
+      </div>
+      <div class="col-12">
+        <button id="pay" class="btn btn-primary w-100 mt-4">Pagar</button>
+        <script src="https://js.stripe.com/v3/"></script>
+        <script>
+          const paymentButton = document.getElementById('pay');
+          paymentButton.addEventListener('click', () => {
+            const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
+            stripe.redirectToCheckout({
+              sessionId: '<%= @booking.checkout_session_id %>'
+            });
           });
-        });
-      </script>
+        </script>
+      </div>
     </div>
+      
   </div>
 </div>
