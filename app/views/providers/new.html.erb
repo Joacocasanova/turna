@@ -1,0 +1,30 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="provider-new col-12">
+      <strong><h1 id="title" class="m-3">Abrí tu negocio completando el siguiente formulario</h1></strong>
+
+      <%= simple_form_for [ @provider ] do |f| %>
+        <%= f.input :name, label: "Nombre", placeholder: "Nombre del local" %>
+        <%= f.input :category, label: "Categoría", :collection => %w[Barberia Veterinaria] %>
+        <%= f.input :address, label: "Dirección", placeholder: "Dirección del local" %>
+        <%= f.input :neighborhood, label: "Barrio", placeholder: "Barrio" %>
+        <%= f.input :description, label: "Descripción", placeholder: "Describí tu negocio" %>
+        <%= f.input :opening_time, as: :time, label: "Horario de apertura" %>
+        <%= f.input :closing_time, as: :time, label: "Horario de cierre" %>
+        
+        <h3>Agregar servicios</h3>
+        <% i = 1 %>
+        <%= f.simple_fields_for :services do |service|  %>
+          <h5>Servicio <%= "#{i}" %></h5>
+          <%= service.input :title, required: false, label: "Titulo", collection: ["Corte y arreglo de barba", "Corte de Pelo", "Color/Decoloracion", "Consulta", "Baño y Cepillado", "Vacunación anual"] %>
+          <%= service.input :price, required: false, label: "Precio", placeholder: "Ingrese el precio", input_html: {value: ''}
+ %>
+          <%= service.input :min_duration, required: false, label: "Duración", placeholder: "Cuanto dura?", collection: [30, 60] %>
+          <% i += 1 %>
+        <% end %>
+        <%= f.input :photos, as: :file, input_html: { multiple: true }, required: true %>
+        <%= f.submit "Contacto", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>

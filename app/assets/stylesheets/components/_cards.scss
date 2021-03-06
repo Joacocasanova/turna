@@ -1,10 +1,9 @@
 .card-product {
   overflow: hidden;
-  height: 120px;
+  height: 100%;
   background: white;
   display: flex;
   align-items: center;
-  margin-bottom: 20px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 10px;
 }
@@ -88,4 +87,32 @@
 
 .mapboxgl-popup-content {
   width: 350px;
+}
+
+#img-show-carousel {
+  border-radius: 20px;
+  height: 10rem;
+  width: 100%;
+  margin-bottom: 10px;
+  object-fit: cover;
+}
+
+@media (min-width: 1200px) {
+  #img-show-carousel {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+  }
+}
+
+#icon-img-payment {
+  height: 100%;
+  width: 40%;
+}
+
+@media (min-width: 1200px) {
+  #icon-img-payment {
+    width: 150px;
+    height: 150px;
+  }
 }

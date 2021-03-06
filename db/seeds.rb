@@ -12,9 +12,10 @@ puts "Creating database.."
 
 # USERS
 ro_user = User.new(name: "Rocio", last_name: "Picaza", password: "123456", email: "ropicaza@gmail.com")
-tom_user = User.new(name: "Tomas", last_name: "Agnese", password: "123456", email: "tomagnese@gmail.com", admin: true)
+tom_user = User.new(name: "Tomas", last_name: "Agnese", password: "123456", email: "tomagnese@gmail.com")
 joaco_user = User.new(name: "Joaquin", last_name: "Casanova", password: "123456", email: "joacocasanova@gmail.com")
 camilo_user = User.new(name: "Camilo", last_name: "Gonzalez", password: "123456", email: "camilogonzalez@gmail.com")
+admin_user = User.new(name: "admin", last_name: "admin", password: "123456", email: "admin@gmail.com", admin: true)
 
 ro_user.avatar.attach(io: URI.open('https://res.cloudinary.com/dmtio0viw/image/upload/v1613343079/Turna/Ro_bkfwby.jpg'), filename: 'default_avatar.png', content_type: 'image/png')
 joaco_user.avatar.attach(io: URI.open('https://res.cloudinary.com/dmtio0viw/image/upload/v1613343080/Turna/joacoavatar_kkzo21.jpg'), filename: 'default_avatar.png', content_type: 'image/png')
@@ -25,6 +26,7 @@ ro_user.save
 joaco_user.save
 tom_user.save
 camilo_user.save
+admin_user.save
 
 # IMAGES PROVIDER 1
 
@@ -44,19 +46,19 @@ provider_10 = ["https://res.cloudinary.com/divzp8hs4/image/upload/v1614817968/Tu
 
 # PROVIDERS CREATION - 1
 
-ro_prov = Provider.create!(category: "Barberia", name: "The Barbers", address: "Paraguay 5301, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", description: "Corte, Tintura, Manicura", rating: 5, opening_time: '10:00', closing_time: '20:00', neighborhood: "Palermo, Autonomous City of Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina")
-tom_prov = Provider.create!(category: "Barberia", name: "Sir Fausto", address: "Humboldt 2120, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", description: "Barba, Corte, Perfilado", rating: 4, opening_time: '10:00', closing_time: '20:00', neighborhood: "Palermo, Autonomous City of Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina" )
-joaco_prov = Provider.create!(category: "Barberia", name: "The Barber Job", address: "Bonpland 1874, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", description: "Corte, Depilación, Alisados", rating: 3, opening_time: '10:00', closing_time: '20:00', neighborhood: "Palermo, Autonomous City of Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina" )
-guido_prov = Provider.create!(category: "Barberia", name: "Barber Truck", address: "Soler 5608, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", description: "Tintura, Depilación, Perfilado", rating: 5, opening_time: '10:00', closing_time: '20:00', neighborhood: "Palermo, Autonomous City of Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina" )
-camilo_prov = Provider.create!(category: "Barberia", name: "The Barber Shop", address: "Fitz Roy 1834, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", description: "Barba, Alisado, Manicura", rating: 4, opening_time: '10:00', closing_time: '20:00', neighborhood: "Palermo, Autonomous City of Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina" )
+ro_prov = Provider.create!(category: "Barberia", name: "The Barbers", address: "Paraguay 5301, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", description: "Corte, Tintura, Manicura", rating: 5, opening_time: '10:00', closing_time: '20:00', neighborhood: "Palermo, Autonomous City of Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", status: true)
+tom_prov = Provider.create!(category: "Barberia", name: "Sir Fausto", address: "Humboldt 2120, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", description: "Barba, Corte, Perfilado", rating: 4, opening_time: '10:00', closing_time: '20:00', neighborhood: "Palermo, Autonomous City of Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", status: true )
+joaco_prov = Provider.create!(category: "Barberia", name: "The Barber Job", address: "Bonpland 1874, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", description: "Corte, Depilación, Alisados", rating: 3, opening_time: '10:00', closing_time: '20:00', neighborhood: "Palermo, Autonomous City of Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", status: true )
+guido_prov = Provider.create!(category: "Barberia", name: "Barber Truck", address: "Soler 5608, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", description: "Tintura, Depilación, Perfilado", rating: 5, opening_time: '10:00', closing_time: '20:00', neighborhood: "Palermo, Autonomous City of Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", status: true )
+camilo_prov = Provider.create!(category: "Barberia", name: "The Barber Shop", address: "Fitz Roy 1834, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", description: "Barba, Alisado, Manicura", rating: 4, opening_time: '10:00', closing_time: '20:00', neighborhood: "Palermo, Autonomous City of Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", status: true )
 
 # PROVIDERS CREATION - 2
 
-ro_prov_vet = Provider.create!(category: "Veterinaria", name: "Puppies", address: "Espinosa 300, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", description: "Consulta, Baño, Vacunación", rating: 5, opening_time: '10:00', closing_time: '20:00', neighborhood: "Caballito, Autonomous City of Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina")
-tom_prov_vet = Provider.create!(category: "Veterinaria", name: "Mascotitas", address: "Emilio Mitre 50, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", description: "Consulta, Baño, Vacunación", rating: 4, opening_time: '10:00', closing_time: '20:00', neighborhood: "Caballito, Autonomous City of Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina" )
-joaco_prov_vet = Provider.create!(category: "Veterinaria", name: "Faunatikos", address: "Aranguren 1044, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", description: "Consulta, Baño, Vacunación", rating: 3, opening_time: '10:00', closing_time: '20:00', neighborhood: "Caballito, Autonomous City of Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina" )
-guido_prov_vet = Provider.create!(category: "Veterinaria", name: "CentroPet", address: "Directorio 2103, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", description: "Consulta, Baño, Vacunación", rating: 5, opening_time: '10:00', closing_time: '20:00', neighborhood: "Caballito, Autonomous City of Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina" )
-camilo_prov_vet = Provider.create!(category: "Veterinaria", name: "CatyCan", address: "Avellaneda 1200, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", description: "Consulta, Baño, Vacunación", rating: 4, opening_time: '10:00', closing_time: '20:00', neighborhood: "Caballito, Autonomous City of Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina" )
+ro_prov_vet = Provider.create!(category: "Veterinaria", name: "Puppies", address: "Espinosa 300, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", description: "Consulta, Baño, Vacunación", rating: 5, opening_time: '10:00', closing_time: '20:00', neighborhood: "Caballito, Autonomous City of Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", status: true)
+tom_prov_vet = Provider.create!(category: "Veterinaria", name: "Mascotitas", address: "Emilio Mitre 50, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", description: "Consulta, Baño, Vacunación", rating: 4, opening_time: '10:00', closing_time: '20:00', neighborhood: "Caballito, Autonomous City of Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", status: true )
+joaco_prov_vet = Provider.create!(category: "Veterinaria", name: "Faunatikos", address: "Aranguren 1044, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", description: "Consulta, Baño, Vacunación", rating: 3, opening_time: '10:00', closing_time: '20:00', neighborhood: "Caballito, Autonomous City of Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", status: true )
+guido_prov_vet = Provider.create!(category: "Veterinaria", name: "CentroPet", address: "Directorio 2103, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", description: "Consulta, Baño, Vacunación", rating: 5, opening_time: '10:00', closing_time: '20:00', neighborhood: "Caballito, Autonomous City of Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", status: true )
+camilo_prov_vet = Provider.create!(category: "Veterinaria", name: "CatyCan", address: "Avellaneda 1200, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", description: "Consulta, Baño, Vacunación", rating: 4, opening_time: '10:00', closing_time: '20:00', neighborhood: "Caballito, Autonomous City of Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", status: true )
 
 # SERVICES CREATION - PROV 1
 service_one = Service.create!(title: "Corte y arreglo de barba", price: 900, min_duration: 30, provider: ro_prov)
@@ -308,40 +310,18 @@ Review.create!(user: camilo_user, booking: camilo_experience_vet, content: "Reoc
 
 Review.create!(user: tom_user, booking: tom_experience_vet, content: "Atentos y siempre y cuidando a mis perros, los recomiendo!", rating: 5)
 
+puts "Saving providers"
 
+# SAVING BARBERIA PROVIDERS
+ro_prov.reload.save!
+tom_prov.reload.save!
+joaco_prov.reload.save!
+guido_prov.reload.save!
+camilo_prov.reload.save!
 
-def average_price(provider)
-  precio = 0
-  count = 0
-  provider.services.each do |service|
-    precio += service.price
-    count += 1
-  end
-  precio / count
-end
-
-# PRICES - PROV 1
-ro_prov.avg_price = average_price(ro_prov)
-tom_prov.avg_price = average_price(tom_prov)
-joaco_prov.avg_price = average_price(joaco_prov)
-guido_prov.avg_price = average_price(guido_prov)
-camilo_prov.avg_price = average_price(camilo_prov)
-
-ro_prov.save
-tom_prov.save
-joaco_prov.save
-guido_prov.save
-camilo_prov.save
-
-# PRICES - PROV 2
-ro_prov_vet.avg_price = average_price(ro_prov_vet)
-tom_prov_vet.avg_price = average_price(tom_prov_vet)
-joaco_prov_vet.avg_price = average_price(joaco_prov_vet)
-guido_prov_vet.avg_price = average_price(guido_prov_vet)
-camilo_prov_vet.avg_price = average_price(camilo_prov_vet)
-
-ro_prov_vet.save
-tom_prov_vet.save
-joaco_prov_vet.save
-guido_prov_vet.save
-camilo_prov_vet.save
+# SAVING VET PROVIDERS
+ro_prov_vet.reload.save!
+tom_prov_vet.reload.save!
+joaco_prov_vet.reload.save!
+guido_prov_vet.reload.save!
+camilo_prov_vet.reload.save!

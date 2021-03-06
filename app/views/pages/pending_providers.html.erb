@@ -1,0 +1,68 @@
+<%= render 'shared/container' %>
+<div class="container">
+
+  <strong><h1 id="title" class="pt-2">Todos los proveedores</h1></strong>
+  <div class="align-center">
+    <ul class="nav nav-pills my-3" style="justify-content: evenly;" id="pills-tab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button id="filters" class="btn btn-primary active m-1" id="pills-home-tab" data-toggle="pill" data-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Pendientes</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button id="filters" class="btn btn-primary m-1" id="pills-profile-tab" data-toggle="pill" data-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Activos</button>
+      </li>
+    </ul>
+  </div>
+
+    <div class="tab-content mt-5" id="pills-tabContent">
+      <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+        <div class="cards">
+          <div class="row">
+            <% @pending.each do |provider| %>
+              <div class="col-12 col-md-4 mb-2">
+                <%= link_to provider_path({id: provider.id, url: request.url}) do %>
+                  <div class="card-product">
+                    <%= cl_image_tag provider.photos.first.key, class: "card-img-index" %>
+                    <div class="card-product-infos mt-2">
+                      <h2><%= provider.name %></h2>
+                      <p class="description" style="margin-top:0"><%= provider.services.first.title %></p>
+                      <p class="description" style="margin-top:0">Precio promedio: <strong>$ <%= provider.avg_price %></strong></p>
+                      <p class="description" style="margin:0">Creación del provider: <%= provider.created_at.strftime('%d/%m/%Y') %>hs</p>
+                      <div class="d-flex align-items-center">
+                        <%= link_to "Activar", provider_path(provider), method: :patch, class: "btn btn-primary mt-1 mb-2", style:"font-size:12px;border-radius:5px;height:30px" %>
+                      </div>
+                    </div>
+                  </div>
+                <% end %>  
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+     <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+        <div class="cards">
+          <div class="row">
+            <% @active.each do |provider| %>
+              <div class="col-12 col-md-4 mb-2">
+                <%= link_to provider_path({id: provider.id, url: request.url}) do %>
+                  <div class="card-product">
+                    <%= cl_image_tag provider.photos.first.key, class: "card-img-index" %>
+                    <div class="card-product-infos mt-2">
+                      <h2><%= provider.name %></h2>
+                      <p class="description" style="margin-top:0"><%= provider.services.first.title %></p>
+                      <p class="description" style="margin-top:0">Precio promedio: <strong>$ <%= provider.avg_price %></strong></p>
+                      <p class="description" style="margin:0">Creación del provider: <%= provider.created_at.strftime('%d/%m/%Y') %>hs</p>
+                      <div class="d-flex align-items-center">
+
+                        <%= link_to "Desactivar", provider_path(provider), method: :patch, class: "btn btn-primary mt-1 mb-2", style:"font-size:12px;border-radius:5px;height:30px" %>                      
+                      </div>
+                    </div>
+                  </div>
+                <% end %>  
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>  
+</div>

@@ -46,3 +46,28 @@
      width: 100%;
    }
 }
+
+@media (min-width: 860px) {
+  .form-provider{
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 860px) {
+  .price{
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.is-valid {
+  border-color: #CED4DA!important;
+  background-image: none!important;
+}
+
+.provider-new {
+  margin-bottom: 50px;
+  padding-bottom: 50px;
+  margin-top: 10px;
+}

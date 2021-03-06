@@ -1,4 +1,5 @@
 class ServicesController < ApplicationController
+  skip_before_action :authenticate_user!, only: :available_time_slots
   def available_time_slots
     @service = Service.find(params[:id])
     @date = params[:date]

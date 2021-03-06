@@ -14,8 +14,15 @@ class PagesController < ApplicationController
   def introduction
   end
 
-  def send_provider
-    UserMailer.provider_alta(params["abc"]["name"], params["abc"]["category"], params["abc"]["address"], params["abc"]["description"]).deliver_later
-    redirect_to home_path
+  def pending_providers
+    if current_user.admin
+      @providers = Provider.all
+      
+      @active = @providers.where(status: true)
+      @pending = @providers.where(status: false)
+    else
+      flash[:alert] = 'Solo admins :)'
+      redirect_to root_path
+    end
   end
 end
