@@ -1,81 +1,93 @@
 <%= render 'shared/container' %>
   <div class="container">
-    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
-      <ol class="breadcrumb align-items-center">
-      <li class="breadcrumb-item active" aria-current="page"> 
-      <%= link_to home_path do %>
-        <%= params["localidad"].partition(",").first %></li>
-      <% end %>
-      <i class="fas fa-greater-than mx-2 align-center" style="font-size: 10px"></i>
-        <li class="breadcrumb-item"><%= params["categoria"] + 's' %></li>
-      </ol>
-    </nav>
-
-    <hr class="separador">
-    <div class="filters col-12 col-md-4">
-      <h6>Ordenar por: </h6>
-      <button type="button" class="btn btn-outline-primary btnfilter" style="border-radius: 10%; padding: 3px 6px"><%= sort_link(@search, :rating, { default_order: :desc }) %></button>
-      <button type="button" class="btn btn-outline-primary btnfilter" style="border-radius: 10%; padding: 3px 6px"><%= sort_link(@search, :avg_price, "Precio", { default_order: :desc }) %></button>
-    </div>
-
-    <div id="formulario">
-      <h6 style="margin-left: 15px; margin-bottom: 20px; cursor: pointer">Agregar filtros <i class="fas fa-filter" style="color: #AA8CAA"></i></h6>
-    </div>
-
-      <div id="form" style="display:none">
-        <%= search_form_for @search do |f| %>
-          <div class="field col-12 col-md-4" style="display: flex; margin-bottom: 20px">
-            <%= f.search_field :name_cont, placeholder: 'Buscar por nombre', style:"
-        background-color: #F6F8FA;", style:"border-radius: 10px; border-color: #AA8CAA" %>
-            <%= hidden_field_tag :localidad, params[:localidad] %>
-            <%= hidden_field_tag :categoria, params[:categoria] %>
-            <button type="submit" class="btn btn-primary rounded-circle ml-2">
-                <i class="fas fa-search"></i>
-            </button>
+    <% if @providers.length == 0 %>
+      <div class="container mt-5 border rounded fs-6 px-0">
+        <div class="row vh-50 text-center m-2 py-2">
+          <div class="col-12">
+            <h6>Ups!, por el momento no tenemos <strong><%= params["categoria"] + 's' %></strong> en <strong><%= params["localidad"].partition(",").first %></strong>. Intenta buscar en otro barrio.</h1>
+            <%= link_to "Volver", home_path, class:"btn btn-primary w-50" %>
           </div>
+        </div>
+      </div>
+    <% else %>
+      <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="breadcrumb align-items-center">
+        <li class="breadcrumb-item active" aria-current="page"> 
+        <%= link_to home_path do %>
+          <%= params["localidad"].partition(",").first %></li>
         <% end %>
+        <i class="fas fa-greater-than mx-2 align-center" style="font-size: 10px"></i>
+          <li class="breadcrumb-item"><%= params["categoria"] + 's' %></li>
+        </ol>
+      </nav>
+
+      <hr class="separador">
+      <div class="filters col-12 col-md-4">
+        <h6>Ordenar por: </h6>
+        <button type="button" class="btn btn-outline-primary btnfilter" style="border-radius: 10%; padding: 3px 6px"><%= sort_link(@search, :rating, { default_order: :desc }) %></button>
+        <button type="button" class="btn btn-outline-primary btnfilter" style="border-radius: 10%; padding: 3px 6px"><%= sort_link(@search, :avg_price, "Precio", { default_order: :desc }) %></button>
       </div>
 
-    <div class="cards">
-      <div class="row">
-        <% @providers.each do |provider| %>
-          <div class="col-12 col-md-4">
-            <%= link_to provider_path({id: provider.id, url: request.url}) do %>
-                <div class="card-product">
-                <%= cl_image_tag provider.photos.first.key, class: "card-img-index" %>
-                  <div class="card-product-infos h-100">
-                    <h2 class=""><%= provider.name %></h2>
-                    <p class="description"><%= truncate(provider.description, length: 23) %></p>
-                    <% provider.rating.times do %>
-                      <i class="fas fa-star mb-1" style="font-size: 10px"></i>
-                    <% end %>
-                    <p class="price my-1">Precio promedio: <strong>$<%= provider.avg_price %></strong> </p>
-                    <div class= "d-flex justify-content-between">
-                      <p class="distance m-0" data-latitude="<%= provider.latitude%>" data-longitude="<%= provider.longitude%>"></p>
-                      <i class="fas fa-location-arrow"></i>
+      <div id="formulario">
+        <h6 style="margin-left: 15px; margin-bottom: 20px; cursor: pointer">Agregar filtros <i class="fas fa-filter" style="color: #AA8CAA"></i></h6>
+      </div>
+
+        <div id="form" style="display:none">
+          <%= search_form_for @search do |f| %>
+            <div class="field col-12 col-md-4" style="display: flex; margin-bottom: 20px">
+              <%= f.search_field :name_cont, placeholder: 'Buscar por nombre', style:"
+          background-color: #F6F8FA;", style:"border-radius: 10px; border-color: #AA8CAA" %>
+              <%= hidden_field_tag :localidad, params[:localidad] %>
+              <%= hidden_field_tag :categoria, params[:categoria] %>
+              <button type="submit" class="btn btn-primary rounded-circle ml-2">
+                  <i class="fas fa-search"></i>
+              </button>
+            </div>
+          <% end %>
+        </div>
+
+      <div class="cards">
+        <div class="row">
+          <% @providers.each do |provider| %>
+            <div class="col-12 col-md-4">
+              <%= link_to provider_path({id: provider.id, url: request.url}) do %>
+                  <div class="card-product">
+                  <%= cl_image_tag provider.photos.first.key, class: "card-img-index" %>
+                    <div class="card-product-infos h-100">
+                      <h2 class=""><%= provider.name %></h2>
+                      <p class="description"><%= truncate(provider.description, length: 23) %></p>
+                      <% provider.rating.times do %>
+                        <i class="fas fa-star mb-1" style="font-size: 10px"></i>
+                      <% end %>
+                      <p class="price my-1">Precio promedio: <strong>$<%= provider.avg_price %></strong> </p>
+                      <div class= "d-flex justify-content-between">
+                        <p class="distance m-0" data-latitude="<%= provider.latitude%>" data-longitude="<%= provider.longitude%>"></p>
+                        <i class="fas fa-location-arrow"></i>
+                      </div>
                     </div>
                   </div>
-                </div>
-            <% end %>
-          </div>
-        <% end %>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
       </div>
-    </div>
 
-    <div class="paginator">
-      <%= paginate @providers, theme: 'twitter-bootstrap-4' %>
-    </div>
-
-    <hr class="separador">
-
-    <h5 style="text-align:center;"><strong>Elegí por ubicación</strong></h5>
-
-    <div class="mapa" style="padding: 10px">
-      <div id="map"
-        style="width: 100%; height: 300px; border-radius: 10%"
-        data-markers="<%= @markers.to_json %>"
-        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+      <div class="paginator">
+        <%= paginate @providers, theme: 'twitter-bootstrap-4' %>
       </div>
-    </div>
+
+      <hr class="separador">
+
+      <h5 style="text-align:center;"><strong>Elegí por ubicación</strong></h5>
+
+      <div class="mapa" style="padding: 10px">
+        <div id="map"
+          style="width: 100%; height: 300px; border-radius: 10%"
+          data-markers="<%= @markers.to_json %>"
+          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
+      </div>
+    
+    <% end %>
   </div>
 <%= render 'shared/container' %>
