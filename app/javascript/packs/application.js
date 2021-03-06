@@ -30,7 +30,7 @@ import "bootstrap";
 import { initMapbox } from '../plugins/init_mapbox';
 import { initAutocomplete } from '../plugins/init_autocomplete';
 import { initStarRating } from '../plugins/init_star_rating';
-import { cardSelector } from '../packs/show';
+import { cardSelector, dateSelector } from '../packs/show';
 import { initflatpickr } from '../plugins/flatpickr';
 import { filters } from '../packs/index';
 import '../plugins/init_distance';
@@ -43,6 +43,7 @@ document.addEventListener('turbolinks:load', () => {
   initAutocomplete();
   initStarRating();
   cardSelector();
+  dateSelector();
   filters();
 });
 

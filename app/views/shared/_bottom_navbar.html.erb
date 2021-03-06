@@ -6,7 +6,7 @@
       </div>
     <% end %>
 
-    <% if current_user.admin? %>
+    <% if current_user&.admin? %>
       <%= link_to pending_providers_path do %>
         <div class="icons d-flex flex-column align-center">
           <i class="fas fa-store"></i>Providers

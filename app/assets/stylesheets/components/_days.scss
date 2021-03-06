@@ -1,0 +1,25 @@
+.time-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+};
+
+
+.available_time {
+font-family: 'Poppins', sans-serif;
+width: 40px;
+height: 40px;
+text-align: center;
+background-color: #999;
+color: white;
+border-radius: 50%;
+border: 2px solid #777;
+margin: 5px;
+font-size: 12px;
+line-height: 40px;
+};
+
+.selected-time {
+  background-color: #FE6929!important;
+  border: 2px solid #FE6929!important;
+};
