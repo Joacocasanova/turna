@@ -15,6 +15,7 @@ ro_user = User.new(name: "Rocio", last_name: "Picaza", password: "123456", email
 tom_user = User.new(name: "Tomas", last_name: "Agnese", password: "123456", email: "tomagnese@gmail.com", admin: true)
 joaco_user = User.new(name: "Joaquin", last_name: "Casanova", password: "123456", email: "joacocasanova@gmail.com")
 camilo_user = User.new(name: "Camilo", last_name: "Gonzalez", password: "123456", email: "camilogonzalez@gmail.com")
+admin_user = User.new(name: "admin", last_name: "admin", password: "123456", email: "admin@gmail.com", admin: true)
 
 ro_user.avatar.attach(io: URI.open('https://res.cloudinary.com/dmtio0viw/image/upload/v1613343079/Turna/Ro_bkfwby.jpg'), filename: 'default_avatar.png', content_type: 'image/png')
 joaco_user.avatar.attach(io: URI.open('https://res.cloudinary.com/dmtio0viw/image/upload/v1613343080/Turna/joacoavatar_kkzo21.jpg'), filename: 'default_avatar.png', content_type: 'image/png')
@@ -25,6 +26,7 @@ ro_user.save
 joaco_user.save
 tom_user.save
 camilo_user.save
+admin_user.save
 
 # IMAGES PROVIDER 1
 
