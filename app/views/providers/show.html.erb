@@ -22,11 +22,9 @@
       <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
           <% @provider.photos.each_with_index do |photo, index| %>
-          <div class="carousel-item <%= index == 0 ? 'active' : "" %>">
-            <div class="card-product">
-              <%= cl_image_tag photo.key, class: "d-block w-100 imgsize rounded"%>
+            <div class="carousel-item <%= index == 0 ? 'active' : "" %>">
+              <%= cl_image_tag photo.key, id: "img-show-carousel"%>
             </div>
-          </div>
           <% end %>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">

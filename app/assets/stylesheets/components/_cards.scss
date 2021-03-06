@@ -72,7 +72,7 @@
 
 .carousel-img {
   width: 100%;
-  height: 200px;
+  height: 120px;
 }
 
 .desktop-img {
@@ -88,4 +88,19 @@
 
 .mapboxgl-popup-content {
   width: 350px;
+}
+
+#img-show-carousel {
+  border-radius: 20px;
+  width: 100%;
+  height: 50%;
+  margin-bottom: 10px;
+}
+
+@media (min-width: 1200px) {
+  #img-show-carousel {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+  }
 }
