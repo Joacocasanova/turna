@@ -66,7 +66,7 @@
             <% @provider.services.each do |provider_service| %>
               <div class="col-12 col-md-4 text-center">
                 <div class=" d-flex flex-column align-items-center services-cards normal-background"  data-service-id='<%=provider_service.id %>'  data-opening-time="<%= @provider.opens %>" data-closing-time="<%= @provider.closes %>" data-time-interval="<%= provider_service.min_duration %>">
-                  <%= cl_image_tag provider_service.icon.key, style:"height:130px;width:130px", class:"rounded-circle m-4" %>
+                  <%= cl_image_tag provider_service.icon.key, style:"height:80px;width:80px", class:"rounded-circle m-4" %>
                   <h5><%= provider_service.title %></h5>
                   <h5><strong><%= humanized_money_with_symbol(provider_service.price) %></strong></h5>
                 </div>
@@ -101,13 +101,13 @@
           <% @reviews.each do |review| %>
               <div class="col-md-4 mb-md-0 mb-5">
                 <div class="testimonial">
-                    <%= cl_image_tag review.user.avatar.key, style:"height:110px;width:110px", class:"rounded-circle mr-2" %>
-                  <h4 class="font-weight-bold dark-grey-text mt-4"><%= review.user.name %></h4>
-                  <p class="font-weight-normal dark-grey-text">
+                    <%= cl_image_tag review.user.avatar.key, style:"height:60px;width:60px", class:"rounded-circle mr-2" %>
+                  <h4 class="mt-4" style="font-size:20px"><%= review.user.name %></h4>
+                  <p class="font-weight-bold dark-grey-text m-2">
                   <i class="fas fa-quote-left pr-2" style="color:#FE6929"></i><%= review.content %></p>
                   <div class="orange-text">
-                    <p><strong>Rating:</strong><% review.rating.times do  %> <i class="fas fa-star"></i>
-                    <% end %></p>
+                    <% review.rating.times do  %> <i class="fas fa-star"></i>
+                    <% end %>
                   </div>
                 </div>
               </div>
