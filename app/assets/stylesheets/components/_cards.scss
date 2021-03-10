@@ -8,10 +8,11 @@
   border-radius: 10px;
 }
 
-.card-product img {
-  height: 100%;
+.card-img-index {
+  height: 107px;
   object-fit: cover;
   border-radius: 10%;
+  width: 160px;
 }
 
 .card-product h2 {
@@ -78,13 +79,6 @@
   height: 10rem;
 }
 
-.card-img-index {
-  height: 100%;
-  object-fit: cover;
-  border-radius: 10%;
-  width: 160px;
-}
-
 .mapboxgl-popup-content {
   width: 350px;
 }
@@ -115,4 +109,11 @@
     width: 150px;
     height: 150px;
   }
+}
+
+.badge {
+  font-size: 12px;
+  bottom: 10px;
+  transform: rotate(-6deg);
+  left: 104px;
 }
