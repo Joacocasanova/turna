@@ -52,25 +52,33 @@
           <div class="col-12 col-md-4 mb-2">
             <%= link_to provider_path({id: provider.id, url: request.url}) do %>
                 <div class="card-product">
+                  <% if provider.rating.zero? %>
+                    <span class="badge badge-primary position-absolute text-white rounded" style="font-size:12px">Nuevo local</span>
+                  <% end %>
                 <%= cl_image_tag provider.photos.first.key, class: "card-img-index" %>
                   <div class="card-product-infos h-100">
                     <h2 class=""><%= provider.name %></h2>
                     <p class="description"><%= truncate(provider.description, length: 23) %></p>
-                    <% provider.rating.times do %>
-                      <i class="fas fa-star mb-1" style="font-size: 10px"></i>
+                    <% if provider.rating.positive? %>
+                      <% provider.rating.times do %>
+                        <i class="fas fa-star mb-1" style="font-size: 10px"></i>
+                      <% end %>
                     <% end %>
-                    <p class="price my-1">Precio promedio: <strong>$<%= provider.avg_price %></strong> </p>
-                    <div class= "d-flex justify-content-between">
-                      <p class="distance m-0" data-latitude="<%= provider.latitude%>" data-longitude="<%= provider.longitude%>"></p>
-                      <i class="fas fa-location-arrow"></i>
+                    <p class="price my-1" style="font-size:14px">Precio promedio: <strong>$<%= provider.avg_price %></strong> </p>
+                      <div class= "d-flex justify-content-between flex-shrink:1">
+                        <p class="distance m-0" data-latitude="<%= provider.latitude%>" data-longitude="<%= provider.longitude%>"></p>
+                        <i class="fas fa-location-arrow"></i>
                       </div>
                     </div>
+                    
                   </div>
               <% end %>
             </div>
           <% end %>
         </div>
       </div>
+
+      
 
       <div class="paginator">
         <%= paginate @providers, theme: 'twitter-bootstrap-4' %>

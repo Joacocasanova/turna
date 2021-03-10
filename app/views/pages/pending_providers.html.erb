@@ -26,7 +26,7 @@
                       <h2><%= provider.name %></h2>
                       <p class="description" style="margin-top:0"><%= provider.services.first.title %></p>
                       <p class="description" style="margin-top:0">Precio promedio: <strong>$ <%= provider.avg_price %></strong></p>
-                      <p class="description" style="margin:0">Creación del provider: <%= provider.created_at.strftime('%d/%m/%Y') %>hs</p>
+                      <p class="description" style="margin:0">Creación: <%= provider.created_at.strftime('%d/%m/%Y') %></p>
                       <div class="d-flex align-items-center">
                         <%= link_to "Activar", provider_path(provider), method: :patch, class: "btn btn-primary mt-1 mb-2", style:"font-size:12px;border-radius:5px;height:30px" %>
                       </div>
@@ -51,7 +51,7 @@
                       <h2><%= provider.name %></h2>
                       <p class="description" style="margin-top:0"><%= provider.services.first.title %></p>
                       <p class="description" style="margin-top:0">Precio promedio: <strong>$ <%= provider.avg_price %></strong></p>
-                      <p class="description" style="margin:0">Creación del provider: <%= provider.created_at.strftime('%d/%m/%Y') %>hs</p>
+                      <p class="description" style="margin:0">Creación: <%= provider.created_at.strftime('%d/%m/%Y') %></p>
                       <div class="d-flex align-items-center">
 
                         <%= link_to "Desactivar", provider_path(provider), method: :patch, class: "btn btn-primary mt-1 mb-2", style:"font-size:12px;border-radius:5px;height:30px" %>                      
