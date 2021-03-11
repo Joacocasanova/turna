@@ -1,3 +1,5 @@
+require 'open-uri'
+
 module ProvidersHelper
 
   def check_first_service(provider)
