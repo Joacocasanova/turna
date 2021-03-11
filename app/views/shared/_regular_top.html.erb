@@ -1,7 +1,7 @@
 <nav id="top-navbar" class="navbar fixed-top navbar-light bg-light">
   <div class="d-flex justify-content-between w-100">
     <%= link_to home_path do %>
-      <img src="https://res.cloudinary.com/divzp8hs4/image/upload/v1613239833/Turna/Logo_Turna_Full_tgoyaw.png" alt="Turna Logo" style="height:30px">
+      <img src="https://res.cloudinary.com/divzp8hs4/image/upload/v1615419298/Turna/Logo_TurnaOK.png" alt="Turna Logo" style="height:30px">
     <% end %>
     <div class="navbar-registriation d-flex">
       <% if user_signed_in? %>
@@ -9,7 +9,7 @@
           <% if current_user.avatar.attached? %>
             <%= cl_image_tag current_user.avatar.key, style:"height:40px;width:40px", class:"rounded-circle ml-2" %>
           <% else %>
-            <%= image_tag 'https://res.cloudinary.com/dmtio0viw/image/upload/v1613240448/Turna/My_profile-orange-300x300_v5b2u3.png' , style:"height:40px;width:40px", class:"rounded-circle mr-5" %>
+            <%= image_tag 'https://res.cloudinary.com/dmtio0viw/image/upload/v1613240448/Turna/My_profile-orange-300x300_v5b2u3.png' , style:"height:40px;width:40px", class:"rounded-circle" %>
           <% end %>
         </div>
         <strong><span><%= link_to "Cerrar Sesion", destroy_user_session_path, :method => :delete, class: "nav-link mr-0", style:"color: black" %></span></strong>
