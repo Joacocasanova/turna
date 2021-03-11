@@ -34,6 +34,7 @@ import { cardSelector, dateSelector } from '../packs/show';
 import { initflatpickr } from '../plugins/flatpickr';
 import { filters } from '../packs/index';
 import '../plugins/init_distance';
+// import { toggleFilters } from '../packs/toggle_filters';
 
 
 document.addEventListener('turbolinks:load', () => {
