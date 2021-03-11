@@ -22,7 +22,7 @@
           <% @accepted.each do |booking| %>
             <div class="col-12 col-md-4 mb-2">
                 <div class="card-product">
-                  <%= cl_image_tag booking.service.provider.photos.first.key, class: "card-img-index" %>
+                  <%= cl_image_tag booking.service.provider.photos.first.key, class: "card-img-index-pending" %>
                   <div class="card-product-infos mt-2 mr-2">
                     <h2><%= booking.service.provider.name %></h2>
                     <p class="description" style="margin-top:0"><%= booking.service.title %></p>
@@ -54,7 +54,7 @@
           <% @completed.each do |booking| %>
             <div class="col-12 col-md-4 mb-2">
                 <div class="card-product">
-                  <%= cl_image_tag booking.service.provider.photos.first.key, class: "card-img-index" %>
+                  <%= cl_image_tag booking.service.provider.photos.first.key, class: "card-img-index-pending" %>
                   <div class="card-product-infos mt-2 mr-2">
                     <h2><%= booking.service.provider.name %></h2>
                     <p class="description" style="margin:0"><%= booking.service.title %></p>
@@ -100,7 +100,7 @@
           <% @canceled.each do |booking| %>
             <div class="col-12 col-md-4 mb-2">
                 <div class="card-product mt-2 mr-2">
-                  <%= cl_image_tag booking.service.provider.photos.first.key, class: "card-img-index" %>
+                  <%= cl_image_tag booking.service.provider.photos.first.key, class: "card-img-index-pending" %>
                   <div class="card-product-infos">
                     <h2><%= booking.service.provider.name %></h2>
                     <p class="description" style="margin:0"><%= booking.service.title %></p>

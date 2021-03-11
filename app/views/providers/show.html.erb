@@ -94,25 +94,28 @@
   </div>
 
     <hr>
-
-      <h2 class="subtitle text-center font-weight-bold my-2">¿Necesitas más información?</h2>
-      <p id="description" class=" text-center m-3">¡Encontrá debajo las recomendaciones de otros usuarios!</p>
-      <div class="row text-center">
-          <% @reviews.each do |review| %>
-              <div class="col-md-4 mb-md-0 mb-5">
-                <div class="testimonial">
-                    <%= cl_image_tag review.user.avatar.key, style:"height:60px;width:60px", class:"rounded-circle mr-2" %>
-                  <h4 class="mt-4" style="font-size:20px"><%= review.user.name %></h4>
-                  <p class="font-weight-bold dark-grey-text m-2">
-                  <i class="fas fa-quote-left pr-2" style="color:#FE6929"></i><%= review.content %></p>
-                  <div class="orange-text">
-                    <% review.rating.times do  %> <i class="fas fa-star"></i>
-                    <% end %>
+      
+      <% if @reviews.length > 0 %>
+        <h2 class="subtitle text-center font-weight-bold my-2">¿Necesitas más información?</h2>
+        <p id="description" class=" text-center m-3">¡Encontrá debajo las recomendaciones de otros usuarios!</p>
+        <div class="row text-center">
+            <% @reviews.each do |review| %>
+                <div class="col-md-4 mb-md-0 mb-5">
+                  <div class="testimonial">
+                      <%= cl_image_tag review.user.avatar.key, style:"height:60px;width:60px", class:"rounded-circle mr-2" %>
+                    <h4 class="mt-4" style="font-size:20px"><%= review.user.name %></h4>
+                    <p class="font-weight-bold dark-grey-text m-2">
+                    <i class="fas fa-quote-left pr-2" style="color:#FE6929"></i><%= review.content %></p>
+                    <div class="orange-text">
+                      <% review.rating.times do  %> <i class="fas fa-star"></i>
+                      <% end %>
+                    </div>
                   </div>
                 </div>
-              </div>
-          <% end %>
-      </div>
+            <% end %>
+        </div>
+      <% end %>
+            
 
     <hr>
 <%= render 'shared/container' %>
