@@ -53,7 +53,7 @@
             <%= link_to provider_path({id: provider.id, url: request.url}) do %>
                 <div class="card-product">
                   <% if provider.rating.zero? %>
-                    <span class="badge badge-primary position-absolute text-white rounded" style="font-size:12px">Nuevo local</span>
+                    <span id="badge-new" class="badge badge-primary position-absolute text-white rounded" style="font-size:12px">Nuevo local</span>
                   <% end %>
                 <%= cl_image_tag provider.photos.first.key, class: "card-img-index" %>
                   <div class="card-product-infos h-100">
