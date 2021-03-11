@@ -18,19 +18,20 @@
       <%= yield %>
     </div>
 
-    <script>
-    var prevScrollpos = window.pageYOffset;
-    window.onscroll = function() {
-    var currentScrollPos = window.pageYOffset;
-      if (prevScrollpos < currentScrollPos) {
-        document.getElementById("bottom-navbar").style.bottom = "-100px";
-      } else {
-        document.getElementById("bottom-navbar").style.bottom = "0px";
+    <% if current_user %>
+      <script>
+      var prevScrollpos = window.pageYOffset;
+      window.onscroll = function() {
+      var currentScrollPos = window.pageYOffset;
+        if (prevScrollpos < currentScrollPos) {
+          document.getElementById("bottom-navbar").style.bottom = "-100px";
+        } else {
+          document.getElementById("bottom-navbar").style.bottom = "0px";
+        }
+        prevScrollpos = currentScrollPos;
       }
-      prevScrollpos = currentScrollPos;
-    }
-    </script>
-
+      </script>
+    <% end %>
 
   </body>
 </html>
