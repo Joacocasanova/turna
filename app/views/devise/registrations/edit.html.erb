@@ -20,10 +20,12 @@
                     label: 'Nueva Contraseña' %>
         <%= f.input :password_confirmation,
                     required: false,
+                    label: "Confirma tu nueva contraseña",
                     input_html: { autocomplete: "new-password" } %>
         <%= f.input :current_password,
                     hint: "Necesitamos tu contraseña actual para confirmar los cambios",
                     required: true,
+                    label: "Confirma tu actual contraseña",
                     input_html: { autocomplete: "current-password" } %>
       </div>
 

@@ -1,7 +1,7 @@
 <%= render 'shared/container' %>
 <div class="container">
 
-  <strong><h1 id="title" class="pt-2">Todos los proveedores</h1></strong>
+  <strong><h1 id="title" class="pt-2">Nuestros proveedores</h1></strong>
   <div class="align-center">
     <ul class="nav nav-pills my-3" style="justify-content: evenly;" id="pills-tab" role="tablist">
       <li class="nav-item" role="presentation">
@@ -32,7 +32,7 @@
                       </div>
                     </div>
                   </div>
-                <% end %>  
+                <% end %>
               </div>
             <% end %>
           </div>
@@ -54,15 +54,15 @@
                       <p class="description" style="margin:0">Creación: <%= provider.created_at.strftime('%d/%m/%Y') %></p>
                       <div class="d-flex align-items-center">
 
-                        <%= link_to "Desactivar", provider_path(provider), method: :patch, class: "btn btn-primary mt-1 mb-2", style:"font-size:12px;border-radius:5px;height:30px" %>                      
+                        <%= link_to "Desactivar", provider_path(provider), method: :patch, class: "btn btn-primary mt-1 mb-2", style:"font-size:12px;border-radius:5px;height:30px" %>
                       </div>
                     </div>
                   </div>
-                <% end %>  
+                <% end %>
               </div>
             <% end %>
           </div>
         </div>
       </div>
-    </div>  
+    </div>
 </div>
