@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   root to: 'pages#introduction'
   get 'about', to: 'pages#about'
   post 'send_provider', to: 'pages#send_provider'
-  get 'contact', to: 'pages#contact'
   get 'home', to: 'pages#home'
   get 'pending_providers', to: 'pages#pending_providers'
   resources :providers, only: [ :index, :show, :new, :create, :update ] do

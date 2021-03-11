@@ -78,6 +78,7 @@
     <hr>
     <div class="col-12">
     <h2 class="text-center font-weight-bold my-2">¡Sacá tu turno!</h2>
+    <p id="description" class="m-3 text-center">¡No olvides seleccionar primero el servicio!</p>
       <div class="flat-show-card d-none">
         <%= simple_form_for [@provider, @booking] do |f| %>
         <%= f.input :service_id , as: :hidden %>
@@ -90,11 +91,9 @@
         <% end %>
       </div>
     </div>
-  <div class="container" style="height:100px">
-  </div>
 
     <hr>
-      
+
       <% if @reviews.length > 0 %>
         <h2 class="subtitle text-center font-weight-bold my-2">¿Necesitas más información?</h2>
         <p id="description" class=" text-center m-3">¡Encontrá debajo las recomendaciones de otros usuarios!</p>
@@ -115,7 +114,7 @@
             <% end %>
         </div>
       <% end %>
-            
+
 
     <hr>
 <%= render 'shared/container' %>
