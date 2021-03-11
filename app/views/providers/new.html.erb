@@ -11,7 +11,7 @@
         <%= f.input :description, label: "Descripción", placeholder: "Describí tu negocio" %>
         <%= f.input :opening_time, as: :time, label: "Horario de apertura" %>
         <%= f.input :closing_time, as: :time, label: "Horario de cierre" %>
-        
+
 
 
         <h3>Agregar servicios</h3>
@@ -40,10 +40,10 @@
                 <%= service.input :price, required: false, label: "Precio", placeholder: "Ingrese el precio", input_html: {value: ''} %>
                 <%= service.input :min_duration, required: false, label: "Duración", placeholder: "Cuanto dura?", collection: [30, 60] %>
               <% end %>
-              <% i += 1 %>                
+              <% i += 1 %>
           <% end %>
         </div>
-        <%= f.input :photos, as: :file, input_html: { multiple: true }, required: true %>
+        <%= f.input :photos, as: :file, label:"Fotos", input_html: { multiple: true }, required: true %>
         <%= f.submit "Contacto", class: "btn btn-primary" %>
       <% end %>
     </div>
