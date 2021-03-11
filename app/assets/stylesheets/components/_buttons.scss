@@ -74,3 +74,14 @@
 .btn-outline-primary:active {
   background-color: inherit !important;
 }
+
+.btn-filters {
+  background-color: rgb(151, 150, 150);
+  border-radius: 15px;
+  color: white; 
+}
+
+.toggle-filters:focus {
+  background-color: $turna;
+  color:white;
+}
