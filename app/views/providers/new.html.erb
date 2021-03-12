@@ -4,49 +4,124 @@
       <strong><h1 id="title" class="m-3">¡Suma tu negocio!</h1></strong>
       <p id="description" class="m-3 text-center">Completa el formulario y añadí tu negocio a nuestro catálogo</p>
 
-      <%= simple_form_for [ @provider ] do |f| %>
-        <%= f.input :name, label: "Nombre", placeholder: "Nombre del local" %>
-        <%= f.input :category, label: "Categoría", :collection => %w[Barberia Veterinaria] %>
-        <%= f.input :address, label: "Dirección", placeholder: "Dirección del local" %>
-        <%= f.input :neighborhood, label: "Barrio", placeholder: "Barrio" %>
-        <%= f.input :description, label: "Descripción", placeholder: "Describí tu negocio" %>
-        <%= f.input :opening_time, as: :time, label: "Horario de apertura" %>
-        <%= f.input :closing_time, as: :time, label: "Horario de cierre" %>
+      <div class="align-left">
+        <ul class="nav nav-pills my-3" style="justify-content: center;" id="pills-tab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button id="filters" class="btn btn-filters m-1 toggle-filters toggle-filters-active " id="pills-home-tab" data-toggle="pill" data-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true" data-toggle-class="is-selected">Barbería</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button id="filters" class="btn btn-filters m-1 toggle-filters" id="pills-profile-tab" data-toggle="pill" data-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false" data-toggle-class>Veterinaria</button>
+          </li>
+        </ul>
+      </div>
 
 
 
-        <h3>Agregar servicios</h3>
 
-        <% i = 0 %>
-        <%= f.simple_fields_for :services do |service|  %>
-          <% if i < 1 %>
-            <h5>Servicio <%= "#{i + 1}" %></h5>
-            <%= service.input :title, required: false, label: "Titulo", collection: ["Corte y arreglo de barba", "Corte de Pelo", "Color/Decoloracion", "Consulta", "Baño y Cepillado", "Vacunación anual"] %>
-            <%= service.input :price, required: false, label: "Precio", placeholder: "Ingrese el precio", input_html: {value: ''} %>
-            <%= service.input :min_duration, required: false, label: "Duración", placeholder: "Cuanto dura?", collection: [30, 60] %>
-            <% i += 1 %>
-          <% end %>
-        <% end %>
+      <div class="tab-content mt-5" id="pills-tabContent">
+        <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+          <%= simple_form_for [ @provider ] do |f| %>
+            <%= f.input :name, label: "Nombre", placeholder: "Nombre del local" %>
+            <%= f.input :category, :as => :hidden, :input_html => { :value => "Barberia" } %>
+            <%= f.input :address, label: "Dirección", placeholder: "Dirección del local" %>
+            <%= f.input :neighborhood, label: "Barrio", placeholder: "Barrio" %>
+            <%= f.input :description, label: "Descripción", placeholder: "Describí tu negocio" %>
+            <%= f.input :opening_time, as: :time, label: "Horario de apertura" %>
+            <%= f.input :closing_time, as: :time, label: "Horario de cierre" %>
 
-        <div id="formulario">
-          <h6 style="cursor: pointer; color:blue">Agregar más servicios</h6>
-        </div>
+            <h3>Agregar servicios</h3>
 
-        <div id="form" style="display:none">
-          <%= f.simple_fields_for :services do |service|  %>
-              <% if i == 1 %>
-              <% else %>
-                <h5>Servicio <%= "#{i}" %></h5>
-                <%= service.input :title, required: false, label: "Titulo", collection: ["Corte y arreglo de barba", "Corte de Pelo", "Color/Decoloracion", "Consulta", "Baño y Cepillado", "Vacunación anual"] %>
+            <% i = 0 %>
+            <%= f.simple_fields_for :services do |service|  %>
+              <% if i < 1 %>
+                <h5>Servicio <%= "#{i + 1}" %></h5>
+                <%= service.input :title, required: false, label: "Titulo", collection: ["Corte y arreglo de barba", "Corte de Pelo", "Color/Decoloracion"] %>
                 <%= service.input :price, required: false, label: "Precio", placeholder: "Ingrese el precio", input_html: {value: ''} %>
                 <%= service.input :min_duration, required: false, label: "Duración", placeholder: "Cuanto dura?", collection: [30, 60] %>
+                <% i += 1 %>
               <% end %>
-              <% i += 1 %>
+            <% end %>
+
+            <div id="formulario">
+              <h6 style="cursor: pointer; color:blue">Agregar más servicios</h6>
+            </div>
+
+            <div id="form" style="display:none">
+              <%= f.simple_fields_for :services do |service|  %>
+                  <% if i == 1 %>
+                  <% else %>
+                    <h5>Servicio <%= "#{i}" %></h5>
+                    <%= service.input :title, required: false, label: "Titulo", collection: ["Corte y arreglo de barba", "Corte de Pelo", "Color/Decoloracion"] %>
+                    <%= service.input :price, required: false, label: "Precio", placeholder: "Ingrese el precio", input_html: {value: ''} %>
+                    <%= service.input :min_duration, required: false, label: "Duración", placeholder: "Cuanto dura?", collection: [30, 60] %>
+                  <% end %>
+                  <% i += 1 %>
+              <% end %>
+            </div>
+            
+            <%= f.input :photos, as: :file, label:"Fotos", input_html: { multiple: true }, required: true %>
+            <%= f.submit "Contacto", class: "btn btn-primary" %>
           <% end %>
         </div>
-        <%= f.input :photos, as: :file, label:"Fotos", input_html: { multiple: true }, required: true %>
-        <%= f.submit "Contacto", class: "btn btn-primary" %>
-      <% end %>
+      </div>
+
+
+      <div class="tab-content mt-5" id="pills-tabContent">
+        <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+          <%= simple_form_for [ @provider ] do |f| %>
+            <%= f.input :name, label: "Nombre", placeholder: "Nombre del local" %>
+            <%= f.input :category, :as => :hidden, :input_html => { :value => "Veterinaria" } %>
+            <%= f.input :address, label: "Dirección", placeholder: "Dirección del local" %>
+            <%= f.input :neighborhood, label: "Barrio", placeholder: "Barrio" %>
+            <%= f.input :description, label: "Descripción", placeholder: "Describí tu negocio" %>
+            <%= f.input :opening_time, as: :time, label: "Horario de apertura" %>
+            <%= f.input :closing_time, as: :time, label: "Horario de cierre" %>
+
+            <h3>Agregar servicios</h3>
+
+            <% i = 0 %>
+            <%= f.simple_fields_for :services do |service|  %>
+              <% if i < 1 %>
+                <h5>Servicio <%= "#{i + 1}" %></h5>
+                <%= service.input :title, required: false, label: "Titulo", collection: ["Consulta", "Baño y Cepillado", "Vacunación anual"] %>
+                <%= service.input :price, required: false, label: "Precio", placeholder: "Ingrese el precio", input_html: {value: ''} %>
+                <%= service.input :min_duration, required: false, label: "Duración", placeholder: "Cuanto dura?", collection: [30, 60] %>
+                <% i += 1 %>
+              <% end %>
+            <% end %>
+
+            <div id="formulario">
+              <h6 style="cursor: pointer; color:blue">Agregar más servicios</h6>
+            </div>
+
+            <div id="form" style="display:none">
+              <%= f.simple_fields_for :services do |service|  %>
+                  <% if i == 1 %>
+                  <% else %>
+                    <h5>Servicio <%= "#{i}" %></h5>
+                    <%= service.input :title, required: false, label: "Titulo", collection: ["Consulta", "Baño y Cepillado", "Vacunación anual"] %>
+                    <%= service.input :price, required: false, label: "Precio", placeholder: "Ingrese el precio", input_html: {value: ''} %>
+                    <%= service.input :min_duration, required: false, label: "Duración", placeholder: "Cuanto dura?", collection: [30, 60] %>
+                  <% end %>
+                  <% i += 1 %>
+              <% end %>
+            </div>
+            
+            <%= f.input :photos, as: :file, label:"Fotos", input_html: { multiple: true }, required: true %>
+            <%= f.submit "Contacto", class: "btn btn-primary" %>
+          <% end %>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+      
     </div>
   </div>
 </div>
