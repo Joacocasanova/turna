@@ -78,10 +78,10 @@
 .btn-filters {
   background-color: rgb(151, 150, 150);
   border-radius: 15px;
-  color: white; 
+  color: white;
 }
 
-.toggle-filters:focus {
+.toggle-filters-active {
   background-color: $turna;
   color:white;
 }
