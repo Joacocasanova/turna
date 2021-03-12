@@ -7,19 +7,23 @@ class ApplicationController < ActionController::Base
 
   protected
 
-       def configure_permitted_parameters
-            devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:name, :email, :password, :last_name, :avatar)}
+	def configure_permitted_parameters
+			devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:name, :email, :password, :last_name, :avatar)}
 
-            devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:name, :last_name, :email, :password, :current_password, :avatar, :password_confirmation)}
-       end
+			devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:name, :last_name, :email, :password, :current_password, :avatar, :password_confirmation)}
+	end
 
   private
 
-     def storable_location?
-          request.get? && is_navigational_format? && !devise_controller? && !request.xhr?
-     end
+	def storable_location?
+			request.get? && is_navigational_format? && !devise_controller? && !request.xhr?
+	end
 
-     def store_user_location!
-          store_location_for(:user, request.fullpath)
-     end
+	def store_user_location!
+			store_location_for(:user, request.fullpath)
+	end
+
+	def default_url_options
+			{ host: ENV["DOMAIN"] || "localhost:3000" }
+	end
 end
