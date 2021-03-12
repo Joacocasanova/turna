@@ -57,11 +57,30 @@
 <body class="rails-default-error-page">
   <!-- This file lives in public/404.html -->
   <div class="dialog">
-    <div>
-      <h1>The page you were looking for doesn't exist.</h1>
-      <p>You may have mistyped the address or the page may have moved.</p>
-    </div>
-    <p>If you are the application owner check the logs for more information.</p>
-  </div>
+    <section class="page_404">
+      <div class="container">
+        <div class="row">	
+        <div class="col-sm-12 ">
+        <div class="col-sm-10 col-sm-offset-1  text-center">
+        <div class="four_zero_four_bg">
+          <h1 class="text-center ">404</h1>
+        
+        
+        </div>
+        
+        <div class="contant_box_404">
+        <h3 class="h2">
+        Parece que estas perdido!
+        </h3>
+        
+        <p>Esta página a la cuál estas queriendo acceder, no esta disponible :( </p>
+        
+        <%= link_to 'Volver al Home', home_path %>
+      </div>
+        </div>
+        </div>
+        </div>
+      </div>
+    </section>
 </body>
 </html>
