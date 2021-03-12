@@ -63,23 +63,23 @@ camilo_prov_vet = Provider.create!(category: "Veterinaria", name: "CatyCan", add
 # SERVICES CREATION - PROV 1
 service_one = Service.create!(title: "Corte y arreglo de barba", price: 900, min_duration: 30, provider: ro_prov)
 service_two = Service.create!(title: "Corte de Pelo", price: 800, min_duration: 30, provider: ro_prov)
-service_three = Service.create!(title: "Color/Decoloracion", price: 1000, min_duration: 60, provider: ro_prov)
+service_three = Service.create!(title: "Color/Decoloración", price: 1000, min_duration: 60, provider: ro_prov)
 
 service_one_tom = Service.create!(title: "Corte y arreglo de barba", price: 800, min_duration: 30, provider: tom_prov)
 service_two_tom = Service.create!(title: "Corte de Pelo", price: 700, min_duration: 30, provider: tom_prov)
-service_three_tom = Service.create!(title: "Color/Decoloracion", price: 1200, min_duration: 60, provider: tom_prov)
+service_three_tom = Service.create!(title: "Color/Decoloración", price: 1200, min_duration: 60, provider: tom_prov)
 
 service_one_guido = Service.create!(title: "Corte y arreglo de barba", price: 650, min_duration: 30, provider: guido_prov)
 service_two_guido = Service.create!(title: "Corte de Pelo", price: 560, min_duration: 30, provider: guido_prov)
-service_three_guido = Service.create!(title: "Color/Decoloracion", price: 1100, min_duration: 60, provider: guido_prov)
+service_three_guido = Service.create!(title: "Color/Decoloración", price: 1100, min_duration: 60, provider: guido_prov)
 
 service_one_camilo = Service.create!(title: "Corte y arreglo de barba", price: 900, min_duration: 30, provider: camilo_prov)
 service_two_camilo = Service.create!(title: "Corte de Pelo", price: 750, min_duration: 30, provider: camilo_prov)
-service_three_camilo = Service.create!(title: "Color/Decoloracion", price: 900, min_duration: 60, provider: camilo_prov)
+service_three_camilo = Service.create!(title: "Color/Decoloración", price: 900, min_duration: 60, provider: camilo_prov)
 
 service_one_joaco = Service.create!(title: "Corte y arreglo de barba", price: 700, min_duration: 30, provider: joaco_prov)
 service_two_joaco = Service.create!(title: "Corte de Pelo", price: 500, min_duration: 30, provider: joaco_prov)
-service_three_joaco = Service.create!(title: "Color/Decoloracion", price: 1000, min_duration: 60, provider: joaco_prov)
+service_three_joaco = Service.create!(title: "Color/Decoloración", price: 1000, min_duration: 60, provider: joaco_prov)
 
 # SERVICES CREATION - PROV 2
 
