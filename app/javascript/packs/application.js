@@ -35,7 +35,7 @@ import { initflatpickr } from '../plugins/flatpickr';
 import { filters } from '../packs/index';
 //import '../plugins/init_distance';
 import { initDistance } from '../plugins/init_distance'
-// import { toggleFilters } from '../packs/toggle_filters';
+import { toggleFilters } from '../packs/toggle_filters';
 
 
 document.addEventListener('turbolinks:load', () => {
@@ -48,4 +48,5 @@ document.addEventListener('turbolinks:load', () => {
   dateSelector();
   filters();
   initDistance();
+  toggleFilters();
 });
