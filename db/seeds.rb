@@ -46,11 +46,11 @@ provider_10 = ["https://res.cloudinary.com/divzp8hs4/image/upload/v1614817968/Tu
 
 # PROVIDERS CREATION - 1
 
-ro_prov = Provider.create!(category: "Barberia", name: "The Barbers", address: "Paraguay 5301, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", description: "Corte, Tintura, Manicura", rating: 5, opening_time: '10:00', closing_time: '20:00', neighborhood: "Palermo, Autonomous City of Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", status: true)
-tom_prov = Provider.create!(category: "Barberia", name: "Sir Fausto", address: "Humboldt 2120, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", description: "Barba, Corte, Perfilado", rating: 4, opening_time: '10:00', closing_time: '20:00', neighborhood: "Palermo, Autonomous City of Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", status: true )
-joaco_prov = Provider.create!(category: "Barberia", name: "The Barber Job", address: "Bonpland 1874, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", description: "Corte, Depilación, Alisados", rating: 3, opening_time: '10:00', closing_time: '20:00', neighborhood: "Palermo, Autonomous City of Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", status: true )
-guido_prov = Provider.create!(category: "Barberia", name: "Barber Truck", address: "Soler 5608, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", description: "Tintura, Depilación, Perfilado", rating: 5, opening_time: '10:00', closing_time: '20:00', neighborhood: "Palermo, Autonomous City of Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", status: true )
-camilo_prov = Provider.create!(category: "Barberia", name: "The Barber Shop", address: "Fitz Roy 1834, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", description: "Barba, Alisado, Manicura", rating: 4, opening_time: '10:00', closing_time: '20:00', neighborhood: "Palermo, Autonomous City of Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", status: true )
+ro_prov = Provider.create!(category: "Barberia", name: "The Barbers", address: "Paraguay 5301, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", description: "Corte, Tintura, Barba", rating: 5, opening_time: '10:00', closing_time: '20:00', neighborhood: "Palermo, Autonomous City of Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", status: true)
+tom_prov = Provider.create!(category: "Barberia", name: "Sir Fausto", address: "Humboldt 2120, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", description: "Arreglo de Barba, Corte, Perfilado", rating: 4, opening_time: '10:00', closing_time: '20:00', neighborhood: "Palermo, Autonomous City of Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", status: true )
+joaco_prov = Provider.create!(category: "Barberia", name: "The Barber Job", address: "Bonpland 1874, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", description: "¡Corte, Barba y Color!", rating: 3, opening_time: '10:00', closing_time: '20:00', neighborhood: "Palermo, Autonomous City of Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", status: true )
+guido_prov = Provider.create!(category: "Barberia", name: "Barber Truck", address: "Soler 5608, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", description: "Barbería Profesional", rating: 5, opening_time: '10:00', closing_time: '20:00', neighborhood: "Palermo, Autonomous City of Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", status: true )
+camilo_prov = Provider.create!(category: "Barberia", name: "The Barber Shop", address: "Fitz Roy 1834, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", description: "Cortes, Areglo de Barba y Tintura", rating: 4, opening_time: '10:00', closing_time: '20:00', neighborhood: "Palermo, Autonomous City of Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", status: true )
 
 # PROVIDERS CREATION - 2
 
@@ -63,23 +63,23 @@ camilo_prov_vet = Provider.create!(category: "Veterinaria", name: "CatyCan", add
 # SERVICES CREATION - PROV 1
 service_one = Service.create!(title: "Corte y arreglo de barba", price: 900, min_duration: 30, provider: ro_prov)
 service_two = Service.create!(title: "Corte de Pelo", price: 800, min_duration: 30, provider: ro_prov)
-service_three = Service.create!(title: "Color/Decoloracion", price: 1000, min_duration: 60, provider: ro_prov)
+service_three = Service.create!(title: "Color/Decoloración", price: 1000, min_duration: 60, provider: ro_prov)
 
 service_one_tom = Service.create!(title: "Corte y arreglo de barba", price: 800, min_duration: 30, provider: tom_prov)
 service_two_tom = Service.create!(title: "Corte de Pelo", price: 700, min_duration: 30, provider: tom_prov)
-service_three_tom = Service.create!(title: "Color/Decoloracion", price: 1200, min_duration: 60, provider: tom_prov)
+service_three_tom = Service.create!(title: "Color/Decoloración", price: 1200, min_duration: 60, provider: tom_prov)
 
 service_one_guido = Service.create!(title: "Corte y arreglo de barba", price: 650, min_duration: 30, provider: guido_prov)
 service_two_guido = Service.create!(title: "Corte de Pelo", price: 560, min_duration: 30, provider: guido_prov)
-service_three_guido = Service.create!(title: "Color/Decoloracion", price: 1100, min_duration: 60, provider: guido_prov)
+service_three_guido = Service.create!(title: "Color/Decoloración", price: 1100, min_duration: 60, provider: guido_prov)
 
 service_one_camilo = Service.create!(title: "Corte y arreglo de barba", price: 900, min_duration: 30, provider: camilo_prov)
 service_two_camilo = Service.create!(title: "Corte de Pelo", price: 750, min_duration: 30, provider: camilo_prov)
-service_three_camilo = Service.create!(title: "Color/Decoloracion", price: 900, min_duration: 60, provider: camilo_prov)
+service_three_camilo = Service.create!(title: "Color/Decoloración", price: 900, min_duration: 60, provider: camilo_prov)
 
 service_one_joaco = Service.create!(title: "Corte y arreglo de barba", price: 700, min_duration: 30, provider: joaco_prov)
 service_two_joaco = Service.create!(title: "Corte de Pelo", price: 500, min_duration: 30, provider: joaco_prov)
-service_three_joaco = Service.create!(title: "Color/Decoloracion", price: 1000, min_duration: 60, provider: joaco_prov)
+service_three_joaco = Service.create!(title: "Color/Decoloración", price: 1000, min_duration: 60, provider: joaco_prov)
 
 # SERVICES CREATION - PROV 2
 
