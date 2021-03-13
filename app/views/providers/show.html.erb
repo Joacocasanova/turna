@@ -38,13 +38,13 @@
       </div>
 
 
-    <h6 class="subtitle text-center">Descripción</h6>
+    <h6 class="subtitle text-center font-weight-bolder">Descripción</h6>
 
     <p class="text-center"><%= @provider.description %></p>
 
     <hr>
 
-    <h6 class="subtitle text-center">Ubicación</h6>
+    <h6 class="subtitle text-center font-weight-bolder">Ubicación</h6>
     <p class="text-center" style="color: #848484"><%= @provider.address %> </p>
     <p class="text-center">Horarios <%= @provider.opening_time.strftime("%k:%M") %> hs a <%= @provider.closing_time.strftime("%k:%M")  %> hs</p>
 
