@@ -54,11 +54,11 @@ camilo_prov = Provider.create!(category: "Barberia", name: "The Barber Shop", ad
 
 # PROVIDERS CREATION - 2
 
-ro_prov_vet = Provider.create!(category: "Veterinaria", name: "Puppies", address: "Espinosa 300, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", description: "Consulta, Baño, Vacunación", rating: 5, opening_time: '10:00', closing_time: '20:00', neighborhood: "Caballito, Autonomous City of Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", status: true)
-tom_prov_vet = Provider.create!(category: "Veterinaria", name: "Mascotitas", address: "Emilio Mitre 50, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", description: "Consulta, Baño, Vacunación", rating: 4, opening_time: '10:00', closing_time: '20:00', neighborhood: "Caballito, Autonomous City of Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", status: true )
-joaco_prov_vet = Provider.create!(category: "Veterinaria", name: "Faunatikos", address: "Aranguren 1044, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", description: "Consulta, Baño, Vacunación", rating: 3, opening_time: '10:00', closing_time: '20:00', neighborhood: "Caballito, Autonomous City of Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", status: true )
-guido_prov_vet = Provider.create!(category: "Veterinaria", name: "CentroPet", address: "Directorio 2103, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", description: "Consulta, Baño, Vacunación", rating: 5, opening_time: '10:00', closing_time: '20:00', neighborhood: "Caballito, Autonomous City of Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", status: true )
-camilo_prov_vet = Provider.create!(category: "Veterinaria", name: "CatyCan", address: "Avellaneda 1200, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", description: "Consulta, Baño, Vacunación", rating: 4, opening_time: '10:00', closing_time: '20:00', neighborhood: "Caballito, Autonomous City of Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", status: true )
+ro_prov_vet = Provider.create!(category: "Veterinaria", name: "Puppies", address: "Espinosa 300, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", description: "La mejor atención para tus mascotas", rating: 5, opening_time: '10:00', closing_time: '20:00', neighborhood: "Caballito, Autonomous City of Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", status: true)
+tom_prov_vet = Provider.create!(category: "Veterinaria", name: "Mascotitas", address: "Emilio Mitre 50, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", description: "Baño y peluqueria canina", rating: 4, opening_time: '10:00', closing_time: '20:00', neighborhood: "Caballito, Autonomous City of Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", status: true )
+joaco_prov_vet = Provider.create!(category: "Veterinaria", name: "Faunatikos", address: "Aranguren 1044, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", description: "Vacunación anual y controles", rating: 3, opening_time: '10:00', closing_time: '20:00', neighborhood: "Caballito, Autonomous City of Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", status: true )
+guido_prov_vet = Provider.create!(category: "Veterinaria", name: "CentroPet", address: "Directorio 2103, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", description: "Cuidamos a tus mejores amigos", rating: 5, opening_time: '10:00', closing_time: '20:00', neighborhood: "Caballito, Autonomous City of Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", status: true )
+camilo_prov_vet = Provider.create!(category: "Veterinaria", name: "CatyCan", address: "Avellaneda 1200, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", description: "Consultas con especialistas", rating: 4, opening_time: '10:00', closing_time: '20:00', neighborhood: "Caballito, Autonomous City of Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", status: true )
 
 # SERVICES CREATION - PROV 1
 service_one = Service.create!(title: "Corte y arreglo de barba", price: 900, min_duration: 30, provider: ro_prov)
@@ -306,7 +306,7 @@ Review.create!(user: tom_user, booking: tom_experience, content: "Excelente Degr
 
 Review.create!(user: joaco_user, booking: joaco_experience_vet, content: "Muy buena veterinaria, lo mejor para mi mascota.", rating: 3)
 
-Review.create!(user: camilo_user, booking: camilo_experience_vet, content: "Reocmiendo la consulta con Walter, excelente veterinario!", rating: 5)
+Review.create!(user: camilo_user, booking: camilo_experience_vet, content: "Recomiendo la consulta con Walter, excelente veterinario!", rating: 5)
 
 Review.create!(user: tom_user, booking: tom_experience_vet, content: "Atentos y siempre y cuidando a mis perros, los recomiendo!", rating: 5)
 
