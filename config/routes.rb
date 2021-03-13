@@ -19,4 +19,9 @@ Rails.application.routes.draw do
   get 'services/:id/available_time_slots', to: 'services#available_time_slots'
   post 'prepare_payment', to: 'bookings#prepare_payment'
   mount StripeEvent::Engine, at: '/stripe-webhooks'
+  get '*unmatched_route', to: 'application#raise_not_found'
+
+  get "/404", :to => "errors#not_found"
+  get "/422", :to => "errors#unacceptable"
+  get "/500", :to => "errors#internal_error"
 end
