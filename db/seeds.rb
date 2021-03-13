@@ -280,8 +280,6 @@ joaco_experience = Booking.create!(customer: joaco_user, service: service_one, s
 
 nico_experience = Booking.create!(customer: nico_user, service: service_one, start_datetime: start_date + 2.days + 16.hours, end_datetime: start_date + 2.days + 16.hours + 30.minutes, status: "accepted", payment_status:"pending")
 
-tom_experience2 = Booking.create!(customer: tom_user, service: service_one, start_datetime: start_date - 2.days + 16.hours, end_datetime: start_date - 2.days + 16.hours + 30.minutes, status: "canceled", payment_status:"pending")
-
 camilo_experience = Booking.create!(customer: camilo_user, service: service_one, start_datetime: start_date - 4.days + 16.hours, end_datetime: start_date - 4.days + 16.hours + 30.minutes, status: "accepted", payment_status:"pending")
 
 # BOOKINGS - PROV 2
