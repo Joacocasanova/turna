@@ -15,18 +15,22 @@ ro_user = User.new(name: "Rocio", last_name: "Picaza", password: "123456", email
 tom_user = User.new(name: "Tomas", last_name: "Agnese", password: "123456", email: "tomagnese@gmail.com")
 joaco_user = User.new(name: "Joaquin", last_name: "Casanova", password: "123456", email: "joacocasanova@gmail.com")
 camilo_user = User.new(name: "Camilo", last_name: "Gonzalez", password: "123456", email: "camilogonzalez@gmail.com")
+nico_user = User.new(name: "Nicolas", last_name: "Kennedy", password: "123456", email: "nicokennedy@gmail.com")
 admin_user = User.new(name: "admin", last_name: "admin", password: "123456", email: "admin@gmail.com", admin: true)
 
 ro_user.avatar.attach(io: URI.open('https://res.cloudinary.com/dmtio0viw/image/upload/v1613343079/Turna/Ro_bkfwby.jpg'), filename: 'default_avatar.png', content_type: 'image/png')
 joaco_user.avatar.attach(io: URI.open('https://res.cloudinary.com/dmtio0viw/image/upload/v1613343080/Turna/joacoavatar_kkzo21.jpg'), filename: 'default_avatar.png', content_type: 'image/png')
 tom_user.avatar.attach(io: URI.open('https://res.cloudinary.com/dmtio0viw/image/upload/v1613343079/Turna/tom_ps9ctl.jpg'), filename: 'default_avatar.png', content_type: 'image/png')
 camilo_user.avatar.attach(io: URI.open('https://res.cloudinary.com/dmtio0viw/image/upload/v1613343080/Turna/camilo_betzts.jpg'), filename: 'default_avatar.png', content_type: 'image/png')
+nico_user.avatar.attach(io: URI.open('https://res.cloudinary.com/divzp8hs4/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1615638081/Turna/Nico_avatar_mx98nj.jpg'), filename: 'default_avatar.png', content_type: 'image/png')
+admin_user.avatar.attach(io: URI.open('https://res.cloudinary.com/dmtio0viw/image/upload/v1613343079/Turna/Ro_bkfwby.jpg'), filename: 'default_avatar.png', content_type: 'image/png')
 
 ro_user.save
 joaco_user.save
 tom_user.save
 camilo_user.save
 admin_user.save
+nico_user.save
 
 # IMAGES PROVIDER 1
 
@@ -54,11 +58,11 @@ camilo_prov = Provider.create!(category: "Barberia", name: "The Barber Shop", ad
 
 # PROVIDERS CREATION - 2
 
-ro_prov_vet = Provider.create!(category: "Veterinaria", name: "Puppies", address: "Espinosa 300, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", description: "Consulta, Baño, Vacunación", rating: 5, opening_time: '10:00', closing_time: '20:00', neighborhood: "Caballito, Autonomous City of Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", status: true)
-tom_prov_vet = Provider.create!(category: "Veterinaria", name: "Mascotitas", address: "Emilio Mitre 50, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", description: "Consulta, Baño, Vacunación", rating: 4, opening_time: '10:00', closing_time: '20:00', neighborhood: "Caballito, Autonomous City of Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", status: true )
-joaco_prov_vet = Provider.create!(category: "Veterinaria", name: "Faunatikos", address: "Aranguren 1044, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", description: "Consulta, Baño, Vacunación", rating: 3, opening_time: '10:00', closing_time: '20:00', neighborhood: "Caballito, Autonomous City of Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", status: true )
-guido_prov_vet = Provider.create!(category: "Veterinaria", name: "CentroPet", address: "Directorio 2103, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", description: "Consulta, Baño, Vacunación", rating: 5, opening_time: '10:00', closing_time: '20:00', neighborhood: "Caballito, Autonomous City of Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", status: true )
-camilo_prov_vet = Provider.create!(category: "Veterinaria", name: "CatyCan", address: "Avellaneda 1200, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", description: "Consulta, Baño, Vacunación", rating: 4, opening_time: '10:00', closing_time: '20:00', neighborhood: "Caballito, Autonomous City of Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", status: true )
+ro_prov_vet = Provider.create!(category: "Veterinaria", name: "Puppies", address: "Espinosa 300, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", description: "La mejor atención para tus mascotas", rating: 5, opening_time: '10:00', closing_time: '20:00', neighborhood: "Caballito, Autonomous City of Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", status: true)
+tom_prov_vet = Provider.create!(category: "Veterinaria", name: "Mascotitas", address: "Emilio Mitre 50, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", description: "Baño y peluqueria canina", rating: 4, opening_time: '10:00', closing_time: '20:00', neighborhood: "Caballito, Autonomous City of Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", status: true )
+joaco_prov_vet = Provider.create!(category: "Veterinaria", name: "Faunatikos", address: "Aranguren 1044, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", description: "Vacunación anual y controles", rating: 3, opening_time: '10:00', closing_time: '20:00', neighborhood: "Caballito, Autonomous City of Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", status: true )
+guido_prov_vet = Provider.create!(category: "Veterinaria", name: "CentroPet", address: "Directorio 2103, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", description: "Cuidamos a tus mejores amigos", rating: 5, opening_time: '10:00', closing_time: '20:00', neighborhood: "Caballito, Autonomous City of Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", status: true )
+camilo_prov_vet = Provider.create!(category: "Veterinaria", name: "CatyCan", address: "Avellaneda 1200, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", description: "Consultas con especialistas", rating: 4, opening_time: '10:00', closing_time: '20:00', neighborhood: "Caballito, Autonomous City of Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", status: true )
 
 # SERVICES CREATION - PROV 1
 service_one = Service.create!(title: "Corte y arreglo de barba", price: 900, min_duration: 30, provider: ro_prov)
@@ -274,7 +278,7 @@ start_date = Date.today
 
 joaco_experience = Booking.create!(customer: joaco_user, service: service_one, start_datetime: start_date - 3.days + 16.hours, end_datetime: start_date - 3.days + 16.hours + 30.minutes, status: "accepted", payment_status:"pending")
 
-tom_experience = Booking.create!(customer: tom_user, service: service_one, start_datetime: start_date + 2.days + 16.hours, end_datetime: start_date + 2.days + 16.hours + 30.minutes, status: "accepted", payment_status:"pending")
+nico_experience = Booking.create!(customer: nico_user, service: service_one, start_datetime: start_date + 2.days + 16.hours, end_datetime: start_date + 2.days + 16.hours + 30.minutes, status: "accepted", payment_status:"pending")
 
 tom_experience1 = Booking.create!(customer: tom_user, service: service_one, start_datetime: start_date - 2.days + 16.hours, end_datetime: start_date - 2.days + 16.hours + 30.minutes, status: "completed", payment_status:"pending")
 
@@ -300,13 +304,13 @@ Review.create!(user: joaco_user, booking: joaco_experience, content: "Excelente 
 
 Review.create!(user: camilo_user, booking: camilo_experience, content: "Buen lugar a nivel precio/calidad. Recomendado", rating: 3)
 
-Review.create!(user: tom_user, booking: tom_experience, content: "Excelente Degrade!", rating: 5)
+Review.create!(user: nico_user, booking: nico_experience, content: "Excelente Degrade!", rating: 5)
 
 # REVIEWS - PROV 2
 
 Review.create!(user: joaco_user, booking: joaco_experience_vet, content: "Muy buena veterinaria, lo mejor para mi mascota.", rating: 3)
 
-Review.create!(user: camilo_user, booking: camilo_experience_vet, content: "Reocmiendo la consulta con Walter, excelente veterinario!", rating: 5)
+Review.create!(user: camilo_user, booking: camilo_experience_vet, content: "Recomiendo la consulta con Walter, excelente veterinario!", rating: 5)
 
 Review.create!(user: tom_user, booking: tom_experience_vet, content: "Atentos y siempre y cuidando a mis perros, los recomiendo!", rating: 5)
 

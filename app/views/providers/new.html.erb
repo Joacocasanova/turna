@@ -4,49 +4,137 @@
       <strong><h1 id="title" class="m-3">¡Suma tu negocio!</h1></strong>
       <p id="description" class="m-3 text-center">Completa el formulario y añadí tu negocio a nuestro catálogo</p>
 
-      <%= simple_form_for [ @provider ] do |f| %>
-        <%= f.input :name, label: "Nombre", placeholder: "Nombre del local" %>
-        <%= f.input :category, label: "Categoría", :collection => %w[Barberia Veterinaria] %>
-        <%= f.input :address, label: "Dirección", placeholder: "Dirección del local" %>
-        <%= f.input :neighborhood, label: "Barrio", placeholder: "Barrio" %>
-        <%= f.input :description, label: "Descripción", placeholder: "Describí tu negocio" %>
-        <%= f.input :opening_time, as: :time, label: "Horario de apertura" %>
-        <%= f.input :closing_time, as: :time, label: "Horario de cierre" %>
 
+      <div class="container" style="text-align: center;">
+        <button type="button" class="btn btn-filters m-1 toggle-filters toggle-filters-active" data-toggle="modal" data-target="#exampleModal">
+          Barbería
+        </button>
+        <button type="button" class="btn btn-filters m-1 toggle-filters toggle-filters-active" data-toggle="modal" data-target="#exampleModal1">
+          Veterinaria
+        </button>      
+      </div>
 
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Datos de tu barbería!</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <%= simple_form_for [ @provider ] do |f| %>
+                <%= f.input :name, label: "Nombre", placeholder: "Nombre del local" %>
+                <%= f.input :category, :as => :hidden, :input_html => { :value => "Barberia" } %>
+                <%= f.input :address, label: "Dirección", placeholder: "Dirección del local" %>
+                <%= f.input :neighborhood, label: "Barrio", placeholder: "Barrio" %>
+                <%= f.input :description, label: "Descripción", placeholder: "Describí tu negocio" %>
+                <%= f.input :opening_time, as: :time, label: "Horario de apertura" %>
+                <%= f.input :closing_time, as: :time, label: "Horario de cierre" %>
 
-        <h3>Agregar servicios</h3>
+                <h3>Agregar servicios</h3>
 
-        <% i = 0 %>
-        <%= f.simple_fields_for :services do |service|  %>
-          <% if i < 1 %>
-            <h5>Servicio <%= "#{i + 1}" %></h5>
-            <%= service.input :title, required: false, label: "Titulo", collection: ["Corte y arreglo de barba", "Corte de Pelo", "Color/Decoloracion", "Consulta", "Baño y Cepillado", "Vacunación anual"] %>
-            <%= service.input :price, required: false, label: "Precio", placeholder: "Ingrese el precio", input_html: {value: ''} %>
-            <%= service.input :min_duration, required: false, label: "Duración", placeholder: "Cuanto dura?", collection: [30, 60] %>
-            <% i += 1 %>
-          <% end %>
-        <% end %>
+                <% i = 0 %>
+                <%= f.simple_fields_for :services do |service|  %>
+                  <% if i < 1 %>
+                    <h5>Servicio <%= "#{i + 1}" %></h5>
+                    <%= service.input :title, required: false, label: "Titulo", collection: ["Corte y arreglo de barba", "Corte de Pelo", "Color/Decoloracion"] %>
+                    <%= service.input :price, required: false, label: "Precio", placeholder: "Ingrese el precio", input_html: {value: ''} %>
+                    <%= service.input :min_duration, required: false, label: "Duración", placeholder: "Cuanto dura?", collection: [30, 60] %>
+                    <% i += 1 %>
+                  <% end %>
+                <% end %>
 
-        <div id="formulario">
-          <h6 style="cursor: pointer; color:blue">Agregar más servicios</h6>
-        </div>
+                <div id="formulario">
+                  <h6 style="cursor: pointer; color:blue">Agregar más servicios</h6>
+                </div>
 
-        <div id="form" style="display:none">
-          <%= f.simple_fields_for :services do |service|  %>
-              <% if i == 1 %>
-              <% else %>
-                <h5>Servicio <%= "#{i}" %></h5>
-                <%= service.input :title, required: false, label: "Titulo", collection: ["Corte y arreglo de barba", "Corte de Pelo", "Color/Decoloracion", "Consulta", "Baño y Cepillado", "Vacunación anual"] %>
-                <%= service.input :price, required: false, label: "Precio", placeholder: "Ingrese el precio", input_html: {value: ''} %>
-                <%= service.input :min_duration, required: false, label: "Duración", placeholder: "Cuanto dura?", collection: [30, 60] %>
+                <div id="form" style="display:none">
+                  <%= f.simple_fields_for :services do |service|  %>
+                      <% if i == 1 %>
+                      <% else %>
+                        <h5>Servicio <%= "#{i}" %></h5>
+                        <%= service.input :title, required: false, label: "Titulo", collection: ["Corte y arreglo de barba", "Corte de Pelo", "Color/Decoloracion"] %>
+                        <%= service.input :price, required: false, label: "Precio", placeholder: "Ingrese el precio", input_html: {value: ''} %>
+                        <%= service.input :min_duration, required: false, label: "Duración", placeholder: "Cuanto dura?", collection: [30, 60] %>
+                      <% end %>
+                      <% i += 1 %>
+                  <% end %>
+                </div>
+                
+                <%= f.input :photos, as: :file, label:"Fotos", input_html: { multiple: true }, required: true %>
+                <%= f.submit "Enviar", class: "btn btn-primary" %>
               <% end %>
-              <% i += 1 %>
-          <% end %>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            </div>
+          </div>
         </div>
-        <%= f.input :photos, as: :file, label:"Fotos", input_html: { multiple: true }, required: true %>
-        <%= f.submit "Contacto", class: "btn btn-primary" %>
-      <% end %>
+      </div>
+
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Datos de tu Veterinaria!</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <%= simple_form_for [ @provider ] do |f| %>
+                <%= f.input :name, label: "Nombre", placeholder: "Nombre del local" %>
+                <%= f.input :category, :as => :hidden, :input_html => { :value => "Veterinaria" } %>
+                <%= f.input :address, label: "Dirección", placeholder: "Dirección del local", input_html: { id: :provider_address1 } %>
+                <%= f.input :neighborhood, label: "Barrio", placeholder: "Barrio", input_html: { id: :provider_neighborhood1 } %>
+                <%= f.input :description, label: "Descripción", placeholder: "Describí tu negocio" %>
+                <%= f.input :opening_time, as: :time, label: "Horario de apertura" %>
+                <%= f.input :closing_time, as: :time, label: "Horario de cierre" %>
+
+                <h3>Agregar servicios</h3>
+
+                <% i = 0 %>
+                <%= f.simple_fields_for :services do |service|  %>
+                  <% if i < 1 %>
+                    <h5>Servicio <%= "#{i + 1}" %></h5>
+                    <%= service.input :title, required: false, label: "Titulo", collection: ["Consulta", "Baño y Cepillado", "Vacunación anual"] %>
+                    <%= service.input :price, required: false, label: "Precio", placeholder: "Ingrese el precio", input_html: {value: ''} %>
+                    <%= service.input :min_duration, required: false, label: "Duración", placeholder: "Cuanto dura?", collection: [30, 60] %>
+                    <% i += 1 %>
+                  <% end %>
+                <% end %>
+
+                <div id="formulario1">
+                  <h6 style="cursor: pointer; color:blue">Agregar más servicios</h6>
+                </div>
+
+                <div id="form1" style="display:none">
+                  <%= f.simple_fields_for :services do |service|  %>
+                      <% if i == 1 %>
+                      <% else %>
+                        <h5>Servicio <%= "#{i}" %></h5>
+                        <%= service.input :title, required: false, label: "Titulo", collection: ["Consulta", "Baño y Cepillado", "Vacunación anual"] %>
+                        <%= service.input :price, required: false, label: "Precio", placeholder: "Ingrese el precio", input_html: {value: ''} %>
+                        <%= service.input :min_duration, required: false, label: "Duración", placeholder: "Cuanto dura?", collection: [30, 60] %>
+                      <% end %>
+                      <% i += 1 %>
+                  <% end %>
+                </div>
+                
+                <%= f.input :photos, as: :file, label:"Fotos", input_html: { multiple: true }, required: true %>
+                <%= f.submit "Enviar", class: "btn btn-primary" %>
+              <% end %>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
