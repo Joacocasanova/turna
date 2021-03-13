@@ -23,6 +23,7 @@ joaco_user.avatar.attach(io: URI.open('https://res.cloudinary.com/dmtio0viw/imag
 tom_user.avatar.attach(io: URI.open('https://res.cloudinary.com/dmtio0viw/image/upload/v1613343079/Turna/tom_ps9ctl.jpg'), filename: 'default_avatar.png', content_type: 'image/png')
 camilo_user.avatar.attach(io: URI.open('https://res.cloudinary.com/dmtio0viw/image/upload/v1613343080/Turna/camilo_betzts.jpg'), filename: 'default_avatar.png', content_type: 'image/png')
 nico_user.avatar.attach(io: URI.open('https://res.cloudinary.com/divzp8hs4/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1615638081/Turna/Nico_avatar_mx98nj.jpg'), filename: 'default_avatar.png', content_type: 'image/png')
+admin_user.avatar.attach(io: URI.open('https://res.cloudinary.com/dmtio0viw/image/upload/v1613343079/Turna/Ro_bkfwby.jpg'), filename: 'default_avatar.png', content_type: 'image/png')
 
 ro_user.save
 joaco_user.save
